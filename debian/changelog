@@ -6,6 +6,9 @@ java-common (0.15) unstable; urgency=low
   * Java libraries should now only suggest java-virtual-machine,
     closes: #159448.
   * Documentation about -gcj and -jni, closes: #146771.
+  * Java-common now suggests equivs and contain instructions on how to create
+    a dummy package, closes: #159483. Thanks to
+    "Grzegorz Prokopski (Debian Developer)" <gadek@debian.org>.
 
  -- Ola Lundqvist <opal@debian.org>  Wed, 25 Sep 2002 07:41:45 +0200
 
