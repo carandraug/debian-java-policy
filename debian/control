@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Ola Lundqvist <opal@debian.org>
 Build-Depends-Indep: debhelper (>> 3.0.0), debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
-Standards-Version: 3.5.2
+Standards-Version: 3.5.7
 
 Package: java-common
 Architecture: all

@@ -118,14 +118,6 @@
     </para>
 
     <para>
-      If the Java code depends on code written in a "native" language,
-      for example Java Native Interface code, the compiled native code
-      &should; be shipped in a separate architecture-specific package.
-      The package containing Java bytecode should depend on this
-      package.
-    </para>
-
-    <para>
       This policy does not yet address the issue of documentation (for instance
       HTML pages made with javadoc).
     </para>
@@ -227,9 +219,9 @@
 	with the name
 	<filename>packagename[-extraname]-fullversion.jar</filename>.
 	The extraname is optional and used internaly within the package to
-	separate the different
-	jars provided by the package. The fullversion is the version of that
-	jar file. In some cases that is not the same as the package version.
+	separate the different jars provided by the package. The fullversion
+	is the version of that jar file. In some cases that is not the same as
+	the package version.
       </para>
       <para>
 	Some package &must; also provide a symbolic link from
@@ -254,8 +246,22 @@
 	classes provied by a the runtime environment.
       </para>
       
+      <para>
+        If the Java code depends on code written in a "native" language,
+        for example Java Native Interface code, the compiled native code
+        &should; be shipped in a separate architecture-specific package
+        named libXXX[version]-jni. The package containing Java bytecode
+	&should; depend on this package.
+      </para>
+      <para>
+	There may be situations, such as with very small packages,
+	where it is better to bundle the Java code and the native code
+	together into a single package. Such packages should be
+	architecture-specific and follow the usual libXXX[version]-java
+	naming convention.
+      </para>
     </sect1>
-    
+
     <sect1 id="policy-politics">
       <title>Main, contrib or non-free</title>
       <para>
