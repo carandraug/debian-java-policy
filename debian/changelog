@@ -1,8 +1,9 @@
 java-common (0.18) unstable; urgency=low
 
   * Updated java faq from cvs to fix deb source line, closes: #162733.
+  * Fixed doc-base file, closes: #163102.
 
- -- Ola Lundqvist <opal@debian.org>  Mon, 31 Mar 2003 21:28:50 +0200
+ -- Ola Lundqvist <opal@debian.org>  Mon, 31 Mar 2003 21:29:59 +0200
 
 java-common (0.17) unstable; urgency=low
 

@@ -12,5 +12,5 @@ Format: text
 Files: /usr/share/doc/java-common/policy.txt.gz
 
 Format: HTML
-Index: /usr/share/doc/java-common/debian-java-policy/policy.html
+Index: /usr/share/doc/java-common/debian-java-policy/index.html
 Files: /usr/share/doc/java-common/debian-java-policy/*.html
