@@ -1,8 +1,10 @@
 java-common (0.10) unstable; urgency=low
 
   * Changed descriotion, closes: #118458.
+  * Added doc-base file, thanks to Javier Fernandez-Sanguino Pena
+    <jfs@dat.etsit.upm.es>, closes: #118459.
 
- -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 20:41:16 +0100
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 20:44:35 +0100
 
 java-common (0.9) unstable; urgency=low
 
