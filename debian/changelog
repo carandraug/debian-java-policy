@@ -1,3 +1,10 @@
+java-common (0.21) unstable; urgency=low
+
+  * Fixed dummy control files, closes: #201495.
+  * Updated java FAQ from CVS, closes: #197577.
+
+ -- Ola Lundqvist <opal@debian.org>  Thu, 17 Jul 2003 08:16:43 +0200
+
 java-common (0.20) unstable; urgency=low
 
   * Updated Java FAQ from CVS, closes: #192286.
