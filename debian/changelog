@@ -9,6 +9,7 @@ java-common (0.15) unstable; urgency=low
   * Java-common now suggests equivs and contain instructions on how to create
     a dummy package, closes: #159483. Thanks to
     "Grzegorz Prokopski (Debian Developer)" <gadek@debian.org>.
+  * Fixed typo, closes: #160735.
 
  -- Ola Lundqvist <opal@debian.org>  Wed, 25 Sep 2002 07:41:45 +0200
 
