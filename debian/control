@@ -1,9 +1,10 @@
 Source: java-common
 Section: misc
 Priority: optional
-Maintainer: Ola Lundqvist <opal@debian.org>
-Build-Depends-Indep: debhelper (>> 3.0.0), debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
-Standards-Version: 3.5.7
+Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
+Uploaders: Ola Lundqvist <opal@debian.org>, Stefan Gybas <sgybas@debian.org>
+Build-Depends: debhelper (>> 3.0.0), debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
+Standards-Version: 3.6.1
 
 Package: java-common
 Architecture: all
@@ -12,10 +13,10 @@ Description: Base of all Java packages
  This package must be installed in the system if a Java environment
  is desired. It covers useful information for Java users in
  Debian GNU/Linux, including:
-   - The Java policy document which describes the layout of Java support in
-     Debian and how Java packages should behave.
-   - The Debian-Java-FAQ which provides information on the status of
-     Java support in Debian, available compilers, virtual machines, Java
-     programs and libraries as well as on legal issues.
-   - Information on how to create dummy packages to fullfill java2
-     requirements.
+  * The Java policy document which describes the layout of Java support in
+    Debian and how Java packages should behave.
+  * The Debian-Java-FAQ which provides information on the status of
+    Java support in Debian, available compilers, virtual machines, Java
+    programs and libraries as well as on legal issues.
+  * Information on how to create dummy packages to fullfill java2
+    requirements.

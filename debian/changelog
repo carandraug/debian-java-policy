@@ -1,3 +1,15 @@
+java-common (0.22) unstable; urgency=low
+
+  * Changed Maintainer: to the Debian Java Mailing List and added myself
+    to Uploaders: (closes: #201670)
+  * Changed the long description to use a real item list
+  * Removed debian/java-common.README.debian since we now have build
+    dependencies
+  * Standards-Version: 3.6.1
+    + Changed Build-Depends-Indep to Build-Depends
+
+ -- Stefan Gybas <sgybas@debian.org>  Mon,  8 Sep 2003 11:18:55 +0200
+
 java-common (0.21) unstable; urgency=low
 
   * Fixed dummy control files, closes: #201495.
