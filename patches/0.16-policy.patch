@@ -1,0 +1,56 @@
+--- policy.xml	2002-12-12 02:42:18.000000000 +0100
++++ policy.xml	2002-12-12 03:32:28.000000000 +0100
+@@ -133,7 +133,7 @@
+ 	environment.
+       </para>
+       <para>
+-	I &should; use <filename>/etc/alternatives</filename>
++	They &should; use <filename>/etc/alternatives</filename>
+ 	for the name 'java' if they are command-line compatible with the
+ 	Sun's java program.
+       </para>
+@@ -155,7 +155,7 @@
+       <para>
+ 	Java compilers &must; provide &jc; and/or &j2c; and depend on
+ 	java-common. They &must; also depend on the needed runtime environemnt
+-	(&j1r and/or &j2r;).
++	(&j1r; and/or &j2r;).
+       </para>
+       
+       <para>
+@@ -175,11 +175,11 @@
+ 	<filename>/usr/bin</filename> and be executable. They can be Java
+ 	classes (using binfmt_misc) or wrappers. In any case, they &must; run
+ 	without specific environment variables (see
+-	<ulink url="http://www.debian.org/doc/debian-policy/ch3.html#s3.8">Policy
+-	  3.8</ulink>), for instance CLASSPATH. They &must; respect the Policy
++	<ulink url="http://www.debian.org/doc/debian-policy/ch-opersys.html#s10.9">Policy
++	  10.9</ulink>), for instance CLASSPATH. They &must; respect the Policy
+ 	rules for executables (for instance a manual page per executable, see
+-	<ulink url="http://www.debian.org/doc/debian-policy/ch6.html#s6.1">
+-	  Policy 6.1</ulink>).
++	<ulink url="http://www.debian.org/doc/debian-policy/ch-docs.html#s13.1">
++	  Policy 13.1</ulink>).
+       </para>
+       <para>
+         If they have their own auxiliary classes, they
+@@ -324,8 +324,8 @@
+       <listitem>
+ 	<para>
+ 	  Sun's Community Source Licence. Can we use it? How?
+-	  Where can we <ulink url="http://www.sun.com/software/communitysource/faq.html">
+-	    find the text</ulink>?
++	  The 2.3 version of the text can be found 
++	  <ulink url="http://wwws.sun.com/software/java2/license.html">here</ulink>.
+ 	</para>
+       </listitem>
+ 
+@@ -370,7 +370,7 @@
+     <title>Advices to Java packagers</title>
+     
+     <para>
+-      Warning: they are just advices, they are not part of the policy.
++      Warning: These are just advices, they are not part of the policy.
+     </para>
+     
+     <itemizedlist>

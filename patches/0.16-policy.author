@@ -1,0 +1,7 @@
+Ahmed <ahmed@baizid.org>
+
+A small typo make Java policy invalid XML.
+
+References to the Debian policy do not seem correct.
+
+I propose the attached patch.

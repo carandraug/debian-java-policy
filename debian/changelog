@@ -1,3 +1,10 @@
+java-common (0.17) unstable; urgency=low
+
+  * Fixed some xml errors and reference error to debian policy, using
+    patch from Ahmed <ahmed@baizid.org>, closes: #173033.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 16 Dec 2002 08:07:39 +0100
+
 java-common (0.16) unstable; urgency=low
 
   * Updated java policy with more about JNI, closes: #162282.
