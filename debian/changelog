@@ -1,3 +1,12 @@
+java-common (0.7) unstable; urgency=low
+
+  * New maintainer Ola Lundqvist, closes: #92816.
+  * Fixed /usr/doc problem with this rebuild, closes: #72498.
+  * Fixed standards version, closes: #79981, #86928.
+  * Misspelling seems to have been fixed, closes: #67152.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed,  4 Apr 2001 23:07:10 +0200
+
 java-common (0.6) unstable; urgency=low
 
   * Java FAQ now retrieved from the pristine source (DDP CVS)
