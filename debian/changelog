@@ -1,3 +1,9 @@
+java-common (0.11) unstable; urgency=low
+
+  * Fixed doc-base problem, closes: #136994, #137022, #137031, #137063.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed,  6 Mar 2002 16:10:04 +0100
+
 java-common (0.10) unstable; urgency=low
 
   * Changed descriotion, closes: #118458.
