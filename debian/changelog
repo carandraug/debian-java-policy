@@ -5,6 +5,7 @@ java-common (0.15) unstable; urgency=low
   * Some editorial changes.
   * Java libraries should now only suggest java-virtual-machine,
     closes: #159448.
+  * Documentation about -gcj and -jni, closes: #146771.
 
  -- Ola Lundqvist <opal@debian.org>  Wed, 25 Sep 2002 07:41:45 +0200
 

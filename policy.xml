@@ -96,19 +96,35 @@
       Virtual packages are created: &jc;, &j2c;,
       &jvm;, &j1r; and &j2r;.
     </para>
-    
+
+    <para>
+      All Java code must be shipped as Java bytecode (*.class files, packaged
+      in a *.jar archive) and with <quote>Architecture: all</quote>.
+    </para>
+
     <para>
       Packages written in Java are separated in two categories: programs
       and libraries. Programs are intended to be run by end-users. Libraries
       are intended to help programs to run and to be used by developers.
     </para>
-    
+
     <para>
       Both are shipped as Java bytecode (<filename>*.class</filename>
       files, packaged in a <filename>*.jar</filename> archive) and with
       an "Architecture: all" since Java bytecode is supposed to be portable.
+      It may additionally be shipped as machine code, as produced for example
+      by the GNU Compiler for Java, in a separate architecture-specific
+      package.
     </para>
-    
+
+    <para>
+      If the Java code depends on code written in a "native" language,
+      for example Java Native Interface code, the compiled native code
+      &should; be shipped in a separate architecture-specific package.
+      The package containing Java bytecode should depend on this
+      package.
+    </para>
+
     <para>
       This policy does not yet address the issue of documentation (for instance
       HTML pages made with javadoc).
