@@ -17,8 +17,9 @@ LANG=C
 LC_CTYPE=C
 
 all: debian-java-policy debian-java-faq-gen
+
 publish: policy.html
-	scp debian-java-policy/*.html opal@people.debian.org:public_html/java/policy.html
+	scp debian-java-policy/*.html opal@www.debian.org:/org/www.debian.org/www/doc/packaging-manuals/java-policy
 
 # Policy part
 MAKEOUT=policy.txt policy.ps
@@ -37,11 +38,14 @@ policy.dvi: policy.xml
 policy.ps: policy.dvi
 	$(DVIPS) -f $< > $@
 
-policy.html: policy.xml
+policy.html: debian-java-policy/index.html
+
+debian-java-policy/index.html: policy.xml
 	# docbook and dsl file needs to be in that dir for things to work.
 	# The png file is copied there so it can be referenced in a proper way.
+	#
+	# This is no longer true.
 	mkdir -p debian-java-policy
-	cp $^ html
 	jw -b html $(DSL) -o debian-java-policy $<
 	# To make that file the intdex.
 	(cd debian-java-policy; rm -f $^)
@@ -51,7 +55,12 @@ policy.txt: policy.xml
 	lynx -force_html -dump dump.html > $@
 	-rm -f dump.html
 
-install: debian-java-policy-install debian-java-faq-install
+install: debian-java-policy-install debian-java-faq-install dummy-install
+
+dummy-install:
+	mkdir -p $(PUBLISHDIR)/dummy-packages
+	cp dummy/README $(PUBLISHDIR)/dummy-packages
+	cp dummy/*.control $(PUBLISHDIR)/dummy-packages
 
 debian-java-policy-install:
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
@@ -59,7 +68,8 @@ debian-java-policy-install:
 	ln -s debian-java-policy $(PUBLISHDIR)/html
 
 clean: debian-java-faq
-	-rm -Rf debian-java-policy.html
+	-rm -Rf debian-java-policy
+	-rm -Rf policy.html
 	-rm -f $(MAKEOUT)
 	-rm -f policy.dvi
 	(cd $<; make clean)
