@@ -2,7 +2,7 @@ Source: java-common
 Section: misc
 Priority: optional
 Maintainer: Ola Lundqvist <opal@debian.org>
-Build-Depends: debhelper (>> 3.0.0), jade, jadetex, tetex-bin, debiandoc-sgml, sp, lynx, docbook-xml-simple
+Build-Depends: debhelper (>> 3.0.0), jade, jadetex, tetex-bin, debiandoc-sgml, sp, lynx, docbook-xml-simple, dpsyco-devel
 Standards-Version: 3.5.2
 
 Package: java-common
@@ -10,7 +10,7 @@ Architecture: all
 Depends: 
 Description: Base of all Java packages
  This package is mandatory for any Java package. It
- includes the Java policy.
+ includes the Debian Java policy.
 
 Package: java-virtual-machine-dummy
 Architecture: all

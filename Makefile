@@ -65,7 +65,7 @@ clean:
 # For the debian-java-FAQ
 # by Javier Fernández-Sanguino Peña <jfs@computer.org>
 
-debian-java-faq: #debian-java-faq.html debian-java-faq.ps  debian-java-faq.txt
+debian-java-faq: debian-java-faq.html debian-java-faq.ps  debian-java-faq.txt
  
 OUTPUTS +=  debian-java-faq.ps  debian-java-faq.txt
 

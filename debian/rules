@@ -47,6 +47,8 @@ install-stamp: build-stamp
 	install -m 0755 dummy/virtual-machine/java-vm debian/java-virtual-machine-dummy/usr/bin
 	install -m 0644 dummy/virtual-machine/java-vm.conf-${DEFVM} debian/java-virtual-machine-dummy/etc/java/java-vm.conf
 
+	dpsch-backupclean
+
 	touch install-stamp
 
 # Build architecture-independent files here.
@@ -56,7 +58,8 @@ binary-indep: build install
 	dh_testroot -i
 #	dh_installdebconf -i
 	dh_installdocs -i
-	dh_installexamples -i examples/*
+	dh_installexamples -i
+	dpsch-cvsclean
 	dh_installmenu -i
 #	dh_installlogrotate -i
 #	dh_installemacsen -i
