@@ -18,12 +18,12 @@ endif
 # Some default variables
 PUBLISHDIR = $(DESTDIR)/$(DOC)/java-common
 # Default language to use
-LANGUAGE = LANG=C
+LANGUAGE = LANG=C LC_CTYPE=C
 
 all: policy debian-java-faq
 
 # Policy part
-OUTPUTS=policy.html policy.txt policy.ps policy.db
+OUTPUTS=policy*.html policy.txt policy.ps policy.db
 
 policy: policy.ps policy.txt policy.html 
 

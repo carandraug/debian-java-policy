@@ -16,6 +16,7 @@
 (define %root-filename% "policy")
 (define %generate-article-toc% #t)
 (define %generate-article-titlepage% #t)
+(define %use-id-as-filename% #t)
 ; (define %gentext-nav-use-tables%  #f)
 
 ;; Add other customization here

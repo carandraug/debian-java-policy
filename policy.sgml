@@ -20,10 +20,11 @@
 	<para><email>bortzmeyer@debian.org</email></para>
       </authorblurb>
     </author>
-    <edition>Version 0.2, 2 september 1999</edition>
+    <edition>Version 0.3, 12 July 2000</edition>
+    <!-- $Id$ -->
   </artheader>
 
-<section><title>Background and metainfo</title>
+<section id="policy-bg"><title>Background and metainfo</title>
 
 <para>An important warning: this text is
 a <emphasis>proposal</emphasis>. I put it here, publically, so it can be read,
@@ -47,7 +48,7 @@ will be Java Debian <email>debian-java@lists.debian.org</email>.</para>
 
 </section>
 
-<section><title>The policy</title>
+<section id="policy-actual"><title>The policy</title>
 
 <para>A package java-common is created, containing this policy.</para>
 
@@ -146,7 +147,7 @@ goes to contrib.</para></listitem>
 
 </section>
 
-<section><title>Issues to discuss</title>
+<section id="policy-discuss"><title>Issues to discuss</title>
 
 <para>The following points are discussions about the policy, either
 because they have to be studied more, or are controversial.</para>
@@ -176,7 +177,7 @@ find the text</ulink>?
 
 </section>
 
-<section><title>Advices to Java packagers</title>
+<section id="policy-advices"><title>Advices to Java packagers</title>
 
 <para>Warning: they are just advices, they are not part of the policy.</para>
 
