@@ -2,8 +2,7 @@ java-common (0.8) unstable; urgency=low
 
   * Moved java-compiler-dummy to java-common.
   * Moved java-virtual-machine-dummy to java-common.
-  * Created java1-runtime-dummy, java2-runtime-dummy and
-    java2-compiler-dummy.
+  * Created java1-runtime-dummy.
   * Moved dummy config files, closes: #55527, #55747.
   * Fixed manpage, closes: #55525.
   * Fixed the copyright file, closes: #55524.

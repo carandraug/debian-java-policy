@@ -23,11 +23,11 @@ LANGUAGE = LANG=C LC_CTYPE=C
 all: policy debian-java-faq
 
 # Policy part
-OUTPUTS=policy*.html policy.txt policy.ps policy.db
+OUTPUTS=policy*.html policy.txt policy.ps policy.sgml
 
 policy: policy.ps policy.txt policy.html 
 
-policy.tex: policy.db
+policy.tex: policy.sgml
 	jade -t tex \
 		-d /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/print/docbook.dsl \
 		/usr/lib/sgml/declaration/xml.decl $<
@@ -39,12 +39,12 @@ policy.dvi: policy.tex
 policy.ps: policy.dvi
 	$(DVIPS) -f $< > $@
 
-policy.html: policy.db html.dsl
+policy.html: policy.sgml html.dsl
 	jade -t sgml \
 		-d html.dsl \
 		/usr/lib/sgml/declaration/xml.decl $< 
 
-policy.txt: policy.db
+policy.txt: policy.sgml
 	jade -t sgml -V nochunks \
 		-d /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl \
 	/usr/lib/sgml/declaration/xml.decl $< > dump.html
@@ -52,7 +52,7 @@ policy.txt: policy.db
 	-rm -f dump.html
 
 validate:
-	nsgmls -s -wxml /usr/lib/sgml/declaration/xml.decl policy.db
+	nsgmls -s -wxml /usr/lib/sgml/declaration/xml.decl policy.sgml
 	nsgmls -s debian-java-faq.sgml
 
 install:: $(OUTPUTS)

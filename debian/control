@@ -28,14 +28,6 @@ Description: Dummy Java compiler
  This package is only to respect the dependencies rules.
  Install it only if you have a real Java compiler.
 
-Package: java2-compiler-dummy
-Architecture: all
-Depends: java-common
-Provides: java2-compiler
-Description: Dummy Java compiler
- This package is only to respect the dependencies.
- Install it only if you have a real Java version 2 compiler.
-
 Package: java1-runtime-dummy
 Architecture: all
 Depends: java-virtual-machine
@@ -43,13 +35,4 @@ Provides: java1-runtime
 Description: Dummy java 1 runtime environment.
  This package is only to respect the dependenies.
  Install it only if you have a real Java version 1
- compliant environment.
-
-Package: java2-runtime-dummy
-Architecture: all
-Depends: java-virtual-machine
-Provides: java2-runtime
-Description: Dummy java 2 runtime environment.
- This package is only to respect the dependenies.
- Install it only if you have a real Java version 2
  compliant environment.
