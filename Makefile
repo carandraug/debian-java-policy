@@ -70,7 +70,7 @@ debian-java-faq: debian-java-faq.html debian-java-faq.ps  debian-java-faq.txt
 OUTPUTS +=  debian-java-faq.ps  debian-java-faq.txt
 
 debian-java-faq.sgml:
-	(cd ../java-faq; cvs update)
+	(cvs -d :pserver:anonymous@cvs.debian.org:/cvs/debian-doc -z3 checkout -d FAQ ddp/manuals.sgml/java-faq/debian-java-faq.sgml; mv FAQ/debian-java-faq.sgml .; rm -rf FAQ)
 
 debian-java-faq.html: debian-java-faq.sgml
 	$(LANGUAGE) debiandoc2html debian-java-faq.sgml
