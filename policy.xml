@@ -21,22 +21,45 @@
 	<surname>Lundqvist</surname>
 	<firstname>Ola</firstname>
 	<authorblurb>
-	  <para><email>opal@debian.org</email></para>
-	  <para>The current author of the java policy.</para>
+	  <para>
+	    <email>opal@debian.org</email>
+	  </para>
+	  <para>
+	    The current author of the java policy.
+	  </para>
 	</authorblurb>
       </author>
       <author>
 	<surname>Bortzmeyer</surname>
 	<firstname>Stephane</firstname>
 	<authorblurb>
-	  <para><email>bortzmeyer@debian.org</email></para>
-	  <para>The original author of the java policy.</para>
+	  <para>
+	    <email>bortzmeyer@debian.org</email>
+	  </para>
+	  <para>
+	    The original author of the java policy.
+	  </para>
+	</authorblurb>
+      </author>
+      <author>
+	<authorblurb>
+	  <para>
+	    Most issues of the proposed java policy have been discussed on the
+	    <email>debian-java@lists.debian.org</email> mailinglist.
+	  </para>
 	</authorblurb>
       </author>
     </authorgroup>
     <abstract>
       <title>Abstract</title>
       <para>
+	This is the proposed java policy for Debian. It begins with a
+	background description, continues with the real policy, some
+	issues to discuss and ends with some advices to java packagers.
+      </para>
+      <para>
+	The policy covers java virtual machines, java compilers, java
+	porgrams and java libraries.
       </para>
     </abstract>
   </bookinfo>

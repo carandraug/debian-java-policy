@@ -1,3 +1,19 @@
+java-common (0.9) unstable; urgency=low
+
+  * Updated the java policy. This is a major rewrite from all the information
+    that people seems to have agreed upon, in the debian-java@lists.debian.org
+    mailinglist. Closes: #107809, #107810.
+    Also converted it to docbook format.
+  * Removed manpage.
+  * Fixed the copyright file, closes: #55524.
+  * Removed java-compiler-dummy.
+  * Removed java-virtual-machine-dummy.
+  * Removed java1-runtime-dummy.
+  * Removed dummy config files. After this package is uploaded I'll ask for
+    the removal of the *-dummy packages that was previously mentioned in
+    the policy.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 01 Oct 2001 13:43:56 +0200
 java-common (0.8) unstable; urgency=low
 
   * Moved java-compiler-dummy to java-common.
