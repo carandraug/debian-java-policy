@@ -8,6 +8,13 @@ Standards-Version: 3.5.2
 Package: java-common
 Architecture: all
 Depends: 
-Description: Base of all Java packages
- This package is mandatory for any Java package. It
- includes the Debian Java policy and the Java FAQ.
+Description: Base of all java packages
+ This package must be installed in the system if a java environment
+ is desired. It includes useful information for java user in
+ Debian GNU/Linux including:
+ - the Java policy document which describes
+ the layout of java support in Debian and how Java packages should 
+ behave.
+ - the Debian-Java-FAQ which provides information on the status of
+ java support in Debian, available compilers, virtual machines, java
+ programs and libraries as well as information on legal issues.

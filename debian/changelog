@@ -1,3 +1,9 @@
+java-common (0.10) unstable; urgency=low
+
+  * Changed descriotion, closes: #118458.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 20:41:16 +0100
+
 java-common (0.9) unstable; urgency=low
 
   * Updated the java policy. This is a major rewrite from all the information
