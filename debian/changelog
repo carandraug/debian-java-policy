@@ -1,3 +1,9 @@
+java-common (0.6) unstable; urgency=low
+
+  * Java FAQ now retrieved from the pristine source (DDP CVS)
+
+ -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Thu,  7 Dec 2000 15:23:16 +0100
+
 java-common (0.5) unstable; urgency=low
 
   * examples/ directory
