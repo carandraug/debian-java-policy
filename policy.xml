@@ -44,7 +44,7 @@
       <author>
 	<authorblurb>
 	  <para>
-	    Most issues of the proposed java policy have been discussed on the
+	    Most issues of the java policy have been discussed on the
 	    <email>debian-java@lists.debian.org</email> mailinglist.
 	  </para>
 	</authorblurb>
@@ -53,7 +53,7 @@
     <abstract>
       <title>Abstract</title>
       <para>
-	This is the proposed java policy for Debian. It begins with a
+	This is the java policy for Debian. It begins with a
 	background description, continues with the real policy, some
 	issues to discuss and ends with some advices to java packagers.
       </para>

@@ -4,8 +4,10 @@ java-common (0.18) unstable; urgency=low
   * Fixed doc-base file, closes: #163102.
   * Policy update as accepted by debian-java@lists.debian.org,
     closes: #182466.
+  * Removed the last references about that this is a proposed policy. It
+    is no longer just a proposed policy.
 
- -- Ola Lundqvist <opal@debian.org>  Mon, 31 Mar 2003 21:29:59 +0200
+ -- Ola Lundqvist <opal@debian.org>  Mon, 31 Mar 2003 21:48:18 +0200
 
 java-common (0.17) unstable; urgency=low
 
