@@ -1,3 +1,9 @@
+java-common (0.20) unstable; urgency=low
+
+  * Updated Java FAQ from CVS, closes: #192286.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri,  9 May 2003 13:14:44 +0200
+
 java-common (0.19) unstable; urgency=low
 
   * Added JNI standardized directories, closes: #163390.
