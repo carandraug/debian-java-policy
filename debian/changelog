@@ -1,3 +1,9 @@
+java-common (0.15) unstable; urgency=low
+
+  * Removed policy.sgml from source.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 25 Sep 2002 07:41:45 +0200
+
 java-common (0.14) unstable; urgency=low
 
   * Fixed description again.
