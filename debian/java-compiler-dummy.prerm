@@ -1,9 +1,0 @@
-#!/bin/sh
-
-#DEBHELPER#
-
-if [ $1 != "upgrade" ] ; then
-        update-alternatives --remove javac /usr/bin/java-c
-fi
-
-

@@ -2,8 +2,3 @@
 *.substvars
 files
 java-common
-java-virtual-machine-dummy
-java-compiler-dummy
-java2-compiler-dummy
-java1-runtime-dummy
-java2-runtime-dummy
