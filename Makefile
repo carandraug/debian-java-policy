@@ -59,7 +59,7 @@ install:: $(OUTPUTS)
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
 
 clean: 
-	rm -rf *.html *.aux *.log *.dvi *.ps *.tex *.txt *~
+	rm -rf debian-java-faq.* *.html *.aux *.log *.dvi *.ps *.tex *.txt *~
 	(cd examples; rm -f *~)
 
 # For the debian-java-FAQ
