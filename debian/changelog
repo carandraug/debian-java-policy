@@ -1,8 +1,9 @@
 java-common (0.12) unstable; urgency=low
 
   * Fixed spaces in description, closes: #137179.
+  * Fixed doc-base bug, closes: #137516.
 
- -- Ola Lundqvist <opal@lysator.liu.se>  Fri,  5 Apr 2002 21:23:37 +0200
+ -- Ola Lundqvist <opal@lysator.liu.se>  Fri,  5 Apr 2002 21:25:34 +0200
 
 java-common (0.11) unstable; urgency=low
 
