@@ -1,0 +1,21 @@
+java-compiler-dummy for DEBIAN
+----------------------
+
+It is a dummy package, intended to comply with the Java policy,
+while there are some Debian-packaged compilers that do not
+provide java-compiler.
+
+Install it ONLY if you really have a Java compiler.
+
+The executable java-c will set the CLASSPATH according to the
+Debian Java policy, before running an actual Java compiler
+(set in /etc/java-c, defaults to the compiler in the jikes package).
+
+You have examples of /etc/java-c files for all the Java compilers of
+Debian in /usr/doc/java-compiler-dummy/examples.
+
+Do note that all the Java compilers in 'potato' comply with the Java
+policy.
+
+
+Stephane Bortzmeyer <bortzmeyer@debian.org>, Wed, 23 Jun 1999 15:03:43 +0200

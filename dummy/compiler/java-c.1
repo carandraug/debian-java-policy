@@ -1,0 +1,30 @@
+.TH JAVA-C 1 
+.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
+.\" other parms are allowed: see man(7), man(1)
+.SH JAVA-C
+java-c \- A dummy Java compiler for the Java policy
+.SH SYNOPSIS
+.B java-c
+.I "[options] files ..."
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.BR java-c
+command.
+.PP
+.B java-c
+is a wrapper around the real Java compiler. It sets the CLASSPATH according
+to the Debian Java policy (if the compiler is not already compliant) and
+can also add other mandatory directories to the CLASSPATH. This is configured
+in 
+/etc/java-c
+(see examples hereunder).
+.PP
+Your own CLASSPATH will be saved and appended.
+.SH OPTIONS
+They are passed uninterpreted to the compiler.
+.SH "SEE ALSO"
+/usr/doc/java-compiler-dummy
+and specially the "examples" directory.
+.SH AUTHOR
+This manual page was written by Stephane Bortzmeyer <bortzmeyer@debian.org>,
+for the Debian GNU/Linux system (but may be used by others).
