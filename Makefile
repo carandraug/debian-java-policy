@@ -8,7 +8,7 @@
 # Some default variables
 DOC = usr/share/doc
 DVIPS=dvips
-PUBLISHDIR = $(DESTDIR)/$(DOC)/java-common
+PUBLISHDIR=$(DESTDIR)/$(DOC)/java-common
 #DSLF=work.dsl
 #DSL=-d $(DSLF)
 # Default language to use
@@ -67,7 +67,7 @@ debian-java-faq-gen: debian-java-faq
 
 # Change the publish dir if you want to send it to a new package.
 debian-java-faq-install: debian-java-faq debian-java-faq-gen
-	(cd $<; make publish PUBLISHDIR=$(DESTDIR)/$(DOC)/java-common)
+	(cd $<; make publish PUBLISHDIR=$(PUBLISHDIR))
 
 debian-java-faq:
 	(cvs -d :pserver:anonymous@cvs.debian.org:/cvs/debian-doc -z3 checkout -d debian-java-faq ddp/manuals.sgml/java-faq)
