@@ -1,0 +1,6 @@
+*.debhelper
+*.substvars
+files
+java-common
+java-virtual-machine-dummy
+java-compiler-dummy
