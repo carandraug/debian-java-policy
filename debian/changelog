@@ -4,8 +4,9 @@ java-common (0.10) unstable; urgency=low
   * Added doc-base file, thanks to Javier Fernandez-Sanguino Pena
     <jfs@dat.etsit.upm.es>, closes: #118459.
   * Spelling things in policy, closes: #119801.
+  * Spelling issue in FAQ, closes: #127114.
 
- -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 20:50:41 +0100
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 20:56:39 +0100
 
 java-common (0.9) unstable; urgency=low
 
