@@ -1,3 +1,9 @@
+java-common (0.14) unstable; urgency=low
+
+  * Fixed description again.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun,  7 Apr 2002 12:03:11 +0200
+
 java-common (0.13) unstable; urgency=low
 
   * Fixed description, closes: #141463.

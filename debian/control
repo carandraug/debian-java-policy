@@ -10,10 +10,10 @@ Architecture: all
 Depends: 
 Description: Base of all Java packages
  This package must be installed in the system if a Java environment
- is desired. It colvers useful information for Java users in
+ is desired. It covers useful information for Java users in
  Debian GNU/Linux, including:
    - The Java policy document which describes the layout of Java support in
      Debian and how Java packages should behave.
    - The Debian-Java-FAQ which provides information on the status of
      Java support in Debian, available compilers, virtual machines, Java
-     programs and libraries as well as legal issues.
+     programs and libraries as well as on legal issues.
