@@ -17,6 +17,8 @@ LANG=C
 LC_CTYPE=C
 
 all: debian-java-policy debian-java-faq-gen
+publish: policy.html
+	scp debian-java-policy.html/*.html opal@people.debian.org:public_html/java/policy.html
 
 # Policy part
 MAKEOUT=policy.txt policy.ps
