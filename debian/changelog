@@ -1,6 +1,10 @@
 java-common (0.15) unstable; urgency=low
 
   * Removed policy.sgml from source.
+  * Changed so that the policy is no longer PROPOSED.
+  * Some editorial changes.
+  * Java libraries should now only suggest java-virtual-machine,
+    closes: #159448.
 
  -- Ola Lundqvist <opal@debian.org>  Wed, 25 Sep 2002 07:41:45 +0200
 

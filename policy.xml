@@ -14,7 +14,7 @@
 
 <book>
   <bookinfo>
-    <title>PROPOSED Debian policy for Java</title>
+    <title>Debian policy for Java</title>
     <edition>$Revision:$ $Date:$</edition>
     <authorgroup>
       <author>
@@ -68,19 +68,6 @@
     <title>Background</title>
     
     <para>
-      An important warning: this text is
-      a <emphasis>proposal</emphasis>. I put it here, publically, so it can
-      be read, discussed, implemented, ignored, etc.  It has no sort of
-      endorsement from any authority in Debian or elsewhere.
-    </para>
-    
-    <para>Feel free to report me (Ola Lundqvist
-      <email>opal@debian.org</email>) comments and disagrements. I'll
-      put them on this text and forward them to
-      <email>debian-java@lists.debian.org</email>, if you don't object.
-    </para>
-    
-    <para>
       There are several "subpolicies" in Debian. They all want to make
       the
       <ulink url="http://www.debian.org/doc/debian-policy/">Debian
@@ -93,20 +80,17 @@
     </para>
     
     <para>
-      This policy is intended to be in a package java-common, whose
-      maintainer will be Java Debian
-      <email>debian-java@lists.debian.org</email>, when the policy have been
-      officially accepted.
+      Feel free to report comments, suggestions and/or disagrements to the
+      java-common package (<email>java-common@packages.debian.org</email>)
+      or the Debian Java mailinglist
+      <email>debian-java@lists.debian.org</email>. Change requests should
+      be sent as a bug to the java-common package.
     </para>
+
   </chapter>
   
   <chapter id="policy">
     <title>Policy</title>
-    
-    <para>
-      A package java-common is created, containing this policy and
-      some basic tools.
-    </para>
     
     <para>
       Virtual packages are created: &jc;, &j2c;,
@@ -116,8 +100,7 @@
     <para>
       Packages written in Java are separated in two categories: programs
       and libraries. Programs are intended to be run by end-users. Libraries
-      are intended to help programs to run and to be used by developers. 
-      Both &must; depend on &jvm;.
+      are intended to help programs to run and to be used by developers.
     </para>
     
     <para>
@@ -190,14 +173,18 @@
 	<ulink url="http://www.debian.org/doc/debian-policy/ch6.html#s6.1">
 	  Policy 6.1</ulink>).
       </para>
-      <para>If they have their own auxiliary classes, they
-	&must; be in a jar file in <filename>/usr/share/java</filename>. The name
-	of the jar &should; folow the same naming conventions as for libraries.
+      <para>
+        If they have their own auxiliary classes, they
+	&must; be in a jar file in <filename>/usr/share/java</filename>. The
+        name of the jar &should; folow the same naming conventions as for
+        libraries.
       </para>
-      <para>Programs &must; depend on &jvm; and the needed
+      <para>
+        Programs &must; depend on &jvm; and the needed
 	runtime environment (&j1r; and/or &j2r;).
       </para>
-      <para>There is no naming rules for programs, they are ordinary programs,
+      <para>
+        There is no naming rules for programs, they are ordinary programs,
 	from the user point of view.
       </para>
     </sect1>
@@ -207,7 +194,7 @@
       
       <para>
 	Libraries are not separated between developers (-dev) and users
-	versions, since it is meaningless in Java.
+	versions, since this is meaningless in Java.
       </para>
       
       <para>
@@ -234,12 +221,18 @@
 	version of the available
 	<filename>packagename-extraname-version.jar</filename> files.
       </para>
-      
+
+      <para>
+        Java libraries &must; depend on the needed runtime environment
+	(&j1r; and/or &j2r;) but &should; not depend (only suggest)
+	java-virtual-machine.
+      </para>
+
       <para>
 	All jar files &must; have a well-documented CLASSPATH, so 
 	that developers should know what to add to their wrappers.
       </para>
-      
+
       <para>
 	This applies only to libraries, <emphasis>not</emphasis> to the core
 	classes provied by a the runtime environment.
