@@ -1,0 +1,14 @@
+# Automatically added by dh_installdocs
+if [ "$1" = "configure" ]; then
+	if [ -d /usr/doc -a ! -e /usr/doc/java-virtual-machine-dummy -a -d /usr/share/doc/java-virtual-machine-dummy ]; then
+		ln -sf ../share/doc/java-virtual-machine-dummy /usr/doc/java-virtual-machine-dummy
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installdocs
+if [ "$1" = "configure" ]; then
+	if [ -d /usr/doc -a ! -e /usr/doc/java-virtual-machine-dummy -a -d /usr/share/doc/java-virtual-machine-dummy ]; then
+		ln -sf ../share/doc/java-virtual-machine-dummy /usr/doc/java-virtual-machine-dummy
+	fi
+fi
+# End automatically added section

@@ -1,3 +1,17 @@
+java-common (0.8) unstable; urgency=low
+
+  * Moved java-compiler-dummy to java-common.
+  * Moved java-virtual-machine-dummy to java-common.
+  * Moved dummy config files, closes: #55527, #55747.
+  * Fixed manpage, closes: #55525.
+  * Fixed the copyright file, closes: #55524.
+  * No I will not add a jar hook. It does not require any special
+    classpaths and the jar program should exist in the package that
+    provides the binary, closes: #81647.
+  * The updated java policy will be updated soon.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 01 Oct 2001 13:43:56 +0200
+
 java-common (0.7) unstable; urgency=low
 
   * New maintainer Ola Lundqvist, closes: #92816.
@@ -53,5 +67,4 @@ java-common (0.0-1) unstable; urgency=low
 
 Local variables:
 mode: debian-changelog
-add-log-mailing-address: "bortzmeyer@debian.org"
 End:
