@@ -8,14 +8,11 @@
 
 export DH_COMPAT=3
 
-DEFCOMPILER=jikes
-DEFVM=kaffe
-
 build: build-stamp
 build-stamp:
 	dh_testdir
 
-	$(MAKE) 
+	$(MAKE)
 	touch build-stamp
 
 clean:
@@ -25,7 +22,6 @@ clean:
 
 	# Add here commands to clean up after the build process.
 	$(MAKE) clean
-	-rm -f *~
 
 	dh_clean
 
@@ -37,19 +33,16 @@ install-stamp: build-stamp
 	dh_installdirs
 
 	# Add here commands to install the package into debian/tmp.
-	dh_installdocs
+	# Create the doc directory.
+	dh_installdocs -i
+	# Install docs into the doc directory.
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/java-common
-
-	# java-compiler-dummy
-	install -m 0755 dummy/compiler/java-c debian/java-compiler-dummy/usr/bin
-	install -m 0644 dummy/compiler/java-c.conf-${DEFCOMPILER} debian/java-compiler-dummy/etc/java/java-c.conf
-	# java-virtual-machine-dummy.
-	install -m 0755 dummy/virtual-machine/java-vm debian/java-virtual-machine-dummy/usr/bin
-	install -m 0644 dummy/virtual-machine/java-vm.conf-${DEFVM} debian/java-virtual-machine-dummy/etc/java/java-vm.conf
 
 	dpsch-backupclean
 
 	touch install-stamp
+
+binary-arch:
 
 # Build architecture-independent files here.
 # Pass -i to all debhelper commands in this target to reduce clutter.
@@ -57,7 +50,7 @@ binary-indep: build install
 	dh_testdir -i
 	dh_testroot -i
 #	dh_installdebconf -i
-	dh_installdocs -i
+###	dh_installdocs -i
 	dh_installexamples -i
 	dpsch-cvsclean
 	dh_installmenu -i
@@ -82,5 +75,5 @@ binary-indep: build install
 
 	dh_builddeb
 
-binary: binary-indep
-.PHONY: build clean binary-indep binary install configure
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
