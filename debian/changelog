@@ -1,0 +1,22 @@
+java-common (0.2) unstable; urgency=low
+
+  * The policy is now included, and in XML form. Closes #42114
+
+ -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Thu,  2 Sep 1999 17:10:15 +0200
+
+java-common (0.1) unstable; urgency=low
+
+  * Proper versioning for a Debian-only package 
+
+ -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Mon, 28 Jun 1999 15:00:52 +0200
+
+java-common (0.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Wed, 23 Jun 1999 15:03:43 +0200
+
+Local variables:
+mode: debian-changelog
+add-log-mailing-address: "bortzmeyer@debian.org"
+End:

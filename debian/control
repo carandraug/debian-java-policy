@@ -1,0 +1,13 @@
+Source: java-common
+Section: misc
+Priority: optional
+Maintainer: Stephane Bortzmeyer <bortzmeyer@debian.org>
+Standards-Version: 2.4.0.0
+
+Package: java-common
+Architecture: all
+Depends: 
+Description: Base of all Java packages
+ This package is mandatory for any Java package. It
+ includes the Java policy.
+
