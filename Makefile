@@ -18,7 +18,7 @@ LC_CTYPE=C
 
 all: debian-java-policy debian-java-faq-gen
 publish: policy.html
-	scp debian-java-policy.html/*.html opal@people.debian.org:public_html/java/policy.html
+	scp debian-java-policy/*.html opal@people.debian.org:public_html/java/policy.html
 
 # Policy part
 MAKEOUT=policy.txt policy.ps
@@ -40,11 +40,11 @@ policy.ps: policy.dvi
 policy.html: policy.xml
 	# docbook and dsl file needs to be in that dir for things to work.
 	# The png file is copied there so it can be referenced in a proper way.
-	mkdir -p debian-java-policy.html
+	mkdir -p debian-java-policy
 	cp $^ html
-	jw -b html $(DSL) -o debian-java-policy.html $<
+	jw -b html $(DSL) -o debian-java-policy $<
 	# To make that file the intdex.
-	(cd debian-java-policy.html; rm -f $^)
+	(cd debian-java-policy; rm -f $^)
 
 policy.txt: policy.xml
 	jw -u $< > dump.html
@@ -55,8 +55,8 @@ install: debian-java-policy-install debian-java-faq-install
 
 debian-java-policy-install:
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
-	cp -a debian-java-policy.html $(PUBLISHDIR)
-	ln -s debian-java-policy.html $(PUBLISHDIR)/html
+	cp -a debian-java-policy $(PUBLISHDIR)
+	ln -s debian-java-policy $(PUBLISHDIR)/html
 
 clean: debian-java-faq
 	-rm -Rf debian-java-policy.html
