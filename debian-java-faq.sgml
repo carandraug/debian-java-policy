@@ -508,9 +508,9 @@ They are far from complete but they do work for most purposes
 <sect>What Java compilers are available in Debian?
 <p>
 <list>
-<item><package>guavac</package>. The compiler of Effective Edge Technologies. This compiler is orphaned upstream, for real work use gcj or yikes.
+<item><package>guavac</package>. The compiler of Effective Edge Technologies. This compiler is orphaned upstream, for real work use gcj or jikes.
 <item><package>tya</package>. A just in time compiler, used to compile java to byte code.
-<item><package>yikes</package>.
+<item><package>jikes</package>.
 <item><package>bock</package>. Java to C compiler.
 <item><package>gcj</package>. Compiles Java source to native code, also source to bytecode, or bytecode to native code.
 <item><package>gck</package>. Is this available?
