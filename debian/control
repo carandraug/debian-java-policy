@@ -2,7 +2,8 @@ Source: java-common
 Section: misc
 Priority: optional
 Maintainer: Stephane Bortzmeyer <bortzmeyer@debian.org>
-Standards-Version: 2.4.0.0
+Standards-Version: 3.0
+Build-Depends: jade, jadetex, tetex-bin, debiandoc-sgml, sp, lynx
 
 Package: java-common
 Architecture: all
