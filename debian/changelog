@@ -1,6 +1,7 @@
 java-common (0.19) unstable; urgency=low
 
   * Added JNI standardized directories, closes: #163390.
+    Thanks to Ben Burton <bab@debian.org> for the patch.
   * Updated FAQ from cvs.
   * Now refer to an url instead of listing free jvm:s, closes: #146731.
 
