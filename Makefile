@@ -65,11 +65,12 @@ clean:
 # For the debian-java-FAQ
 # by Javier Fernández-Sanguino Peña <jfs@computer.org>
 
-# TODO: get the FAQ from CVS before? 
-
 debian-java-faq: debian-java-faq.html debian-java-faq.ps  debian-java-faq.txt
  
 OUTPUTS +=  debian-java-faq.ps  debian-java-faq.txt
+
+debian-java-faq.sgml:
+	(cd ../java-faq; cvs update)
 
 debian-java-faq.html: debian-java-faq.sgml
 	$(LANGUAGE) debiandoc2html debian-java-faq.sgml
