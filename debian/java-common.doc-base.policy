@@ -6,7 +6,7 @@ Abstract: The Debian Java Policy (currently a proposal)
  and the different conventions regarding the use
  of virtual package likes java-virtual-machine or
  java-compiler.
-Section: debian
+Section: Debian
 
 Format: text
 Files: /usr/share/doc/java-common/policy.txt.gz
