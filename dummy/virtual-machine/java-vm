@@ -1,0 +1,53 @@
+#!/bin/sh
+
+repository=/usr/share/java/repository
+conf=/etc/java/java-vm.conf
+
+java=`head -1 $conf`
+
+if [ ! -n "$java" ]
+then
+    echo "Cannot find a Java virtual machine in $conf"
+    exit 1
+fi
+
+defclasspath=`head -2 $conf | tail -1`
+
+if [ -n "$defclasspath" ]
+then
+    MYCLASSPATH=${defclasspath}
+fi
+
+compliant=`head -3 $conf | tail -1`
+
+if [ "xx$compliant" != "xxCOMPLIANT" ]
+then
+    if [ -n "$MYCLASSPATH" ]
+    then
+        MYCLASSPATH=${MYCLASSPATH}:$repository
+    else
+        MYCLASSPATH=$repository
+    fi
+fi
+
+if [ -n "$CLASSPATH" ]
+then
+    if [ -n "$MYCLASSPATH" ]
+    then
+        MYCLASSPATH=${MYCLASSPATH}:${CLASSPATH}
+    else
+        MYCLASSPATH=${CLASSPATH}
+    fi
+fi
+
+if [ -n "$MYCLASSPATH" ]
+then
+    CLASSPATH=$MYCLASSPATH
+    export CLASSPATH
+    #echo $CLASSPATH
+fi
+
+exec "$java" "$@"
+
+echo "Cannot run $java (found in $conf)"
+exit 1

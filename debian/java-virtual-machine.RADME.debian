@@ -1,0 +1,14 @@
+java-virtual-machine-dummy for DEBIAN
+----------------------
+
+It is a dummy package, intended to comply with the Java policy,
+while there are some Debian-packaged virtual machines that do not
+provide java-virtual-machine.
+
+Install it ONLY if you really have a Java virtual machine.
+
+The executable java-vm will set the CLASSPATH according to the
+Debian Java policy, before running an actual Java virtual machine
+(set in /etc/java-vm, defaults to the VM in the kaffe package).
+
+Stephane Bortzmeyer <bortzmeyer@debian.org>, Wed, 23 Jun 1999 15:03:43 +0200
