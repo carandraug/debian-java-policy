@@ -261,9 +261,9 @@ the package contains (&j1r; and/or &j2r;). If it does not
 
   </section>
   
-  <section id="policy-advices"><title>Advices to Java packagers</title>
+  <section id="policy-advices"><title>Advice to Java packagers</title>
     
-    <para>Warning: they are just advices, they are not part of the policy.</para>
+    <para>Observe: it is just advice, it is not part of the policy.</para>
     
     <itemizedlist>
       <listitem><para>Be sure to manage all dependencies by hand in
