@@ -1,0 +1,52 @@
+--- java-common-0.16/policy.xml	2002-09-26 00:53:03.000000000 +1000
++++ java-common-0.16.1/policy.xml	2003-02-09 23:16:23.000000000 +1100
+@@ -147,6 +147,14 @@
+ 	virtual machine, you &may; name the compiler package xxxx-dev.
+       </para>
+       
++      <para>
++	Some Java classes implement their routines using a "native"
++	language (such as C).  This native code is compiled and stored
++	in dynamic libraries (such as JNI modules) that are loaded at
++	runtime.  If a virtual machine supports native code, it &must;
++	include the directory <filename>/usr/lib/jni</filename> in its
++	search path for these dynamic libraries.
++      </para>
+     </sect1>
+     
+     <sect1 id="policy-compiler">
+@@ -245,18 +253,27 @@
+ 	This applies only to libraries, <emphasis>not</emphasis> to the core
+ 	classes provied by a the runtime environment.
+       </para>
+-      
++
++      <para>
++	Some Java libraries rely on code written in a "native" language,
++	such as JNI (Java Native Interface) code.  This native code is
++	compiled into separate dynamic libraries which are loaded by the
++	Java virtual machine at runtime.
++      </para>
++
+       <para>
+-        If the Java code depends on code written in a "native" language,
+-        for example Java Native Interface code, the compiled native code
+-        &should; be shipped in a separate architecture-specific package
+-        named libXXX[version]-jni. The package containing Java bytecode
+-	&should; depend on this package.
++	If a Java library relies on native code, the dynamic libraries
++	containing this compiled native code &should; be installed into
++	the directory <filename>/usr/lib/jni</filename>.  These dynamic
++	libraries &should; be shipped in a separate architecture-specific
++	package named libXXX[version]-jni.  The package containing the Java
++	bytecode (generally libXXX[version]-java) &should; depend on
++	this package.
+       </para>
+       <para>
+ 	There may be situations, such as with very small packages,
+ 	where it is better to bundle the Java code and the native code
+-	together into a single package. Such packages should be
++	together into a single package. Such packages &should; be
+ 	architecture-specific and follow the usual libXXX[version]-java
+ 	naming convention.
+       </para>
