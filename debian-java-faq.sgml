@@ -788,7 +788,7 @@ to download Sun's classes any longer.
 <p>
 It is still in the works. The current policy addresses <em>some</em>
 of the problems. It has not been officially released. You can find
-it in <url id="http://www.debian.org/~bortz/Java/policy.html">.
+it in <url id="http://people.debian.org/~bortz/Java/policy.html">.
 
 <sect>Are there Holes in the Java Policy?
 <p>Yes, some until under discussion. Thus it is <em>very</em> inconvenient to
@@ -799,7 +799,11 @@ CLASSPATH setting for all.
 <p>
 <sect>Making jdk 1.2 work in Debian
 <p>
-If you wish to use Sun's or Blackdown's jdk 1.2 in Debian you can use the following mechanism.
+If you wish to use Sun's or Blackdown's jdk 1.2 in Debian you can use
+	  packages (they are available,
+	  for the i386 only in aptable directories) from Blackdown <url
+	  id="http://www.blackdown.org/java-linux/mirrors.html">
+or you can use the following mechanism.
 <list>
 <item>Make a directory under /usr/local (for example /usr/local/sun).
 <item> Download  the  archine into  this  directory,  then  unpack it.   A

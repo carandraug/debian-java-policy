@@ -1,3 +1,10 @@
+java-common (0.5) unstable; urgency=low
+
+  * examples/ directory
+  * Debian packages at Blackdown in the FAQ
+
+ -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Thu,  9 Nov 2000 17:23:30 +0100
+
 java-common (0.4) unstable; urgency=low
 
   * A few fixes (URLs mostly). 
