@@ -51,9 +51,10 @@ debian-java-policy/index.html: policy.xml
 	(cd debian-java-policy; rm -f $^)
 
 policy.txt: policy.xml
-	jw -u $< > dump.html
-	lynx -force_html -dump dump.html > $@
-	-rm -f dump.html
+	#jw -u $< > dump.html
+	#lynx -force_html -dump dump.html > $@
+	#-rm -f dump.html
+	jw -b txt $(DSL) $<
 
 install: debian-java-policy-install debian-java-faq-install dummy-install
 

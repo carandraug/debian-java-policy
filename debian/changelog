@@ -2,8 +2,10 @@ java-common (0.17) unstable; urgency=low
 
   * Fixed some xml errors and reference error to debian policy, using
     patch from Ahmed <ahmed@baizid.org>, closes: #173033.
+  * Fixed Makefile so that it can produce proper txt output, closes:
+    #162377.
 
- -- Ola Lundqvist <opal@debian.org>  Mon, 16 Dec 2002 08:07:39 +0100
+ -- Ola Lundqvist <opal@debian.org>  Wed, 18 Dec 2002 05:56:54 +0100
 
 java-common (0.16) unstable; urgency=low
 
