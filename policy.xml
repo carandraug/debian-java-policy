@@ -132,6 +132,16 @@
 	provide the files itself it &must; depend on the needed runtime
 	environment.
       </para>
+
+      <para>
+        Packages that contain a runtime conforming to the Java 1.1
+	specification should provide &j1r;. Packages that contain a runtime
+	conforming to the Java 2 specification should provide &j2r;.
+	If a package conforms to both, then it should provide both; however,
+	packages that do not implement the methods from Java 1.1 that have been
+	deprecated in Java 2 must not provide &j1r;.
+      </para>
+	
       <para>
 	They &should; use <filename>/etc/alternatives</filename>
 	for the name 'java' if they are command-line compatible with the
@@ -157,7 +167,7 @@
 	java-common. They &must; also depend on the needed runtime environemnt
 	(&j1r; and/or &j2r;).
       </para>
-      
+
       <para>
 	They &should; use <filename>/etc/alternatives</filename>
 	for the name 'javac' if they are command-line compatible
