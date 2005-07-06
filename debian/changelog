@@ -1,3 +1,22 @@
+java-common (0.23) unstable; urgency=low
+
+  * Updated the Debian Java FAQ (closes: #156547, #252219), thanks to
+    Javier Fernandez-Sanguino Peña
+  * policy.xml: corrected typos (closes: #285303), thanks to Bill
+    Allombert
+  * debian/control:
+    + (Uploaders) removed Ola Lundqvist from the uploaders (see
+      debian-java mailing list, June 2005)
+    + (Uploaders) added myself
+    + (Uploaders) added Debian Java Maintainers (closes: #302887)
+  * debian/README.Debian: corrected wrong path the the faq and the policy
+    and a typo (closes: #197256, #285014), thanks to Vincent Lefevre
+  * debian/copyright: moved Ola from current maintainers to previous
+    maintainers, updated the file with the debhelper gpl template, added
+    copyright years (closes: #290189)
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Sat, 11 Jun 2005 13:59:20 +0200
+
 java-common (0.22) unstable; urgency=low
 
   * Changed Maintainer: to the Debian Java Mailing List and added myself

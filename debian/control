@@ -2,8 +2,8 @@ Source: java-common
 Section: misc
 Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
-Uploaders: Ola Lundqvist <opal@debian.org>, Stefan Gybas <sgybas@debian.org>
-Build-Depends: debhelper (>> 3.0.0), debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
+Uploaders: Stefan Gybas <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>
+Build-Depends: debhelper (>= 3.0.0), debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
 Standards-Version: 3.6.1
 
 Package: java-common

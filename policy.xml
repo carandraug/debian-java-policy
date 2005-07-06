@@ -80,9 +80,9 @@
     </para>
     
     <para>
-      Feel free to report comments, suggestions and/or disagrements to the
+      Feel free to report comments, suggestions and/or disagreements to the
       java-common package (<email>java-common@packages.debian.org</email>)
-      or the Debian Java mailinglist
+      or the Debian Java mailing list
       <email>debian-java@lists.debian.org</email>. Change requests should
       be sent as a bug to the java-common package.
     </para>
@@ -172,7 +172,7 @@
       
       <para>
 	Java compilers &must; provide &jc; and/or &j2c; and depend on
-	java-common. They &must; also depend on the needed runtime environemnt
+	java-common. They &must; also depend on the needed runtime environment
 	(&j1r; and/or &j2r;).
       </para>
 
@@ -202,7 +202,7 @@
       <para>
         If they have their own auxiliary classes, they
 	&must; be in a jar file in <filename>/usr/share/java</filename>. The
-        name of the jar &should; folow the same naming conventions as for
+        name of the jar &should; follow the same naming conventions as for
         libraries.
       </para>
       <para>
@@ -227,7 +227,7 @@
 	Java libraries packages &must; be named libXXX[version]-java
 	(without the brackets), where the version part is optional and &should;
 	only contain the necessary part. The version part &should; only be
-	used to avoid naming colisions. The XXX part is the actual package
+	used to avoid naming collisions. The XXX part is the actual package
 	name used in the text below.
       </para>
       
@@ -236,7 +236,7 @@
 	the directory <filename>/usr/share/java</filename>,
 	with the name
 	<filename>packagename[-extraname]-fullversion.jar</filename>.
-	The extraname is optional and used internaly within the package to
+	The extraname is optional and used internally within the package to
 	separate the different jars provided by the package. The fullversion
 	is the version of that jar file. In some cases that is not the same as
 	the package version.
@@ -261,7 +261,7 @@
 
       <para>
 	This applies only to libraries, <emphasis>not</emphasis> to the core
-	classes provied by a the runtime environment.
+	classes provided by a the runtime environment.
       </para>
 
       <para>
@@ -312,7 +312,7 @@
 	    If your binary package can run only with non-free
 	    virtual machines
 	    (<ulink
-	    url="http://www.gnu.org/software/classpath">classpath</ulink> has
+	    url="http://www.gnu.org/software/classpath">GNU-Classpath</ulink> has
 	    a list of free versions), it cannot go to main. If
 	    your package itself is free, it &must; go to contrib.
 	  </para>
@@ -332,7 +332,7 @@
     <itemizedlist>
       <listitem>
 	<para>
-	  Name and existance of the repository. It was removed
+	  Name and existence of the repository. It was removed
 	  in the latest version.
 	</para>
       </listitem>
@@ -366,16 +366,16 @@
 	<para>It should exist some tool to parse this. How should it
 	  work?
 	</para>
-	<para>Should the tool also be used to create the necessary symbilic
+	<para>Should the tool also be used to create the necessary symbolic
 	  links needed by servlets under tomcat?
 	</para>
       </listitem>
       
       <listitem>
 	<para>
-	  Should there be a default classpath, similar to a
+	  Should there be a default CLASSPATH, similar to a
 	  repository? Which jars should be included in that? A standard and
-	  one optional part? If there are a default classpath (in the
+	  one optional part? If there are a default CLASSPATH (in the
 	  wrapper) how should it be overridden?
 	</para>
       </listitem>      
