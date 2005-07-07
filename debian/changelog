@@ -1,3 +1,11 @@
+java-common (0.24) unstable; urgency=low
+
+  * Added new JVM launcher support scripts and settings file. These support
+    machine wide, per-user, per-program JVM selection. They should be sourced
+    from a package's wrapper script to determine JAVA_HOME.
+
+ -- Jerry Haltom <wasabi@larvalstage.net>  Wed,  6 Jul 2005 17:44:45 -0500
+
 java-common (0.23) unstable; urgency=low
 
   * Updated the Debian Java FAQ (closes: #156547, #252219), thanks to
