@@ -1,0 +1,3 @@
+share/java-common.sh	usr/share/java-common
+share/jvm-find.sh	usr/share/java-common
+etc/jvm			etc
