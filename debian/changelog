@@ -1,10 +1,27 @@
+java-common (0.25) unstable; urgency=low
+
+  [Matthias Klose]
+  * update-java-alternatives: Search for /usr/lib/jvm/.*.jinfo files
+    as well, new option --plugin.
+
+ -- Michael Koch <konqueror@gmx.de>  Tue,  9 May 2006 21:33:38 +0000
+
 java-common (0.24) unstable; urgency=low
 
-  * Added new JVM launcher support scripts and settings file. These support
-    machine wide, per-user, per-program JVM selection. They should be sourced
-    from a package's wrapper script to determine JAVA_HOME.
+  [Matthias Klose]
+  * Search for the update-java-alternatives description files in
+    /usr/lib/jvm/*.jinfo.
+  * Add a script update-java-alternatives(8).
 
- -- Jerry Haltom <wasabi@larvalstage.net>  Wed,  6 Jul 2005 17:44:45 -0500
+  [Michael Koch]
+  * Updated DH_COMPAT level to 4.
+  * Updated Standards-Version to 3.7.2.
+  * Added myself to Uploaders field.
+  * Added myself to debian/copyright and updated address of FSF.
+  * Moved most of Build-Depends to Build-Depends-Indep.
+  * Removed CVS directories.
+
+ -- Michael Koch <konqueror@gmx.de>  Sat,  6 May 2006 22:20:14 +0000
 
 java-common (0.23) unstable; urgency=low
 

@@ -3,12 +3,13 @@ It is a Debian original work.
 Current maintainers:
 	Stefan Gybas <sgybas@debian.org>
 	Arnaud Vandyck <avdyk@debian.org>
+	Michael Koch <konqueror@gmx.de>
 
 Previous maintainers:
 	Ola Lundqvist <opal@debian.org>
 	Stephane Bortzmeyer <bortzmeyer@debian.org>
 
-Copyright (C) 1999-2005 by current and previous maintainers for Debian
+Copyright (C) 1999-2006 by current and previous maintainers for Debian
 
 License:
 
@@ -23,10 +24,9 @@ License:
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this package; if not, write to the Free Software
-   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-   02111-1307, USA.
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 
 On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
+Public License can be found in `/usr/share/common-licenses/GPL-2'.
 
