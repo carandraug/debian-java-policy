@@ -19,5 +19,5 @@ Description: Base of all Java packages
   * The Debian-Java-FAQ which provides information on the status of
     Java support in Debian, available compilers, virtual machines, Java
     programs and libraries as well as on legal issues.
-  * Information on how to create dummy packages to fullfill java2
+  * Information on how to create dummy packages to fulfill java2
     requirements.

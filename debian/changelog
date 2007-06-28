@@ -1,3 +1,9 @@
+java-common (0.26) unstable; urgency=low
+
+  * Fixed typo in package description. Closes: #363985.
+
+ -- Michael Koch <konqueror@gmx.de>  Thu, 28 Jun 2007 13:12:04 -0100
+
 java-common (0.25) unstable; urgency=low
 
   [Matthias Klose]

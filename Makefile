@@ -56,12 +56,18 @@ policy.txt: policy.xml
 	#-rm -f dump.html
 	jw -b txt $(DSL) $<
 
-install: debian-java-policy-install debian-java-faq-install dummy-install
+install: debian-java-policy-install debian-java-faq-install dummy-install script-install
 
 dummy-install:
 	mkdir -p $(PUBLISHDIR)/dummy-packages
 	cp dummy/README $(PUBLISHDIR)/dummy-packages
 	cp dummy/*.control $(PUBLISHDIR)/dummy-packages
+
+script-install:
+	mkdir -p $(DESTDIR)/usr/sbin
+	install -m 755 scripts/update-java-alternatives $(DESTDIR)/usr/sbin/
+	mkdir -p $(DESTDIR)/usr/share/man/man8
+	install -m 755 scripts/update-java-alternatives.8 $(DESTDIR)/usr/share/man/man8/
 
 debian-java-policy-install:
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
