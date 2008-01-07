@@ -15,11 +15,6 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-# Some initializations:
-[ "$DESTDIR" ] || DESTDIR=
-[ "$JAVA_CLASSPATH" ] || JAVA_CLASSPATH=
-
-
 # Display a debugging message
 java_debug() {
     if [ "$DEBUG_WRAPPER" ]; then
@@ -37,6 +32,24 @@ java_fail() {
     echo "[error] $0: $@" >&2;
     exit 1;
 }
+
+# Some initializations:
+if [ "$JAVA_CLASSPATH" ]; then
+    java_debug "Building classpath on JAVA_CLASSPATH = '$JAVA_CLASSPATH'"
+else
+    JAVA_CLASSPATH=
+fi
+if [ "$DESTDIR" ]; then
+    java_debug "Using DESTDIR = '$DESTDIR'"
+else
+    DESTDIR=""
+fi
+
+if [ "$JAVA_JARPATH" ]; then
+    java_debug "Jar lookup is done in JAVA_JARPATH = '$JAVA_JARPATH'"
+else
+    JAVA_JARPATH=$DESTDIR/usr/share/java
+fi
 
 
 # Try to find a Java runtime and set JAVA_HOME and JAVA_CMD accordingly.
@@ -58,7 +71,13 @@ java_fail() {
 # This information is currently *far from complete* !!!
 find_java_runtime() {
     # First, known runtimes:
-    sun_java="/usr/lib/jvm/java-6-sun /usr/lib/jvm/java-1.5.0-sun /usr/lib/j2sdk1.4-sun /usr/lib/j2*1.[456]-sun"
+
+    sun5="/usr/lib/jvm/java-1.5.0-sun /usr/lib/j2*1.5-sun"
+    sun4="/usr/lib/j2*1.4-sun"
+    sun6="/usr/lib/jvm/java-6-sun /usr/lib/j2*1.6-sun"
+    
+    sun_java="$sun4 $sun5 $sun6"
+    
     gcj2="/usr/lib/jvm/java-*-gcj-4.* "
     sablevm="/usr/lib/sablevm"
     kaffe="/usr/lib/kaffe /usr/lib/kaffe/pthreads /usr/lib/kaffe/jthreads"
@@ -81,8 +100,27 @@ find_java_runtime() {
     xml_extra="/usr/lib/jvm/java-6-sun /usr/lib/jvm/java-1.5.0-sun"
 
     if [ "$JAVA_CMD" ]; then
-	java_debug "Using already set JAVA_CMD = $JAVA_CMD"
-	return 0;		# Nothing to do
+	if which "$JAVA_CMD" > /dev/null; then
+	    java_debug "Using already set JAVA_CMD = '$JAVA_CMD' => '"`which "$JAVA_CMD"`"'"
+	    return 0;		# Nothing to do
+	else
+	    java_warning "JAVA_CMD was set to '$JAVA_CMD', but which(1) does not find it."
+	    java_warning "Therefore ignoring JAVA_CMD"
+	fi
+    fi
+
+    if [ -z "$JAVA_BINDIR" ]; then 
+	if [ "$JAVA_DEBUGGER" ] && [ -x "$JAVA_BINDIR/jdb" ]; then
+	    JAVA_CMD="$JAVA_BINDIR/jdb"
+	elif [ -x "$JAVA_BINDIR/java" ]; then
+	    JAVA_CMD="$JAVA_BINDIR/java"
+	fi
+	if [ "$JAVA_CMD" ]; then
+	    java_debug "Using '$JAVA_CMD' from JAVA_BINDIR = '$JAVA_BINDIR'"
+	    return 0;
+	else
+	    java_warning "JAVA_BINDIR = '$JAVA_BINDIR' does not point to a java binary"
+	fi
     fi
 
     if [ -z "$JAVA_HOME" ]; then
@@ -97,7 +135,11 @@ find_java_runtime() {
 		;;
 	    sun) DIRS=$sun_java
 		;;
-	    sun6) DIRS=/usr/lib/jvm/java-6-sun
+	    sunmax5) DIRS="$sun4 $sun5"
+		;;
+	    sunmin5) DIRS="$sun5 $sun6"
+		;;
+	    sun6) DIRS=$sun6
 		;;
 	    fullxml) DIRS=$xml_extra
 		;;
@@ -111,6 +153,8 @@ find_java_runtime() {
 		break;
 	    fi
 	done
+    else
+	java_debug "Using provided JAVA_HOME = '$JAVA_HOME'"
     fi
     if [ "$JAVA_HOME" ] ; then
 	if [ "$JAVA_DEBUGGER" ] && [ -x "$JAVA_HOME/bin/jdb" ]; then
@@ -118,8 +162,8 @@ find_java_runtime() {
 	else
 	    JAVA_CMD="$JAVA_HOME/bin/java"
 	fi
-	java_debug "Found JAVA_HOME = $JAVA_HOME"
-	java_debug "Found JAVA_CMD = $JAVA_CMD"
+	java_debug "Found JAVA_HOME = '$JAVA_HOME'"
+	java_debug "Found JAVA_CMD = '$JAVA_CMD'"
 	return 0		# Fine
     else
 	java_warning "No java runtime was found for flavor '${1:-none}'"
@@ -134,16 +178,36 @@ require_java_runtime() {
 	java_fail "Unable to find an appropriate java runtime. See java_wrappers(7) for help"
 }
 
+# Looks for a jar file and returns its location as the
+# found_jar variable, or fails if no jar was found.
+locate_jar() {
+    jar="$1"
+    if [ -r $JAVA_JARPATH/$jar ]; then
+	found_jar=$JAVA_JARPATH/$jar
+    elif [ -r $JAVA_JARPATH/$jar.jar ]; then
+	found_jar=$JAVA_JARPATH/$jar.jar
+    elif [ -r $jar ]; then
+	# Maybe issue a warning that jars should not be looked
+	# for absolutely ?
+	found_jar=$JAVA_JARPATH/$jar
+    elif [ -r $jar.jar ]; then
+	# Maybe issue a warning that jars should not be looked
+	# for absolutely ?
+	found_jar=$JAVA_JARPATH/$jar.jar
+    else
+	return 1		# Not found
+    fi
+    return 0			# Found
+}
+
 # Find jars and add them to the classpath
 find_jars() {
     looked_for_jars=1
     for jar in $@ ; do
-	if [ -r $DESTDIR/usr/share/java/$jar ]; then
-	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$DESTDIR/usr/share/java/$jar
-	elif [ -r $DESTDIR/usr/share/java/$jar.jar ]; then 
-	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$DESTDIR/usr/share/java/$jar.jar
+	if locate_jar $jar; then
+	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$found_jar
 	else
-	    java_warning "Unable to locate $jar in $DESTDIR/usr/share/java/"
+	    java_warning "Unable to locate $jar in $JAVA_JARPATH"
 	fi
     done
 }
@@ -153,32 +217,30 @@ find_jars() {
 find_one_jar_in() {
     looked_for_jars=1
     for jar in $@ ; do
-	if [ -r $DESTDIR/usr/share/java/$jar ]; then
-	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$DESTDIR/usr/share/java/$jar
-	    return 0
-	elif [ -r $DESTDIR/usr/share/java/$jar.jar ]; then 
-	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$DESTDIR/usr/share/java/$jar.jar
+	if locate_jar $jar; do 
+	    JAVA_CLASSPATH=$JAVA_CLASSPATH:$found_jar
 	    return 0
 	fi
     done
-    java_warning "Could fine none of $@ in $DESTDIR/usr/share/java/"
+    java_warning "Could fine none of $@ in $JAVA_JARPATH"
     return 1
 }
 
 # Runs the program !
 run_java() {
     if [ -z "$JAVA_CMD" ]; then
-	java_warning "No JAVA_CMD set for run_java, using JAVA_CMD = java"
+	java_warning "No JAVA_CMD set for run_java, falling back to JAVA_CMD = java"
 	JAVA_CMD=java
     fi
     if [ "$FORCE_CLASSPATH" ]; then
-	java_debug "Using unmodified classpath : $FORCE_CLASSPATH";
+	java_debug "Using imposed classpath : FORCE_CLASSPATH = '$FORCE_CLASSPATH'";
 	cp="-classpath $FORCE_CLASSPATH";
     elif [ "$JAVA_CLASSPATH" ]; then
 	cp="-classpath $JAVA_CLASSPATH";
     else
 	cp="";
     fi
+    java_debug "Environment variable CLASSPATH is '$CLASSPATH'"
     java_debug "Runnning $JAVA_CMD $JAVA_ARGS $cp $@"
     exec $JAVA_CMD $JAVA_ARGS $cp "$@"
 }
@@ -190,5 +252,10 @@ run_jar() {
 	java_warning "It is most likely useless to use find_jar when running"
 	java_warning "a class with run_jar (-classpath is ignored)"
     fi
-    run_java -jar "$@"
+    if locate_jar $1; then
+	shift
+	run_java -jar "$@"
+    else
+	java_fail "Unable to find jar $1 in $JAVA_JARPATH"
+    fi
 }
