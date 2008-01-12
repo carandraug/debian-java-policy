@@ -232,6 +232,13 @@ run_java() {
 	java_warning "No JAVA_CMD set for run_java, falling back to JAVA_CMD = java"
 	JAVA_CMD=java
     fi
+    # We try to conjure up a JAVA_HOME from JAVA_CMD, if the former
+    # is absent. Idea coming from bug #404728.
+    if [ -z "$JAVA_HOME" ]; then
+	full_cmd_path="$(readlink -f `which $JAVA_CMD`)"
+	JAVA_HOME="${full_cmd_path:bin/*}"
+	java_debug "Using JAVA_CMD to find JAVA_HOME = '$JAVA_HOME'"
+    fi
     if [ "$FORCE_CLASSPATH" ]; then
 	java_debug "Using imposed classpath : FORCE_CLASSPATH = '$FORCE_CLASSPATH'";
 	cp="-classpath $FORCE_CLASSPATH";
@@ -240,13 +247,16 @@ run_java() {
     else
 	cp="";
     fi
+    # Exporting JAVA_HOME, I guess it can't hurt much, can it ?
+    export JAVA_HOME
     java_debug "Environment variable CLASSPATH is '$CLASSPATH'"
     java_debug "Runnning $JAVA_CMD $JAVA_ARGS $cp $@"
     exec $JAVA_CMD $JAVA_ARGS $cp "$@"
 }
 
 # Runs a java jar.
-# You don't have to use this function.
+# You don't have to use this function to run a jar, but you might find
+# it useful, though.
 run_jar() {
     if [ "$looked_for_jars" ]; 
 	java_warning "It is most likely useless to use find_jar when running"
