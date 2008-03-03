@@ -1,3 +1,9 @@
+java-common (0.28) UNRELEASED; urgency=low
+
+  * 
+
+ -- Matthias Klose <doko@debian.org>  Mon, 03 Mar 2008 12:40:19 +0100
+
 java-common (0.27) unstable; urgency=low
 
   * Updated FAQ. Closes: #449282.
