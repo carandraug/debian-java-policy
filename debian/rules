@@ -68,10 +68,16 @@ binary-arch:
 ifneq (,$(p_jre))
 	dh_testdir -s
 	dh_testroot -s
-###	dh_installdocs -s
-	dh_installchangelogs -s
+	dh_installdocs -pdefault-jre-headless
+	dh_installchangelogs -pdefault-jre-headless
 	dh_link -pdefault-jre-headless \
 		usr/lib/jvm/$(jvmdir) usr/lib/jvm/default-java
+	for p in default-jre-headless default-jre default-jdk default-jdk-builddep; do \
+	  [ -z "$$t" ] && t=$$p && continue; \
+	  mkdir -p debian/$$p/usr/share/doc; \
+	  ln -sf $$t debian/$$p/usr/share/doc/$$p; \
+	  t=$$p; \
+	done
 	dh_compress -s
 	dh_fixperms -s
 	dh_installdeb -s
