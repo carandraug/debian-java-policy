@@ -7,6 +7,7 @@ java-common (0.28) UNRELEASED; urgency=low
     a dependency on java-gcj-compat-dev even if the default jdk is
     another than java-gcj-compat-dev. Discussion thread starting at
     http://lists.debian.org/debian-java/2008/03/msg00007.html.
+  * update-java-alternatives: Add --jre-headless option.
 
  -- Matthias Klose <doko@debian.org>  Wed, 05 Mar 2008 18:28:56 +0100
 

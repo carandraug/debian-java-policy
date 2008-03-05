@@ -8,7 +8,7 @@ usage()
 {
     rv=$1
     cat >&2 <<-EOF
-	usage: $prog [--jre] [--plugin] [ -t|--test|-v|--verbose]
+	usage: $prog [--jre-headless] [--jre] [--plugin] [ -t|--test|-v|--verbose]
 	           -l|--list [<jname>]
 	           -s|--set <jname>
 	           -a|--auto
@@ -25,6 +25,8 @@ while [ "$#" -gt 0 ]; do
       -a|--auto)
 	[ -z "$action" ] || usage 1
 	action=auto;;
+      -hl|--jre-headless)
+	hlonly=yes;;
       -j|--jre)
 	jreonly=yes;;
       --plugin)
@@ -53,6 +55,7 @@ while [ "$#" -gt 0 ]; do
       -h|-?|--help)
 	usage 0;;
       -*)
+	echo "X: $1"
 	usage 1;;
       *)
 	break;;
@@ -60,13 +63,18 @@ while [ "$#" -gt 0 ]; do
     shift
 done
 
-[ "$#" -eq 0 ] || usage 1
-[ -n "$action" ] || usage 1
+#[ "$#" -eq 0 ] || usage 1
+#[ -n "$action" ] || usage 1
 
-which='^(jre|jdk|plugin|DUMMY) '
-[ -n "$jreonly$pluginonly" ] && which=${which/jdk|/}
-[ -n "$pluginonly" ] && [ -z "$jreonly" ] && which=${which/jre|/}
-[ -z "$pluginonly" ] && [ -n "$jreonly" ] && which=${which/plugin|/}
+which='^(hl|jre|jdk|plugin|DUMMY) '
+if [ -n "$hlonly$jreonly$pluginonly" ]; then
+    which='^('
+    [ -n "$hlonly" ] && which="${which}hl|"
+    [ -n "$jreonly" ] && [ -n "$hlonly" ] && which="${which}jre|"
+    [ -n "$jreonly" ] && [ -z "$hlonly" ] && which="${which}hl|jre|"
+    [ -n "$pluginonly" ] && which="${which}plugin|"
+    which="${which}DUMMY) "
+fi
 
 top=/usr/lib/jvm
 
@@ -125,11 +133,11 @@ do_set()
     awk "/$which/ {print}" $jinfo | sort -u \
 	| \
     while read type name location; do
-	if [ $type = jdk -a -z "$jreonly$pluginonly" -a ! -f $location ]; then
+	if [ $type = jdk -a -z "$hlonly$jreonly$pluginonly" -a ! -f $location ]; then
 	    echo >&2 "$prog: jdk alternative does not exist: $location"
 	    continue
 	fi
-	if [ $type = plugin -a -z "$jreonly" -a ! -f $location ]; then
+	if [ $type = plugin -a -z "$hlonly$jreonly" -a ! -f $location ]; then
 	    echo >&2 "$prog: plugin alternative does not exist: $location"
 	    continue
 	fi
