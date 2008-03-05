@@ -21,3 +21,46 @@ Description: Base of all Java packages
     programs and libraries as well as on legal issues.
   * Information on how to create dummy packages to fulfill java2
     requirements.
+
+Package: default-jre
+Section: interpreters
+Architecture: any
+Depends: default-jre-headless (= ${binary:Version}), ${jre}${jre:version}
+Suggests: default-jre
+Provides: ${jre:provides}
+Description: Standard Java or Java compatible Runtime
+ This package points to the Java runtime, or Java compatible
+ runtime recommended for the ${jre:arch} architecture,
+ which is ${jdk} for ${jdk:arch}.
+
+Package: default-jre-headless
+Section: interpreters
+Architecture: any
+Depends: ${jhl}${jre:version}, java-common
+Suggests: default-jre
+Provides: ${jhl:provides}
+Description: Standard Java or Java compatible Runtime (headless)
+ This package points to the Java runtime, or Java compatible
+ runtime recommended for this architecture, which is
+ ${jhl} for ${jre:arch}.
+ .
+ The package is used as dependency for packages not needing a
+ graphical display during runtime.
+
+Package: default-jdk
+Section: devel
+Architecture: any
+Depends: default-jre (= ${binary:Version}), ${jdk}${jdk:version}
+Provides: ${jdk:provides}
+Description: Standard Java or Java compatible Development Kit
+ This package points to the Java runtime, or Java compatible
+ development kit recommended for this architecture, which is
+ ${jdk} for ${jre:arch}.
+
+Package: default-jdk-builddep
+Section: devel
+Architecture: any
+Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}
+Description: Standard Java or Java compatible build dependencies
+ This package points to the build dependencies used to build
+ packages requiring a Java or Java compatible Development Kit.

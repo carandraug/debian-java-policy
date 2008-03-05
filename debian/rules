@@ -1,10 +1,39 @@
 #!/usr/bin/make -f
-# MAde with the aid of dh_make, by Craig Small
+# Made with the aid of dh_make, by Craig Small
 # Sample debian/rules that uses debhelper. GNU copyright 1997 by Joey Hess.
 # Some lines taken from debmake, by Cristoph Lameter.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
+
+, = ,
+S = $(EMPTY) $(EMPTY)
+mk_cslist = $(subst $(S),$(,)$(S),$(foreach v,$(1),$(v)-$(2)))
+vafilt = $(subst $(2)=,,$(filter $(2)=%,$(1)))
+jrel = $(subst java-common-0.,,$(notdir $(CURDIR)))
+
+DPKG_VARS := $(shell dpkg-architecture)
+DEB_HOST_ARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_ARCH)
+
+p_jre		= java-gcj-compat
+p_jhl		= java-gcj-compat-headless
+p_jdk		= java-gcj-compat-dev
+jdk_build_dep	=
+v_jre		= $(S)(>= 1.0.77-4)
+v_jdk		= $(v_jre)
+provides	= java java2 java5
+dversion	= 1.5-$(jrel)
+jvmdir		= java-gcj
+
+#ifneq (,$(filter $(DEB_HOST_ARCH), alpha hppa))
+#  p_jre		=
+#  p_headless	=
+#  p_jdk		=
+#endif
+
+jre_provides	= $(call mk_cslist,$(provides),runtime)
+jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)
+jdk_provides	= $(call mk_cslist,$(provides),sdk)
 
 build: build-stamp
 build-stamp:
@@ -17,8 +46,6 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp install-stamp
-
-	# Add here commands to clean up after the build process.
 	$(MAKE) clean
 
 	dh_clean
@@ -30,10 +57,7 @@ install-stamp: build-stamp
 	dh_clean -k
 	dh_installdirs
 
-	# Add here commands to install the package into debian/tmp.
-	# Create the doc directory.
 	dh_installdocs -i
-	# Install docs into the doc directory.
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/java-common
 
 	dpsch-backupclean
@@ -41,9 +65,34 @@ install-stamp: build-stamp
 	touch install-stamp
 
 binary-arch:
+ifneq (,$(p_jre))
+	dh_testdir -s
+	dh_testroot -s
+###	dh_installdocs -s
+	dh_installchangelogs -s
+	dh_link -pdefault-jre-headless \
+		usr/lib/jvm/$(jvmdir) usr/lib/jvm/default-java
+	dh_compress -s
+	dh_fixperms -s
+	dh_installdeb -s
+	dh_gencontrol -s -- \
+		-v$(dversion) \
+		'-Vjre=$(p_jre)' \
+		'-Vjhl=$(p_jhl)' \
+		'-Vjdk=$(p_jdk)' \
+		'-Vjdk:builddep=$(jdk_builddep)' \
+		'-Vjre:arch=$(DEB_HOST_ARCH)' \
+		'-Vjre:version=$(v_jre)' \
+		'-Vjdk:version=$(v_jdk)' \
+		'-Vjre:provides=$(jre_provides)' \
+		'-Vjhl:provides=$(jhl_provides)' \
+		'-Vjdk:provides=$(jdk_provides)' \
+
+	dh_md5sums -s
+	dh_builddeb -s
+endif
 
 # Build architecture-independent files here.
-# Pass -i to all debhelper commands in this target to reduce clutter.
 binary-indep: build install
 	dh_testdir -i
 	dh_testroot -i
@@ -52,26 +101,15 @@ binary-indep: build install
 	dh_installexamples -i
 	dpsch-cvsclean
 	dh_installmenu -i
-#	dh_installlogrotate -i
-#	dh_installemacsen -i
-#	dh_installpam -i
-#	dh_installmime -i
-#	dh_installinit -i
-#	dh_installcron -i
 	dh_installman -i
-#	dh_installinfo -i
-#	dh_undocumented -i
-	dh_installchangelogs  -i
+	dh_installchangelogs -i
 	dh_link -i
 	dh_compress -i
 	dh_fixperms -i
 	dh_installdeb -i
-#	dh_perl -i
 	dh_gencontrol -i
 	dh_md5sums -i
 	dh_builddeb -i
-
-	dh_builddeb
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install configure
