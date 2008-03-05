@@ -35,7 +35,7 @@ jre_provides	= $(call mk_cslist,$(provides),runtime)
 jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)
 jdk_provides	= $(call mk_cslist,$(provides),sdk)
 
-build: build-stamp
+build-indep: build-stamp
 build-stamp:
 	dh_testdir
 
@@ -50,12 +50,12 @@ clean:
 
 	dh_clean
 
-install: install-stamp
+install-indep: install-stamp
 install-stamp: build-stamp
 	dh_testdir
 	dh_testroot
-	dh_clean -k
-	dh_installdirs
+	dh_clean -k -i
+	dh_installdirs -i
 
 	dh_installdocs -i
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/java-common
@@ -64,7 +64,13 @@ install-stamp: build-stamp
 
 	touch install-stamp
 
-binary-arch:
+install-arch:
+	dh_testdir
+	dh_testroot
+	dh_clean -k -s
+
+
+binary-arch: install-arch
 ifneq (,$(p_jre))
 	dh_testdir -s
 	dh_testroot -s
@@ -99,7 +105,7 @@ ifneq (,$(p_jre))
 endif
 
 # Build architecture-independent files here.
-binary-indep: build install
+binary-indep: build-indep install-indep
 	dh_testdir -i
 	dh_testroot -i
 #	dh_installdebconf -i
