@@ -1,4 +1,4 @@
-java-common (0.28) UNRELEASED; urgency=low
+java-common (0.28) unstable; urgency=low
 
   * Build packages default-jre, default-jre-headless, default-jdk
     and default-jdk-builddep.
@@ -9,7 +9,7 @@ java-common (0.28) UNRELEASED; urgency=low
     http://lists.debian.org/debian-java/2008/03/msg00007.html.
   * update-java-alternatives: Add --jre-headless option.
 
- -- Matthias Klose <doko@debian.org>  Wed, 05 Mar 2008 18:28:56 +0100
+ -- Matthias Klose <doko@debian.org>  Wed, 05 Mar 2008 18:52:44 +0100
 
 java-common (0.27) unstable; urgency=low
 
