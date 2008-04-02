@@ -1,4 +1,4 @@
-java-common (0.28) UNRELEASED; urgency=low
+java-common (0.28) unstable; urgency=low
 
   [Matthias Klose]
   * Build packages default-jre, default-jre-headless, default-jdk
@@ -14,8 +14,9 @@ java-common (0.28) UNRELEASED; urgency=low
   * Fix issues in scripts/update-java-alternatives.8
   * Converted debian/java-common.doc-base.faq to utf-8 encoding.
   * Fix bug in scripts/update-java-alternatives when usage is shown.
+  * Ignore lintian issues as they are false positives in our case.
 
- -- Michael Koch <konqueror@gmx.de>  Tue, 01 Apr 2008 08:16:44 +0200
+ -- Michael Koch <konqueror@gmx.de>  Wed, 02 Apr 2008 21:13:24 +0200
 
 java-common (0.27) unstable; urgency=low
 
