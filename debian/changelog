@@ -1,5 +1,6 @@
-java-common (0.28) unstable; urgency=low
+java-common (0.28) UNRELEASED; urgency=low
 
+  [Matthias Klose]
   * Build packages default-jre, default-jre-headless, default-jdk
     and default-jdk-builddep.
     Provides an abstraction for the preferred jre/jdk for a specific
@@ -9,7 +10,12 @@ java-common (0.28) unstable; urgency=low
     http://lists.debian.org/debian-java/2008/03/msg00007.html.
   * update-java-alternatives: Add --jre-headless option.
 
- -- Matthias Klose <doko@debian.org>  Wed, 05 Mar 2008 18:52:44 +0100
+  [Michael Koch]
+  * Fix issues in scripts/update-java-alternatives.8
+  * Converted debian/java-common.doc-base.faq to utf-8 encoding.
+  * Fix bug in scripts/update-java-alternatives when usage is shown.
+
+ -- Michael Koch <konqueror@gmx.de>  Tue, 01 Apr 2008 08:16:44 +0200
 
 java-common (0.27) unstable; urgency=low
 

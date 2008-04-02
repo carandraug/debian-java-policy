@@ -63,8 +63,8 @@ while [ "$#" -gt 0 ]; do
     shift
 done
 
-#[ "$#" -eq 0 ] || usage 1
-#[ -n "$action" ] || usage 1
+[ "$#" -eq 0 ] || usage 1
+[ -n "$action" ] || usage 1
 
 which='^(hl|jre|jdk|plugin|DUMMY) '
 if [ -n "$hlonly$jreonly$pluginonly" ]; then
