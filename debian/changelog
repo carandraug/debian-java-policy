@@ -1,3 +1,9 @@
+java-common (0.30) unstable; urgency=low
+
+  * Fix description generation for default-jre. Closes: #476978.
+
+ -- Michael Koch <konqueror@gmx.de>  Sun, 27 Apr 2008 00:13:55 +0200
+
 java-common (0.29) unstable; urgency=low
 
   * Do not build the default-* packages on alpha, arm, hppa.
