@@ -1,9 +1,3 @@
-java-common (0.31) UNRELEASED; urgency=low
-
-  * On alpha, point default-* to openjdk-6.
-
- -- Matthias Klose <doko@debian.org>  Wed, 30 Jul 2008 14:41:31 +0200
-
 java-common (0.30) unstable; urgency=low
 
   * Fix description generation for default-jre. Closes: #476978.

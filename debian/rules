@@ -25,36 +25,7 @@ provides	= java java2 java5
 dversion	= 1.5-$(jrel)
 jvmdir		= java-gcj
 
-#ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386 ia64 lpia sparc))
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha))
-  p_jre		= openjdk-6-jre
-  p_jhl		= openjdk-6-jre-headless
-  p_jdk		= openjdk-6-jdk
-  jdk_build_dep	= java-gcj-compat-dev
-  v_jre		= $(S)(>= 6b11)
-  v_jdk		= $(v_jre)
-  provides	= java java2 java5 java6
-  dversion	= 1.6-$(jrel)
-  jvmdir	= java-6-openjdk
-endif
-
-ifeq (0,1)
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha powerpc))
-  p_jre		= cacao-oj6-jre
-  p_hl		= cacao-oj6-jre-headless
-  p_jdk		= cacao-oj6-jdk
-  ifeq (,$(filter $(DEB_HOST_ARCH), alpha))
-    jdk_build_dep	= java-gcj-compat-dev
-  endif
-  v_jre		=
-  v_jdk		=
-  provides	= java java2 java5 java6
-  dversion	= 1.6-$(jrel)
-  jvmdir	= cacao-6-openjdk
-endif
-endif
-
-ifneq (,$(filter $(DEB_HOST_ARCH), arm hppa))
+ifneq (,$(filter $(DEB_HOST_ARCH), alpha arm hppa))
   p_jre		=
   p_headless	=
   p_jdk		=
@@ -122,7 +93,7 @@ ifneq (,$(p_jre))
 		'-Vjre=$(p_jre)' \
 		'-Vjhl=$(p_jhl)' \
 		'-Vjdk=$(p_jdk)' \
-		'-Vjdk:builddep=$(jdk_build_dep)' \
+		'-Vjdk:builddep=$(jdk_builddep)' \
 		'-Vjre:arch=$(DEB_HOST_ARCH)' \
 		'-Vjre:version=$(v_jre)' \
 		'-Vjdk:version=$(v_jdk)' \
