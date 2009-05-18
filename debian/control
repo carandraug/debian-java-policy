@@ -1,5 +1,5 @@
 Source: java-common
-Section: misc
+Section: java
 Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Stefan Gybas <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>, Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>
@@ -23,7 +23,6 @@ Description: Base of all Java packages
     requirements.
 
 Package: default-jre
-Section: interpreters
 Architecture: any
 Depends: default-jre-headless (= ${binary:Version}), ${jre}${jre:version}
 Suggests: default-jre
@@ -34,7 +33,6 @@ Description: Standard Java or Java compatible Runtime
  which is ${jdk} for ${jre:arch}.
 
 Package: default-jre-headless
-Section: interpreters
 Architecture: any
 Depends: ${jhl}${jre:version}, java-common
 Suggests: default-jre
@@ -48,7 +46,6 @@ Description: Standard Java or Java compatible Runtime (headless)
  graphical display during runtime.
 
 Package: default-jdk
-Section: devel
 Architecture: any
 Depends: default-jre (= ${binary:Version}), ${jdk}${jdk:version}
 Provides: ${jdk:provides}
@@ -58,7 +55,6 @@ Description: Standard Java or Java compatible Development Kit
  ${jdk} for ${jre:arch}.
 
 Package: default-jdk-builddep
-Section: devel
 Architecture: any
 Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}
 Description: Standard Java or Java compatible build dependencies
