@@ -25,10 +25,21 @@ provides	= java java2 java5
 dversion	= 1.5-$(jrel)
 jvmdir		= java-gcj
 
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha arm hppa))
+ifneq (,$(filter $(DEB_HOST_ARCH), arm))
   p_jre		=
   p_headless	=
   p_jdk		=
+endif
+
+ifneq (,$(filter $(DEB_HOST_ARCH), hppa))
+  p_jre		= gcj-jre
+  p_jhl		= gcj-jre-headless
+  p_jdk		= gcj-jdk
+  v_jre		=
+  v_jdk		=
+  provides	= java java2 java5
+  dversion	= 1.5-$(jrel)
+  jvmdir	= java-gcj
 endif
 
 jre_provides	= $(call mk_cslist,$(provides),runtime)

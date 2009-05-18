@@ -1,3 +1,15 @@
+java-common (0.32) unstable; urgency=low
+
+  * Build the default-* packages on hppa.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 17 May 2009 23:21:22 +0200
+
+java-common (0.31) unstable; urgency=low
+
+  * Build the default-* packages on alpha again.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 01 Feb 2009 12:41:46 +0100
+
 java-common (0.30) unstable; urgency=low
 
   * Fix description generation for default-jre. Closes: #476978.

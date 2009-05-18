@@ -5,11 +5,11 @@ Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Stefan Gybas <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>, Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
-Standards-Version: 3.7.3
+Standards-Version: 3.8.1
 
 Package: java-common
 Architecture: all
-Suggests: equivs
+Suggests: default-jre, equivs
 Description: Base of all Java packages
  This package must be installed in the system if a Java environment
  is desired. It covers useful information for Java users in
