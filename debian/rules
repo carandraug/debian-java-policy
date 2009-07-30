@@ -15,31 +15,26 @@ jrel = $(subst java-common-0.,,$(notdir $(CURDIR)))
 DPKG_VARS := $(shell dpkg-architecture)
 DEB_HOST_ARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_ARCH)
 
-p_jre		= java-gcj-compat
-p_jhl		= java-gcj-compat-headless
-p_jdk		= java-gcj-compat-dev
+p_jre		= gcj-jre
+p_jhl		= gcj-jre-headless
+p_jdk		= gcj-jdk
 jdk_build_dep	=
-v_jre		= $(S)(>= 1.0.77-4)
+v_jre		=
 v_jdk		= $(v_jre)
 provides	= java java2 java5
 dversion	= 1.5-$(jrel)
 jvmdir		= java-gcj
 
-ifneq (,$(filter $(DEB_HOST_ARCH), arm))
-  p_jre		=
-  p_headless	=
-  p_jdk		=
-endif
-
-ifneq (,$(filter $(DEB_HOST_ARCH), hppa))
-  p_jre		= gcj-jre
-  p_jhl		= gcj-jre-headless
-  p_jdk		= gcj-jdk
-  v_jre		=
-  v_jdk		=
-  provides	= java java2 java5
-  dversion	= 1.5-$(jrel)
-  jvmdir	= java-gcj
+ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel powerpc s390 sparc))
+  p_jre		= openjdk-6-jre
+  p_jhl		= openjdk-6-jre-headless
+  p_jdk		= openjdk-6-jdk
+  jdk_build_dep	= gcj-jdk
+  v_jre		= $(S)(>= 6b14)
+  v_jdk		= $(v_jre)
+  provides	= java java2 java5 java6
+  dversion	= 1.6-$(jrel)
+  jvmdir	= java-6-openjdk
 endif
 
 jre_provides	= $(call mk_cslist,$(provides),runtime)
@@ -104,7 +99,7 @@ ifneq (,$(p_jre))
 		'-Vjre=$(p_jre)' \
 		'-Vjhl=$(p_jhl)' \
 		'-Vjdk=$(p_jdk)' \
-		'-Vjdk:builddep=$(jdk_builddep)' \
+		'-Vjdk:builddep=$(jdk_build_dep)' \
 		'-Vjre:arch=$(DEB_HOST_ARCH)' \
 		'-Vjre:version=$(v_jre)' \
 		'-Vjdk:version=$(v_jdk)' \

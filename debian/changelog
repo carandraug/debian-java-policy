@@ -1,8 +1,18 @@
-java-common (0.33) UNRELEASED; urgency=low
+java-common (0.33) unstable; urgency=low
 
+  [ Matthias Klose ]
   * Set package sections to java.
 
- -- Matthias Klose <doko@debian.org>  Mon, 18 May 2009 14:18:43 +0200
+  [ Torsten Werner ]
+  * Add myself to Uploaders.
+  * Add a local copy of debian-java-faq to avoid network (CVS) access during
+    build time.
+  * Sync with Ubuntu:
+    - Switch to OpenJDK as the default JDK/JRE.
+  * Update Standards-Version: 3.8.2:
+    - Add Vcs headers to debian/control.
+
+ -- Torsten Werner <twerner@debian.org>  Thu, 30 Jul 2009 15:16:06 +0200
 
 java-common (0.32) unstable; urgency=low
 
@@ -15,6 +25,42 @@ java-common (0.31) unstable; urgency=low
   * Build the default-* packages on alpha again.
 
  -- Matthias Klose <doko@debian.org>  Sun, 01 Feb 2009 12:41:46 +0100
+
+java-common (0.30ubuntu5) karmic; urgency=low
+
+  * default-jdk-builddep: Depend on gcj-jdk instead of java-gcj-compat-dev.
+  * Build for hppa.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 27 Apr 2009 13:36:36 +0200
+
+java-common (0.30ubuntu4) jaunty; urgency=low
+
+  * Default to openjdk-6 on armel.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 17 Nov 2008 08:03:21 +0100
+
+java-common (0.30ubuntu3) intrepid; urgency=low
+
+  * On powerpc, default back to openjdk-6 instead of cacao-oj6. Still
+    more testsuite failures in the OpenJDK testsuite with cacao compared
+    to the zero port. 
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 13 Oct 2008 18:09:39 +0000
+
+java-common (0.30ubuntu2) intrepid; urgency=low
+
+  * debian/rules
+    - Fix jvmdir for powerpc, so that default-java symlink is correct.
+      (LP: #256949)
+
+ -- Onkar Shinde <onkarshinde@ubuntu.com>  Wed, 13 Aug 2008 01:55:23 +0530
+
+java-common (0.30ubuntu1) intrepid; urgency=low
+
+  * On amd64, i386, ia64 and sparc, point default-* to openjdk-6,
+    on powerpc, point to cacao-oj6.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 30 Jul 2008 14:41:31 +0200
 
 java-common (0.30) unstable; urgency=low
 
