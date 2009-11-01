@@ -37,6 +37,8 @@ ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel 
   jvmdir	= java-6-openjdk
 endif
 
+p_doc		= openjdk-6-doc
+
 jre_provides	= $(call mk_cslist,$(provides),runtime)
 jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)
 jdk_provides	= $(call mk_cslist,$(provides),sdk)
@@ -118,6 +120,9 @@ binary-indep: build-indep install-indep
 	dh_install -i
 #	dh_installdebconf -i
 ###	dh_installdocs -i
+	mkdir -p debian/default-jdk-doc/usr/share/doc/default-jre-headless
+	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jre-headless/api
+	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jdk-doc/api
 	dh_installexamples -i
 	dpsch-cvsclean
 	dh_installmenu -i
@@ -127,7 +132,9 @@ binary-indep: build-indep install-indep
 	dh_compress -i
 	dh_fixperms -i
 	dh_installdeb -i
-	dh_gencontrol -i
+	dh_gencontrol -i -- \
+		'-Vdoc=$(p_doc)' \
+		'-Vjdk=$(p_jdk)'
 	dh_md5sums -i
 	dh_builddeb -i
 

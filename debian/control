@@ -56,6 +56,16 @@ Description: Standard Java or Java compatible Development Kit
  development kit recommended for this architecture, which is
  ${jdk} for ${jre:arch}.
 
+Package: default-jdk-doc
+Architecture: all
+Section: doc
+Depends: ${doc}
+Suggests: default-jdk
+Description: Standard Java or Java compatible Development Kit (documentation)
+ This package points to the documentation for the Java development kit,
+ or Java compatible development kit recommended for Debian, which is
+ ${doc}.
+
 Package: default-jdk-builddep
 Architecture: any
 Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}

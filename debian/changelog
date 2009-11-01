@@ -1,3 +1,11 @@
+java-common (0.34) UNRELEASED; urgency=low
+
+  * Build a default-jdk-doc package to make the documentation available
+    in a path (/usr/share/doc/default-jdk/api) independent of the depending
+    package.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 01 Nov 2009 18:57:06 +0100
+
 java-common (0.33) unstable; urgency=low
 
   [ Matthias Klose ]
