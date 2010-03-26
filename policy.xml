@@ -3,6 +3,7 @@
 	"/usr/share/sgml/docbook/dtd/4.1/docbook.dtd"
 [
 <!ENTITY must "<emphasis>must</emphasis>">
+<!ENTITY mustnot "<emphasis>must not</emphasis>">
 <!ENTITY may "<emphasis>may</emphasis>">
 <!ENTITY should "<emphasis>should</emphasis>">
 <!ENTITY jvm "<emphasis>java-virtual-machine</emphasis>">
@@ -18,6 +19,18 @@
     <edition>$Revision:$ $Date:$</edition>
     <authorgroup>
       <author>
+	<surname>Thykier</surname>
+	<firstname>Niels</firstname>
+	<authorblurb>
+	  <para>
+	    <email>niels@thykier.net</email>
+	  </para>
+	  <para>
+	    The current author of the java policy.
+	  </para>
+	</authorblurb>
+      </author>
+      <author>
 	<surname>Lundqvist</surname>
 	<firstname>Ola</firstname>
 	<authorblurb>
@@ -25,7 +38,7 @@
 	    <email>opal@debian.org</email>
 	  </para>
 	  <para>
-	    The current author of the java policy.
+	    A previous author of the java policy.
 	  </para>
 	</authorblurb>
       </author>
@@ -98,21 +111,16 @@
     </para>
 
     <para>
-      All Java code must be shipped as Java bytecode (*.class files, packaged
-      in a *.jar archive) and with <quote>Architecture: all</quote>.
-    </para>
-
-    <para>
       Packages written in Java are separated in two categories: programs
       and libraries. Programs are intended to be run by end-users. Libraries
       are intended to help programs to run and to be used by developers.
     </para>
 
     <para>
-      Both are shipped as Java bytecode (<filename>*.class</filename>
+      Both &must; be shipped as Java bytecode (<filename>*.class</filename>
       files, packaged in a <filename>*.jar</filename> archive) and with
-      an "Architecture: all" since Java bytecode is supposed to be portable.
-      It may additionally be shipped as machine code, as produced for example
+      an "Architecture: all".
+      It &may; additionally be shipped as machine code, as produced for example
       by the GNU Compiler for Java, in a separate architecture-specific
       package.
     </para>
@@ -135,11 +143,11 @@
 
       <para>
         Packages that contain a runtime conforming to the Java 1.1
-	specification should provide &j1r;. Packages that contain a runtime
-	conforming to the Java 2 specification should provide &j2r;.
-	If a package conforms to both, then it should provide both; however,
+	specification &should; provide &j1r;. Packages that contain a runtime
+	conforming to the Java 2 specification &should; provide &j2r;.
+	If a package conforms to both, then it &should; provide both; however,
 	packages that do not implement the methods from Java 1.1 that have been
-	deprecated in Java 2 must not provide &j1r;.
+	deprecated in Java 2 &mustnot; provide &j1r;.
       </para>
 	
       <para>
@@ -301,8 +309,7 @@
 	<listitem>
 	  <para>
 	    If your source package can compile (correctly) only
-	    with non-free tools (the only free Java compilers seem to be
-	    guavac, gcj and jikes, it cannot go to main. If your package itself
+	    with non-free tools, it cannot go to main. If your package itself
 	    is free, it &must; go to contrib.
 	  </para>
 	</listitem>
