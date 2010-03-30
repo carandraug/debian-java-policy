@@ -4,6 +4,8 @@ java-common (0.35) UNRELEASED; urgency=low
   * Added myself to the list of Authors of the Java Policy.
   * Integrated adapted parts of the FOSDEM06 proposal into the Java
     Policy.
+    - Java libraries are no longer required to depend on a JVM
+    (Closes: #227587)
 
  -- Niels Thykier <niels@thykier.net>  Fri, 26 Mar 2010 21:44:45 +0100
 
