@@ -313,7 +313,7 @@
 	<filename>/usr/share/doc/&lt;package&gt;/api-&lt;component&gt;/</filename>.
       </para>
       <para>
-	The API &must; be place in a separate doc package. This package
+	The API &must; be placed in a separate doc package. This package
 	&must; recommend the doc packages it was linked against.
       </para>
     </sect1>
