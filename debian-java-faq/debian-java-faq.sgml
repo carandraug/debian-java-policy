@@ -230,20 +230,6 @@ name="Setting Up A Java Development Enviroment For Linux">
 </list>
 
 
-<!-- No longer available
-<item>Linux users worlwide includes information on how to use Java an
-Linux <url id="http://linuxusers.webprovider.com">.
--->
-
-<!-- Pretty old and not very much maintainted ATM
-<item>Linux Java Tips and Hints at <url
-id="http://www.parnasse.com/java.shtml">.
--->
-
-<!-- no longer available
-<item>The Java and Linux Page <url id="http://www.geocities.com/SiliconValley/Platform/8187/java/Linux_java.html">
--->
-
 <item><url id="http://www.linuxfocus.org/" name="LinuxFocus">, a free
 multilingual journal:
 <list>
@@ -298,7 +284,12 @@ id="http://www.debian.org/MailingLists/subscribe" name="Mailing List
 Subscription"> page.
 
 
-<chapt id="debian-java-woody">Status of Java in Debian GNU/Linux 3.0 (Woody)
+<chapt id="debian-java-etch">Status of Java in Debian's older releases (before Lenny)
+
+<sect>Is the information in this chapter still up to date?
+<p>
+Probably not but it takes some time to re-check every entry. That is why we keep
+the information for a while.
 
 <sect>Where is Debian Java going?
 
@@ -327,9 +318,6 @@ This section is a summary of the information therein.
 time, it was written around 1999)
 
 <sect>Is there a Java1 compiler (.java to .class)?
-<p>There is the Kopi Java Compiler written
-in Java. And the super fast Jikes written in C++.
-
 <p>Gcj can also compile .java to .class.  CVS version currently
 does  handle inner classes, as well as any other jdk 1.1 constructs,
 but might not be able to compile a complicated program like the
@@ -341,39 +329,13 @@ of course being able to use the same compiler for .java to .class and
 
 <sect>Is there a Java1 JVM or JIT?  
 
-<p>Kaffe 1.0.5 is largely feature complete and now includes support
-for RMI. It is not clear as to whether Kaffe's serialization is
-"binary compatible" with Sun's implementation in all cases so there
-may be interoperation issues in some casses. Kaffe comes with a big
-class library.
-
-<!-- No, it's not anymore
-<p>Japhar is also available.
--->
 <p>libgcj (the run-time library for gcj) now includes an interpreter
 and ClassLoader.
-<p>tya, a JIT compiler, is also available.
 
 <sect>Is there a Java1 native compiler?
 <p>GCC, the Gnu Compiler Collection comes with GCJ, the Gnu Compiler for Java
 
-<sect1>Java2 native compiler
-<p>It is unclear whether native compiler refers to the adaptive JIT
-  capabilities in Java2 or to a compiler that understands Java2
-  semantics. In either case, Kaffe's JIT strategy is not adaptive but
-  performs correctly, and improving, it is believed IBM's Jikes 
-  compiler understands Java2 concepts such as weak references.
-
-<sect>Does Debian have Java2 foundation libraries?
-
-<p>Many of these components have been cloned under a Free Software
-license. Kaffe provides many of these routines, including an
-up-to-date RMI implementation. There are, however, definitely
-shortcomings. Swing, as far as we know, has not been cloned.
-
 <sect>Is there a Java Debugger (jdb equivalent)?
-<p><package>jswat</package>
-
 <p>Gdb can debug native code produced by Gcj. Stuart Grossman (Cygnus) also
 wrote support for Gdb to debug other VMs using JVMDI.  This has not
 been released, because the Gdb internals were changed at the same
@@ -391,34 +353,8 @@ Debian?
 <P>One of the some nice features of jde are autoindention and syntax
 highlighting, but it also supports debugging and compilation.
 
-<sect1>Known problems
-
-<p>My version of <prgn>jdb</prgn> (jdb version 98/01/06) terminates
-after a program finishes execution, and I have to reset every
-breakpoint if I want to run through the program again. This makes
-using jdb extremely frustrating. Jdb also can't (easily) print the
-values in an array which is more than three elements long. Ddd lets me
-work around both of these annoyances.
- 
-<p><prgn>ddd</prgn> 3.1 and earlier would "hang" when receiving
-certain prompts with wierd thread names from jdb. This made it very
-hard to use ddd with jdb.  This has been fixed in ddd 3.2. It doesn't
-look like ddd 3.2 has been packaged yet. I suspect the current
-packaged version of ddd won't work well with jdb.
-                                             
-
-<sect>Is there an Appletviewer tool?
-<p>There are some alternatives for an appletviewer tool:
-
-<list>
-<item>Blackdown's appletviewer (in jdk1.1).
-<item>Kaffe's appletviewer.
-<item>Ibm's appletviewer (in ibm-jdk).
-</list>
-
 <sect>Is there a Jar tool?
 <p><package>FastJar</package> which is indeed very fast. 
-<package>Kaffe</package> also has a jar tool.
  
 
 <sect>Is there a Javadoc tool?
@@ -460,184 +396,27 @@ are the <package>gjdoc</package> and <package>gjdoc-native</package> packages.
   interested in tuple space type implementations there are Open
   Source options. 
 
-<sect>Is there a full list of packages?
-
-<p>Below is a list given on packages that can be found in Debian 3.0
-(aka Woody).  The list does not display which of these packages can be found
-in main, and which is contrib or non-free.
-
-<list>
-  <item>Runtime environments/Virtual Machines
-  <list>
-    <item><package>jdk1.1</package> (Sun's JDK 1.1.8)
-    <item>IBM 's JDK 1.1.8 (installer package)
-    <item><package>kaffe</package>
-    <item><package>kissme</package>
-    <item><package>sablevm</package>
-  </list>
-  <item>Tools
-  <list>
-    <item>Compilers
-    <list>
-      <item><package>jikes</package> (also <package>jikes-1.14</package>, <package>jikes-gij</package>, 
-            <package>jikes-kaffe</package>)
-      <item><package>jdk1.1</package>
-      <item><package>gcj</package>
-      <item><package>tya</package> (JIT compiler)
-    </list>
-    <item>Debuggers/Testing
-    <list>
-      <item><package>jswat</package>
-      <item><package>junit</package>
-    </list>
-    <item>IDE/Editors
-    <list>
-      <item><package>jedit</package>
-      <item><package>jde</package>
-    </item>
-    <item>Build tools
-    <list>
-      <item><package>ant</package>
-      <item><package>jmk</package>
-      <item><package>mmake</package>
-    </list>
-    <item>Other
-    <list>
-      <item><package>fastjar</package>
-      <item><package>jad</package> (decompiler)
-    </list>
-  </list>
-<item>Ant
-</list>
-<item>Libraries
-  <list>
-    <item><package>lib-dom-java</package>
-    <item><package>lib-gnu.getopt-java</package>
-    <item><package>lib-gnu.regexp-java</package>
-    <item><package>lib-saxon-java</package>
-    <item><package>libavalon-excalibur-java</package>
-    <item><package>libavalon-framework-java</package>
-    <item><package>libbcel-java</package>
-    <item><package>libbsf-java</package>
-    <item><package>libcrimson-java</package>
-    <item><package>libcommons-beanutils-java</package>
-    <item><package>libcommons-collections-java</package>
-    <item><package>libcommons-digester-java</package>
-    <item><package>libjdom-java</package>
-    <item><package>libjunitperf-java</package>
-    <item><package>libldap-java</package>
-    <item><package>liblog4j</package>
-    <item><package>liblogkit-java</package>
-    <item><package>libnbio-java</package>
-    <item><package>liboro-java</package>
-    <item><package>libpgjava</package>
-    <item><package>libreadline-java</package>
-    <item><package>libregexp-java</package>
-    <item><package>libservlet2.3-java</package>
-    <item><package>libservlet2.2-java</package>
-    <item><package>libsoap-java</package>
-    <item><package>libtomcat4-java</package>
-    <item><package>libxalan-java</package>
-    <item><package>libxalan2-java</package>
-    <item><package>libxerces-java</package>
-    <item><package>libxerces2-java</package>
-    <item><package>libxt-java</package>
-  </list>
-</list>
   
-<chapt id="debian-java-sarge">Status of Java in Debian GNU/Linux 3.1 (Sarge)
-
-<sect>Are there many changes?
+<sect>Are there many changes in Sarge?
 <p>
-Yes, quite some. There have been very interesting developments 
-in Debian Java lately. Slowly, there seem be developed a set of
-Debian tools to deal with maintaining Debian package of Java 
-applications and libraries.
 At this moment, there only seems to be dh_javadoc, which is a tool
 in the <package>gjdoc</package> package. However, people spoke about
 other tools on the debian-java mailing list in 2003.  
-
-<p>
-In addition to this, <package>ant</package> has found its way into main,
-paving to way for other packages to enter main.
-
-<p>
-And the <package>eclipse</package> seems to get rather stable. Early
-August 2003, the gcj team even was able to compile the IDE to native
-code, using only minor modifications.
-
-<p>
-  It is quite useful to first browse the section on Java in Debian
-  GNU/Linux Woody (since those in woody are also in later releases, see
-  <ref id="debian-java-woody">),
-  but there are somes changes. Instead of listing all the
-  packages again, this section will list only changes:
-
-<list>
-  <item><package>eclipse</package> An extensive IDE
-  <item><package>sablevm</package> A free Virtual Machine
-  <item><package>free-java-sdk</package> A free Java SDK (compiled from DSFG compliant Java tools)
-  <item><package>libgnome0-java</package> Java bindings to Gnome GUI library
-  <item><package>gjdoc</package> A Javadoc 1.3 replacement (90% of Doclet API implemented)
-  <item><package>kaffe</package> Release 1.1.3 can run much more software than 1.0.5 in woody
-  <item><package>ant</package> Version 1.6 is in main
-</list>
-
-<p>
-The following packages are no longer in testing/unstable:
-<list>
-  <item><package>libswing-java</package> Which is mentioned here: <ref id="sect:dfsg-compliant-gui">.
-</list>
-
-<chapt id="debian-java-etch">Status of Java in Debian GNU/Linux 4.0 (Etch)
 
 <p>The <em>Etch</em> release was the first one to provide Sun's JDK
 environment without the need to download it from third-party repositories
 (see <ref id="java56">).
 
-<p>As part of the effort to move Java packages to main, 36 new Java packages
-were moved to main after being built with free Java development tools. Notably,
-<package>ant</package> (a Java-based build tool),
-<package>libstruts1.2-java</package> (a MVC framework),
-<package>tomcat5</package> (a Java servlet engine) and
-<package>eclipse</package> (a developer's environment platform) have been moved
-to main.  For the full list see the <url
-id="http://wiki.debian.org/Java/AlreadyMovedToMain" name="Debian wiki">.
-
 <sect>Which Java package are currently in main?
-
-<p>
-At the time of writing, 209 Java packages were found in main, of which 119 were
-Java libraries.  To see the list of packages in main (i.e., not contrib and
-non-free), try:
-
-<example>
-grep-available -F Depends -sSection,Package java | paste -sd "  \n" | \
-  grep -v contrib | grep -v non-free | sort
-</example>
-
-<p>There are additional packages in the <em>contrib</em> section which can be
-found with a command similar as the one above.
-
 <p>The <url id="http://pkg-java.alioth.debian.org/" name="pkg-java">
 website also maintains a list (probably more up to date) of java
 packages.
 
 <sect>What keeps Java packages out of main?
 
-<p>An overview of packages that are still not in main is found at the
-Debian Wiki site: <url id="http://wiki.debian.org/Java/MoveToMain"
-name="MovingToMain">.
-
 <p>The current status, as of this writing (june 2004) is that there is
 progress of moving packages that use Java but can be run without the
-aid of non-free software from contrib to main. A number of packages
-have been moved to main and new releases of GNU Classpath, SableVM,
-and Kaffe promise further steps ahead. Two of the major issues
-currently being looked at are making gjdoc a proper javadoc
-replacement and building ant with Free Software only.  People wanting
-to help can start by inspecting packages labeled as unknown on the
-<url id="http://wiki.debian.org/Java/MoveToMain" name="Java to main wiki">
+aid of non-free software from contrib to main.
 
 <sect>What can I expect in future releases?
 
@@ -705,12 +484,6 @@ in Debian. There are a lot of projects that you can choose from:
 <list>
 
 <item>kaffe: <url id="http://www.kaffe.org">.
-
-<!--  No longer there
-<item>Japhar: <url id="http://www.japhar.org">. The Java virtual
-machine of "Hungry Programmer". More info in <url
-id="http://www.hungry.com/products/japhar">.
--->
 
 <item>gcj and libgcj: <url id="http://sourceware.cygnus.com/java/">
 
@@ -1717,143 +1490,6 @@ servlets. More info in <url id="http://www.netcomputing.de">.
 <item>Free Builder. A Java IDE written in Java and distributed under
 the GPL <url id="http://www.freebuilder.org">.
 
-</list>
-
-<appendix>Older Debian GNU/Linux versions
-
-<p>This appendix is included for historical reasons. It contains
-information that used to be in the FAQ (and indeed still is ;), but
-that only has historical value.
-
-<sect>Debian 2.2 'potato'
-<p>
-<list>
-
-<item>Libraries
-<list>
-<item>lib-fop-java
-<item>lib-gnu.getopt-java
-<item>lib-gnu.regexp-java
-<item>lib-openxml-java
-<item>lib-rxtx-java
-<item>lib-sax-java
-<item>lib-xp-java
-<item>lib-xslp-java
-<item>lib-xt-java
-<item>lib-dom-java
-<item>libpgjava
-<item>libgcj0
-</list>
-
-<item><package>bock</package> Bootstrap-only compiler kit for a subset of Java(tm)
-
-<item><package>doc++</package>. A documentation system for C/C++ and Java
-
-<item><package>fastjar</package> a complete replacement for the jar
-utility written in C under the GPL <url
-id="http://www.engr.orst.edu/~burnsbr/fastjar/"> (check <url
-id="http://lists.debian.org/debian-java/1999/debian-java-199908/msg00015.html">.
-
-<item><package>java2html</package>. Highlits Java sources for WWW presentations.
-
-<item><package>gcj</package> The GNU compiler for Java(TM).
-
-<item><package>global</package>.Source code search and browse.
-
-<item><package>guavac</package>. A Java compiler.
-
-<item><package>jikes</package>. Fast Java compiler adhering to
-language and VM specifications
-
-<item><package>jikes-pg</package>.Jikes Parser Generator.
-
-<item><package>oo-browser</package>.Object Oriented (X)Emacs Class Browser.
-
-<item><package>mmake</package>.Makefile generator for Java programs.
-
-<item><package>cocoon</package>. A XML/XSL publishing framework servlet
-
-<item><package>bsh</package> A Java scripting environment.
-<item><package>cup</package>.  LALR parser generator for Java.
-<item><package>freetds-jdbc</package>. Pure Java JDBC driver for MS
-SQL and Sybase.
-
-<item><package>gnujsp</package>.
-A free implementation of Sun's Java Server Pages (JSP 1.0)
-
-<item><package>jlex</package>.A Lex-style lexical analyser generator
-for Java
-
-<item><package>jserv</package>Java Servlet 2.0 engine with an optional
-Apache module
-
-<item><package>tya</package>.JIT-compiler for Java.
-
-<item><package>ibm-jdk1.1-installer</package>. Installer for IBM
-Developer Kit for Linux, Java(TM) Technology Edition. 
-
-<item><package>jdk1.1</package>.JDK 1.1.x (Java Development Kit) -
-Runtime only
-
-<item><package>jdk1.1-dev</package> JDK 1.1.x (Java Development Kit)
-
-<item><package> biss-awt</package> a Java GUI application programming
-framework.
-
-<item><package>jdk1.1-native</package>.JDK 1.1.x Runtime - native
-threads extensions
-
-<item><package>jdk1.1-native-dev</package>.  JDK 1.1.x - native
-threads extensions.
-
-<item><package>vrwave</package>.VRML 2.0 java-based browser
-
-</list>
-
-<p>Also many editors (jed, elvis, vim, emacs, fte, xcoral,zed ....) have
-support for Java syntax.
-
-<sect>Debian 2.1 'slink'
-<p>
-<list>
-<item><package>jdk 1.1.5v5</package>
-<item><package>vrwave</package>. A Java VRML browser.
-<item><package>icq-java</package>. An installer
-for the ICQJava program.
-<item><package>jde</package>. A Java Development
-Enviroment for Emacs <url id="http://sunsite.auc.dk/jde">.
-<item><package>jlex</package>. A lexical analyser generator similar to the UNIX <prgn>lex</prgn>.
-<item><package>mmake</package>. A generator of Makefiles for java
-programs. More info at <url id="http://www.tildeslash.com/mmake">
-<item><package>libpgjava</package>. A Java class that
-enables communication with the PostgreSQL database using JDBC.
-<item><package>cup</package>. A parser similar to
-<prgn>yacc</prgn>.
-<item><package>ilu-javadev</package>. Development
-header and libraries for the Inter-Language Unification System.
-</list>
-
-
-<sect1>I've installed the latest jde package...what I have to do to let Emacs enter jde-mode automatically when loading a Java source file?
-<p>As explained in <file>/usr/doc/jde/README.Debian</file>, all that 
-is required is putting
-<example>
- (require 'jde)
-</example>
-into your <file>~/.emacs</file> file.
-<p>Note that other add-on packages to Emacs are not enabled by default
-either, e.g., AucTeX.
-
-<sect>Debian 2.0 'hamm'
-<p>
-<list>
-<item><package>jdk 1.1.5v5</package>
-</list>
-
-<sect>Debian 1.3.1 'bo'
-<p>
-<list>
-<item><package>jdk 1.0.2</package>
 </list>
 
 </book>

@@ -24,6 +24,8 @@ publish:	$(MANUAL).html/index.html
 		install -m 644 --preserve-timestamps $(MANUAL).html/*.html \
 			$(PUBLISHDIR)/$(MANUAL)/
 
+generate:	$(MANUAL).html/index.html
+
 $(MANUAL).html/index.html:	$(wildcard *.sgml)
 		debiandoc2html $(MANUAL).sgml
 
