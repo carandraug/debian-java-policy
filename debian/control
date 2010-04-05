@@ -6,12 +6,13 @@ Uploaders: Stefan Gybas <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>, 
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
-Standards-Version: 3.8.2
+Standards-Version: 3.8.4
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/java-common/
 
 Package: java-common
 Architecture: all
+Depends: ${misc:Depends}
 Suggests: default-jre, equivs
 Description: Base of all Java packages
  This package must be installed in the system if a Java environment
@@ -27,7 +28,8 @@ Description: Base of all Java packages
 
 Package: default-jre
 Architecture: any
-Depends: default-jre-headless (= ${binary:Version}), ${jre}${jre:version}
+Depends: default-jre-headless (= ${binary:Version}), ${jre}${jre:version},
+ ${misc:Depends}
 Suggests: default-jre
 Provides: ${jre:provides}
 Description: Standard Java or Java compatible Runtime
@@ -37,7 +39,7 @@ Description: Standard Java or Java compatible Runtime
 
 Package: default-jre-headless
 Architecture: any
-Depends: ${jhl}${jre:version}, java-common
+Depends: ${jhl}${jre:version}, java-common, ${misc:Depends}
 Suggests: default-jre
 Provides: ${jhl:provides}
 Description: Standard Java or Java compatible Runtime (headless)
@@ -50,7 +52,8 @@ Description: Standard Java or Java compatible Runtime (headless)
 
 Package: default-jdk
 Architecture: any
-Depends: default-jre (= ${binary:Version}), ${jdk}${jdk:version}
+Depends: default-jre (= ${binary:Version}), ${jdk}${jdk:version},
+ ${misc:Depends}
 Provides: ${jdk:provides}
 Description: Standard Java or Java compatible Development Kit
  This package points to the Java runtime, or Java compatible
@@ -60,7 +63,7 @@ Description: Standard Java or Java compatible Development Kit
 Package: default-jdk-doc
 Architecture: all
 Section: doc
-Depends: ${doc}
+Depends: ${doc}, ${misc:Depends}
 Suggests: default-jdk
 Description: Standard Java or Java compatible Development Kit (documentation)
  This package points to the documentation for the Java development kit,
@@ -69,7 +72,7 @@ Description: Standard Java or Java compatible Development Kit (documentation)
 
 Package: default-jdk-builddep
 Architecture: any
-Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}
+Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}, ${misc:Depends}
 Description: Standard Java or Java compatible build dependencies
  This package points to the build dependencies used to build
  packages requiring a Java or Java compatible Development Kit.
