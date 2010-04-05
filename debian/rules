@@ -10,7 +10,7 @@
 S = $(EMPTY) $(EMPTY)
 mk_cslist = $(subst $(S),$(,)$(S),$(foreach v,$(1),$(v)-$(2)))
 vafilt = $(subst $(2)=,,$(filter $(2)=%,$(1)))
-jrel = $(shell dpkg-parsechangelog | grep Version | sed "s/Version: 0.//")
+jrel = $(shell dpkg-parsechangelog | grep -E ^Version: | sed "s/Version: 0.//")
 
 DPKG_VARS := $(shell dpkg-architecture)
 DEB_HOST_ARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_ARCH)
