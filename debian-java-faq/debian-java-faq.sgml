@@ -88,21 +88,14 @@ than the package's offline version.
 
 <sect id="bugs">Sending bugs on this FAQ 
 
-<P>Please note that this FAQ is slightly out of
-date and is seeking an active maintainer. If you are willing
-to maintain it and are knowledgeable about Java in Debian, 
-please contact the current maintainer. In any case, fixes to information
-that is not up to date are welcome (patches against the latest
-<url id="http://cvs.debian.org/ddp/manuals.sgml/java-faq/?cvsroot=debian-doc"
-name="CVS sources"> are even better).
-
-<p>In any case, if you want to send bugs on this FAQ please send them
-to the current maintainer. However, make sure you are reading the
-latest (english) version available at <url
-id="http://www.debian.org/doc/manuals/debian-java-faq/index.en.html">
-Note that translations, if available, might also be slightly out of
-date from the original, english, version. Check out the english
-version first if you are reading a translation before sending a bug.
+<P>Please note that this FAQ is very out of date. Please file bug reports
+against the java-common package if you find errors or have suggestions on how
+to improve this document.  However, make sure you are reading the latest
+(english) version available at <url
+id="http://www.debian.org/doc/manuals/debian-java-faq/index.en.html">. Note
+that translations, if available, might be out of date from the original,
+english, version. Check out the english version first if you are reading a
+translation before sending a bug.
 
 <sect id="moreinfo">Complementary information 
 
