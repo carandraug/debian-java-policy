@@ -643,12 +643,26 @@ to help can start by inspecting packages labeled as unknown on the
 
 <p>In November 2006 Sun announced that Java would be open sourced under the GPL
 and provided source for the javac compiler and HotSpot virtual machine. 
-Sun published their Java sources under the name OpenJDK. Some 4% are missing
-from the sources, for which Sun has not the copyright themselves. The remainder
-of the JDK source will be published in 2007. Debian has a roadmap to publish
+Sun published their Java sources under the name OpenJDK.
+A small part, initially some 4% and by 2008 down to 1%, mainly in the Class
+library, is missing from the sources, because Sun does not hold the
+copyright themselves.
+
+<p>Debian has a roadmap to publish
 all of Sun's opensource Java technologies as described in the <url
 id="https://penta.debconf.org/~joerg/events/126.en.html" name="Debconf7 talk:
 OpenJDK and the Free Java Packaging Roadmap">.
+The current version of the roadmap is at the
+<url id="http://wiki.debian.org/Java/RoadMap" name="Debian Java Wiki">.
+
+<chapt id="debian-java-lenny">Status of Java in Debian GNU/Linux 5.0 (Lenny)
+
+<p>The <em>Lenny</em> release was the first one to provide Sun's OpenJDK
+environment (see <ref id="openjdk">).
+
+<p>A more up-to-date status of Java in the current Debian release is
+available at the
+<url id="http://wiki.debian.org/Java" name="Debian Java Wiki">.
 
 <chapt>Java Development
 <p>
@@ -671,6 +685,9 @@ go to <url id="http://www.blackdown.org">)
 <item>Sun's Java 6 jdk, available in Debian <em>lenny</em> (unreleased,
 currently testing) and Debian <em>sid</em>, also as packages in the
 <em>non-free</em>.
+
+<item>Sun's OpenJDK 6 jdk, available since the Debian 5.0 <em>lenny</em>
+release in the <em>main</em> section.
 
 </list>
 
@@ -734,9 +751,9 @@ id="http://www.lists.deus.net/mailman/listinfo/free-java">.
 
 <sect1 id="java56">Java 5 and 6
 
-<p>There are binary packages available for the Java 5 platform
-for both Debian 'lenny' (currently, the <em>testing</em> distribution) and
-Debian Sid, and binary packages for Java 6. These packages are available in the
+<p>There are binary packages available for the Java 5 and Java 6 platforms
+since the Debian 5.0 ('lenny') release.
+These packages are available in the
 <em>non-free</em> section, so you have to configure your apt sources appropiately. If
 you have the following in your <file>/etc/apt/sources.list</file>:
 
@@ -789,7 +806,7 @@ Or for java 5:
 update-java-alternatives -s java-1.5.0-sun 
 </example>
 
-<sect1>Sun's OpenJDK
+<sect1 id="openjdk">Sun's OpenJDK
 
 <p>Sun adopted in november 2006 the GPL library for almost all of the virtual
 machine and GPL v2 + the <em>Classpath exception</em><footnote>This is similar
@@ -799,8 +816,20 @@ id="http://www.gnu.org/software/classpath/license.html" name="Classpath
 project"></footnote>for the class libraries and those parts of the virtual
 machine that expose public APIs.
 
-<p>As a consequence, the free OpenJDK code might be available in Debian in next
-releases.
+<p>As a consequence, the free OpenJDK code is available in Debian since the
+5.0 (lenny) release.</p>
+
+<p>You can install the Java development kit:
+
+<example>
+apt-get install openjdk-6-jdk
+</example>
+
+or the Java runtime environment:
+
+<example>
+apt-get install openjdk-6-jre
+</example>
 
 <p>For more information see <url id="http://www.sun.com/software/opensource/java/faq.jsp" name="Free and Open Source Java">.
 

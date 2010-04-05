@@ -6,6 +6,7 @@ java-common (0.35) UNRELEASED; urgency=low
     Policy.
     - Java libraries are no longer required to depend on a JVM
     (Closes: #227587)
+  * Updated to java-faq to match the online version.
 
  -- Niels Thykier <niels@thykier.net>  Fri, 26 Mar 2010 21:44:45 +0100
 
