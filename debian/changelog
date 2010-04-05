@@ -13,6 +13,7 @@ java-common (0.35) UNRELEASED; urgency=low
   * Removed old publish rule - the policy is updated automatically after
     upload now.
   * Updated the rules to update the java faq.
+  * Converted source to 3.0 (native).
 
  -- Niels Thykier <niels@thykier.net>  Fri, 26 Mar 2010 21:44:45 +0100
 
