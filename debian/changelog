@@ -7,6 +7,12 @@ java-common (0.35) UNRELEASED; urgency=low
     - Java libraries are no longer required to depend on a JVM
     (Closes: #227587)
   * Updated to java-faq to match the online version.
+  * Bumped debhelper compat to 7.
+  * Use the version from the changelog rather than the dir to determine
+    the debian "revision" of the default-* packages. It is more robust.
+  * Removed old publish rule - the policy is updated automatically after
+    upload now.
+  * Updated the rules to update the java faq.
 
  -- Niels Thykier <niels@thykier.net>  Fri, 26 Mar 2010 21:44:45 +0100
 

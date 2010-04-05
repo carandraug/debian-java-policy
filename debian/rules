@@ -10,7 +10,7 @@
 S = $(EMPTY) $(EMPTY)
 mk_cslist = $(subst $(S),$(,)$(S),$(foreach v,$(1),$(v)-$(2)))
 vafilt = $(subst $(2)=,,$(filter $(2)=%,$(1)))
-jrel = $(subst java-common-0.,,$(notdir $(CURDIR)))
+jrel = $(shell dpkg-parsechangelog | grep Version | sed "s/Version: 0.//")
 
 DPKG_VARS := $(shell dpkg-architecture)
 DEB_HOST_ARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_ARCH)
@@ -62,7 +62,7 @@ install-indep: install-stamp
 install-stamp: build-stamp
 	dh_testdir
 	dh_testroot
-	dh_clean -k -i
+	dh_prep -i
 	dh_installdirs -i
 
 	dh_installdocs -i
@@ -75,13 +75,13 @@ install-stamp: build-stamp
 install-arch:
 	dh_testdir
 	dh_testroot
-	dh_clean -k -s
+	dh_prep -a
 
 
 binary-arch: install-arch
 ifneq (,$(p_jre))
-	dh_testdir -s
-	dh_testroot -s
+	dh_testdir -a
+	dh_testroot -a
 	dh_install -a
 	dh_installdocs -pdefault-jre-headless
 	dh_installchangelogs -pdefault-jre-headless
@@ -93,10 +93,10 @@ ifneq (,$(p_jre))
 	  ln -sf $$t debian/$$p/usr/share/doc/$$p; \
 	  t=$$p; \
 	done
-	dh_compress -s
-	dh_fixperms -s
-	dh_installdeb -s
-	dh_gencontrol -s -- \
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+	dh_gencontrol -a -- \
 		-v$(dversion) \
 		'-Vjre=$(p_jre)' \
 		'-Vjhl=$(p_jhl)' \
@@ -109,8 +109,8 @@ ifneq (,$(p_jre))
 		'-Vjhl:provides=$(jhl_provides)' \
 		'-Vjdk:provides=$(jdk_provides)' \
 
-	dh_md5sums -s
-	dh_builddeb -s
+	dh_md5sums -a
+	dh_builddeb -a
 endif
 
 # Build architecture-independent files here.

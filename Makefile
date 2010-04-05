@@ -18,9 +18,6 @@ LC_CTYPE=C
 
 all: debian-java-policy debian-java-faq-gen
 
-publish: policy.html
-	scp debian-java-policy/*.html opal@www.debian.org:/org/www.debian.org/www/doc/packaging-manuals/java-policy
-
 # Policy part
 MAKEOUT=policy.txt policy.ps
 OUTPUTS=$(MAKEOUT) policy.xml
@@ -88,8 +85,7 @@ debian-java-faq-gen: debian-java-faq
 debian-java-faq-install: debian-java-faq debian-java-faq-gen
 	(cd $<; make publish PUBLISHDIR=$(PUBLISHDIR))
 
-debian-java-faq:
-	(cvs -d :pserver:anonymous@cvs.debian.org:/cvs/debian-doc -z3 checkout -d debian-java-faq ddp/manuals.sgml/java-faq)
-
 debian-java-faq-update: debian-java-faq
-	(cd $<; cvs -z3 update -d)
+	svn export svn://svn.debian.org/svn/ddp/manuals/trunk/java-faq/ faq-update/
+	cp faq-update/* $</
+	rm -fr faq-update/
