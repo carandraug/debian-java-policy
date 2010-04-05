@@ -19,6 +19,8 @@ java-common (0.35) unstable; urgency=low
   * Set DM-Upload-Allowed.
   * Removed self suggest in default-jre.
   * Fixed a spelling mistake in README.Debian.
+  * Removed Arnaud Vandyck from Uploaders - Thanks for your work on this
+    package.
 
  -- Niels Thykier <niels@thykier.net>  Mon, 05 Apr 2010 18:01:40 +0200
 

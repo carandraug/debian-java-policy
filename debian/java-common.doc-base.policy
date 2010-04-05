@@ -1,11 +1,8 @@
 Document: java-policy
 Title: Debian Java Policy (proposal)
-Author: Stephane Bortzmeyer
+Author: Niels Thykier
 Abstract: The Debian Java Policy (currently a proposal)
- describes how Java packages are handled in Debian 
- and the different conventions regarding the use
- of virtual package likes java-virtual-machine or
- java-compiler.
+ describes how Java packages are handled in Debian.
 Section: Debian
 
 Format: text

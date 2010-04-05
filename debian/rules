@@ -93,6 +93,7 @@ ifneq (,$(p_jre))
 	  ln -sf $$t debian/$$p/usr/share/doc/$$p; \
 	  t=$$p; \
 	done
+	dh_lintian -a
 	dh_compress -a
 	dh_fixperms -a
 	dh_installdeb -a
@@ -129,6 +130,7 @@ binary-indep: build-indep install-indep
 	dh_installman -i
 	dh_installchangelogs -i
 	dh_link -i
+	dh_lintian -i
 	dh_compress -i
 	dh_fixperms -i
 	dh_installdeb -i
