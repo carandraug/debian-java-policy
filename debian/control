@@ -7,6 +7,7 @@ Uploaders: Stefan Gybas <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>, 
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
 Standards-Version: 3.8.4
+DM-Upload-Allowed: yes
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/java-common/
 

@@ -16,6 +16,7 @@ java-common (0.35) UNRELEASED; urgency=low
   * Updated the rules to update the java faq.
   * Converted source to 3.0 (native).
   * Bumped Standards-Version to 3.8.4 - no changes required.
+  * Set DM-Upload-Allowed.
 
  -- Niels Thykier <niels@thykier.net>  Fri, 26 Mar 2010 21:44:45 +0100
 
