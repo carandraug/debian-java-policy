@@ -3,13 +3,16 @@
 <book>
 
 <titlepag>
-<title>Debian GNU/Linux Java FAQ.</title>
+<title>Debian Java FAQ.</title>
 <author>
-<name>Javier Fernández-Sanguino Peña </name>
+<name>Torsten Werner</name>
+<email>twerner@debian.org</email>
+</author>
+<author>
+<name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 1.57 $
-<date>Sunday, 4th November
+<version>$Revision: 7239 $, $Date: 2010-04-05 17:33:54 +0200 (Mon, 05 Apr 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -65,14 +68,7 @@ some mistakes, and to Egon Willighagen, who has provided quite a lot
 of proper patches to update its content.
 
 <p>This document does not address issues with other Linux
-distributions, or with non-Debian-specific problems. See the <url
-id="http://www.blackdown.org" name="Blackdown pages"> for
-information on these. More specifically you might want to check out the
-<url id="http://www.blackdown.org/java-linux/docs/support/faq-release/FAQ-java-linux.html" name=" java-linux@java.blackdown.org FAQ"> written by Stephen M Wynne 
-(last updated january 2000 as of this writing). Another useful
-source of general information might be the 
-<url id="http://www.jguru.com/faq/Linux" name="Java on Linux FAQ"> maintained
-by Nathan Meyers.
+distributions, or with non-Debian-specific problems.
 
 
 <sect>Location of this FAQ 
@@ -92,7 +88,7 @@ than the package's offline version.
 against the java-common package if you find errors or have suggestions on how
 to improve this document.  However, make sure you are reading the latest
 (english) version available at <url
-id="http://www.debian.org/doc/manuals/debian-java-faq/index.en.html">. Note
+id="http://www.debian.org/doc/manuals/debian-java-faq/index.html">. Note
 that translations, if available, might be out of date from the original,
 english, version. Check out the english version first if you are reading a
 translation before sending a bug.
@@ -117,7 +113,7 @@ them to the documentation maintainer:
 <list>
 
 <item>Information on how to use <prgn>update-alternatives</prgn> to handle
-Java and how <file>/etc/jvm</file> and <file>/etc/java</file>.
+Java and how to work with <file>/etc/java</file>.
 
 <item>Information on how to setup a fully working Servlet engine (Application
 Server) using Apache and Tomcat or information on how to setup non-free
@@ -134,7 +130,7 @@ application servers (such as WebSphere) in Debian.
 Java is a strongly-typed platform-independent object-oriented programming
 language often associated with the World Wide Web. Java was developed by 
 <url id="http://www.sun.com" name="Sun
-Microsystems"> for embedded applications, but has since grown to become a
+Microsystems"> (now Oracle) for embedded applications, but has since grown to become a
 general-purpose programming language. Java source code can either be
 compiled to a machine-independent byte-code that can be run by Java virtual
 machines, or it can be compiled directly to executable code for any number
@@ -149,7 +145,7 @@ multithreading, to name a few.
 threads, depending on the implementation of the Java virtual machine used. 
 
 <p>Of course, Java is also the name of a popular island of Indonesia:
-check out the facts at the <url id="http://www.gnu.org/software/java/java.html#TOCOriginalJava" name="GNU Java pages">
+check out the facts at <url id="http://en.wikipedia.org/wiki/Java" name="Wikipedia">.
 
 <sect>Why would I be interested in Java?
 <p>
@@ -170,10 +166,8 @@ it (i.e. Sun). However good places for Java and Linux could be:
 
 
 <list>
-<item>Sun's <url id="http://java.sun.com/linux/" name="Java Technology
-on Linux"> pages.
-
-<item>Blackdown's <url id="http://www.blackdown.org/java-linux/docs/support/faq-release/FAQ-java-linux.html" name="Java and Linux FAQ">.
+<item>Sun's <url id="http://java.sun.com/developer/technicalArticles/Programming/linux/" name="Java Technology
+on the Linux Platform"> pages.
 
 <item>GNU's <url id="http://www.gnu.org/software/java/" name="Java software">
 
@@ -205,14 +199,14 @@ name="Java 2 SDK">.
 
 </list>
 
-<item>The <url id="http://www.linuxgazette.com/" name="Linux Gazettej
+<item>The <url id="http://linuxgazette.net" name="Linux Gazette
 Magazine">, the following articles might be useful:
 <list>
-<item>Issue 87 <url id="http://www.linuxgazette.com/issue87/jenkins.html"
+<item>Issue 87 <url id="http://linuxgazette.net/issue87/jenkins.html"
 name="A Keep-Alive Program You Can Run Anywhere">
-<item>Issue 69 <url id="http://www.linuxgazette.com/issue69/peda.html"
+<item>Issue 69 <url id="http://linuxgazette.net/issue69/peda.html"
 name="Installing Tomcat on Linux">
-<item>Issue 48 <url id="http://www.linuxgazette.com/issue48/lane.html"
+<item>Issue 48 <url id="http://linuxgazette.net/issue48/lane.html"
 name="Linux, Java and XML">
 <item>Issue 45 <url
 id="http://tldp.org/LDP/LG/issue45/gibbs/Linux_java.html"
@@ -273,8 +267,7 @@ might or might not be listed in GNU's webpages devoted to Java.
 
 <p>The appropriate place to ask such questions is <email>debian-java
 at lists.debian.org</email>. You can subscribe at the <url
-id="http://www.debian.org/MailingLists/subscribe" name="Mailing List
-Subscription"> page.
+id="http://lists.debian.org/debian-java/" name="Debian Mailing Lists"> page.
 
 
 <chapt id="debian-java-etch">Status of Java in Debian's older releases (before Lenny)
