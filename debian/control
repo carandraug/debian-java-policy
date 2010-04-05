@@ -31,7 +31,6 @@ Package: default-jre
 Architecture: any
 Depends: default-jre-headless (= ${binary:Version}), ${jre}${jre:version},
  ${misc:Depends}
-Suggests: default-jre
 Provides: ${jre:provides}
 Description: Standard Java or Java compatible Runtime
  This package points to the Java runtime, or Java compatible
