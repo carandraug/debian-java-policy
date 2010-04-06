@@ -2,7 +2,7 @@ Source: java-common
 Section: java
 Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
-Uploaders: Stefan Gybas <sgybas@debian.org>, Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
+Uploaders: Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx

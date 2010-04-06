@@ -3,6 +3,8 @@ java-common (0.36) UNRELEASED; urgency=low
   * Correct a ${jdk} that should have been a ${jre} in the decription
     of default-jre. Thanks to Yoshino Yoshihito for spotting it.
     (Closes: #576632)
+  * Removed Stefan Gybas from Uploaders (no upload since 2003); thanks
+    for your work.
 
  -- Niels Thykier <niels@thykier.net>  Tue, 06 Apr 2010 21:45:15 +0200
 
