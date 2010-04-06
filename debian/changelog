@@ -5,6 +5,8 @@ java-common (0.36) UNRELEASED; urgency=low
     (Closes: #576632)
   * Removed Stefan Gybas from Uploaders (no upload since 2003); thanks
     for your work.
+  * Applied patch from Thierry Basque that fixes the --list
+    argument for update-java-alternatives. (Closes: #563070)
 
  -- Niels Thykier <niels@thykier.net>  Tue, 06 Apr 2010 21:45:15 +0200
 

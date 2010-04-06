@@ -117,9 +117,9 @@ do_auto()
 do_list()
 {
     vecho "listing java alternatives:"
-    for i in $top/${jname:-*}.jinfo; do
-	alias=$(basename ${i%*.jinfo})
-	alias=${alias#.*}
+    for i in ${jinfo:-$top/*.jinfo}; do
+	alias=$(basename ${i%.jinfo})
+	alias=${alias#.}
 	prio=$(awk -F= '/priority=/ {print $2}' $i)
 	echo $alias $prio $top/$alias
 	[ -n "$verbose" ] && egrep "$which" $i
