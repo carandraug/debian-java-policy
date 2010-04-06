@@ -35,7 +35,7 @@ Provides: ${jre:provides}
 Description: Standard Java or Java compatible Runtime
  This package points to the Java runtime, or Java compatible
  runtime recommended for the ${jre:arch} architecture,
- which is ${jdk} for ${jre:arch}.
+ which is ${jre} for ${jre:arch}.
 
 Package: default-jre-headless
 Architecture: any
