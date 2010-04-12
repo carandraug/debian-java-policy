@@ -7,6 +7,7 @@ java-common (0.36) UNRELEASED; urgency=low
     for your work.
   * Applied patch from Thierry Basque that fixes the --list
     argument for update-java-alternatives. (Closes: #563070)
+  * Updated the off-line copy of the Debian Java FAQ.
 
  -- Niels Thykier <niels@thykier.net>  Tue, 06 Apr 2010 21:45:15 +0200
 

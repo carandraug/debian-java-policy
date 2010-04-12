@@ -1588,7 +1588,7 @@ quest'altra strada:
 <item> Sistemare le alternative perché funzioni correttamente:
 <example>
    update-alternatives --install /usr/bin/javac javac /usr/local/sun/jdk1.2.2/bin/javac 120
-   update-alternatives --install /usr/bin/java Java /usr/local/sun/jdk1.2.2/bin/java 120
+   update-alternatives --install /usr/bin/java java /usr/local/sun/jdk1.2.2/bin/java 120
 </example>
 <item> Controllare le proprie alternative con "type"
 <example>

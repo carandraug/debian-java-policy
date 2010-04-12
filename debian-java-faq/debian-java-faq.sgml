@@ -9,15 +9,19 @@
 <email>twerner@debian.org</email>
 </author>
 <author>
+<name>Niels Thykier</name>
+<email>niels@thykier.net</email>
+</author>
+<author>
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7239 $, $Date: 2010-04-05 17:33:54 +0200 (Mon, 05 Apr 2010) $
+<version>$Revision: 7277 $, $Date: 2010-04-11 12:51:59 +0200 (Sun, 11 Apr 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
 (Note: some information is not up-to-date). Any changes/corrections to this
-FAQ are appreciated. Please send them to the current maintainer as
+FAQ are appreciated. Please send them to the Debian Bug Tracking System as
 described in <ref id="bugs">.
 </abstract>
 
@@ -84,14 +88,14 @@ than the package's offline version.
 
 <sect id="bugs">Sending bugs on this FAQ 
 
-<P>Please note that this FAQ is very out of date. Please file bug reports
-against the java-common package if you find errors or have suggestions on how
-to improve this document.  However, make sure you are reading the latest
-(english) version available at <url
-id="http://www.debian.org/doc/manuals/debian-java-faq/index.html">. Note
-that translations, if available, might be out of date from the original,
-english, version. Check out the english version first if you are reading a
-translation before sending a bug.
+<P>Please note that this FAQ is still outdated but gets updated step by step.
+
+<p> Please file bug reports against the java-common package if you find errors
+or have suggestions on how to improve this document. However, make sure you
+have read the latest online version of the english text available at <url
+id="http://www.debian.org/doc/manuals/debian-java-faq/index.html"> before
+filing a bug report. Translations, if available, and the offline version in
+the java-common package might be out of date.
 
 <sect id="moreinfo">Complementary information 
 
@@ -279,16 +283,11 @@ the information for a while.
 
 <sect>Where is Debian Java going?
 
-<p>The first thing you should understand about the design strategy of Debian
-is that our goal is to produce a 100% Free Software platform. In that
-sense, some of the Java tools available
-<footnote>
-Notably Blackdown's port to Linux of Sun's Java Developer's Toolkit (SDK) or
-Java's Runtime Environment (JRE). Which you should retrieve from Blackdown,
-see <ref id="blackdown-pack">.
-</footnote>
-are not available in the standard Debian distribution for licensing reasons,
-not for any technical motivation (see <ref id="license-concerns">). 
+<p>The first thing you should understand about the design strategy of Debian is
+that our goal is to produce a 100% Free Software platform. In that sense, some
+of the Java tools available are not available in the standard Debian
+distribution for licensing reasons, not for any technical motivation (see <ref
+id="license-concerns">). 
 
 <p>That said, basically all of the technologies you might ask about can
 be or are available for Debian immediately. In order to usefully
@@ -329,12 +328,12 @@ time, and no-one has had time to re-integrate the changes.  We can
 probably get Cygnus to release the old code, if someone wants to look
 into getting this stuff working with the current Gdb internals.  (A
 non-trivial job.)  <p>See <url
-id="http://sourceware.cygnus.com/java/gdb.html"> on how to debug
+id="http://gcc.gnu.org/java/gdb.html"> on how to debug
 gcj-compiled Java programs.
 
 <sect1>What free edit-interactive/graphical debugging tools are available on
 Debian?
-<p>jde, ddd, more?
+<p>jde, ddd, eclipse, more?
 
 <P>One of the some nice features of jde are autoindention and syntax
 highlighting, but it also supports debugging and compilation.
@@ -393,41 +392,82 @@ other tools on the debian-java mailing list in 2003.
 environment without the need to download it from third-party repositories
 (see <ref id="java56">).
 
-<sect>Which Java package are currently in main?
-<p>The <url id="http://pkg-java.alioth.debian.org/" name="pkg-java">
-website also maintains a list (probably more up to date) of java
-packages.
-
-<sect>What keeps Java packages out of main?
-
-<p>The current status, as of this writing (june 2004) is that there is
-progress of moving packages that use Java but can be run without the
-aid of non-free software from contrib to main.
-
 <sect>What can I expect in future releases?
 
-<p>In November 2006 Sun announced that Java would be open sourced under the GPL
-and provided source for the javac compiler and HotSpot virtual machine. 
-Sun published their Java sources under the name OpenJDK.
-A small part, initially some 4% and by 2008 down to 1%, mainly in the Class
-library, is missing from the sources, because Sun does not hold the
-copyright themselves.
-
-<p>Debian has a roadmap to publish
-all of Sun's opensource Java technologies as described in the <url
-id="https://penta.debconf.org/~joerg/events/126.en.html" name="Debconf7 talk:
-OpenJDK and the Free Java Packaging Roadmap">.
-The current version of the roadmap is at the
-<url id="http://wiki.debian.org/Java/RoadMap" name="Debian Java Wiki">.
+<p>Debian has a roadmap at the <url
+id="http://wiki.debian.org/Java/RoadMap" name="Debian Java Wiki">.
 
 <chapt id="debian-java-lenny">Status of Java in Debian GNU/Linux 5.0 (Lenny)
 
-<p>The <em>Lenny</em> release was the first one to provide Sun's OpenJDK
-environment (see <ref id="openjdk">).
+<sect>What is new in Lenny?
 
-<p>A more up-to-date status of Java in the current Debian release is
-available at the
-<url id="http://wiki.debian.org/Java" name="Debian Java Wiki">.
+<p>The <em>Lenny</em> release was the first one to provide Sun's OpenJDK
+environment (see <ref id="openjdk">). Lenny ships OpenJDK 6 with the IcedTea
+patches in version 1.1. Lenny updated GCJ to the new major version 4.3 and Ant
+to version 1.7. It provides Maven 2.0 but Maven cannot yet be used to build
+official Debian packages because it downloads random binaries from its central
+repository during build time. The java-common package provides new meta
+packages default-jdk and default-jre which declare dependencies to the
+appropriate gcj and gij packages. The new source package javatools contains
+useful helper tools for packaging Java software for Debian.
+
+<p>Thanks to the development that happened in gcj and classpath and thanks to
+the availability of openjdk many Java packages could be moved from contrib to
+main.
+
+<p>There are two new source packages glassfish and jbossas4 but they build only
+some core libraries and do not work as full JEE application servers yet. The
+main reason is that many free Java libraries are not yet packaged for Debian
+but are needed as (build) dependencies. But at least there is Hibernate 3
+available in the contrib component.
+
+<chapt id="debian-java-squeeze">Status of Java in Debian Squeeze
+
+<sect>What is new in Squeeze?
+
+<p>The information in this chapter is probably out of date as Squeeze is not
+yet released and changes rapidly.
+
+<p>Squeeze ships with OpenJDK 6 and its IcedTea patches 1.8. The default ant
+version is 1.8 but there is a compatibility package with version 1.7.
+Java-common has switched to OpenJDK as the default-jdk on most architectures.
+Squeeze has updated GCJ to version 4.4. The new Debian Orbital Alignment Team
+has updated Eclipse to version 3.5.2.
+
+<p>Squeeze ships a fully working Tomcat 6 and Jetty 6 but both Glassfish and
+JBossAS 4 are still incomplete. Thanks to OpenJDK and the switch to OpenJDK as
+the default JDK even more Java packages in the contrib component (e.g.
+Hibernate 3) could be moved to main.
+
+
+<p>Maven has been updated to version 2.2 and it is accompanied by new helper
+packages: maven-repo-helper, maven-debian-helper, and several Maven plugins. It
+is now possible to build Debian packages with Maven because Debian has its own
+repository of POM files.
+
+
+<sect>What are the most important changes in the Java policy?
+
+<p>
+The -gcj packages are now deprecated but we keep them if the are good reason.
+The virtual package java-virtual-machine is gone and package must not depend or
+recommend java-virtual-machine. Please check the policy for more details.
+
+<sect>What have been removed in Squeeze?
+
+<p>This is an incomplete list of packages removed from Squeeze:
+
+<list>
+<item><package>kaffe</package></item>
+<item><package>cacao</package></item>
+<item><package>jamvm</package></item>
+<item><package>liblogkit-java</package> (Replaced by <package>libexcalibur-logkit-java</package>)</item>
+<item><package>liblucene-java</package> (Replaced by <package>liblucene2-java</package>)</item>
+<item><package>jmp</package> (Replaced by <package>tijmp</package>)</item>
+<item><package>pja</package></item>
+<item><package>slide-webdavclient</package></item>
+</list>
+</p>
 
 <chapt>Java Development
 <p>
@@ -439,29 +479,23 @@ that would depend on the Debian GNU/Linux version you are using,
 generally speaking they would be:
 
 <list>
-<item>Sun's jdk 1.4 (port made by Blackdown, see <ref id="blackdown-pack"> or
-go to <url id="http://www.blackdown.org">)
+<item>The deprecated Kaffe in Debian 5.0 Lenny.
 
-<item><prgn>kaffe</prgn>.
+<item>The deprecated Sun Java 5 jdk, available in the Debian 5.0 <em>Lenny</em>
+release in the <em>non-free</em> component.
 
-<item>Sun's Java 5 jdk, available in the Debian 4.0 <em>etch</em> release in the
-<em>non-free</em> section.
+<item>Sun's Java 6 jdk, available in Debian <em>Lenny</em> and Debian
+<em>Squeeze</em>, also as packages in the <em>non-free</em> component.
 
-<item>Sun's Java 6 jdk, available in Debian <em>lenny</em> (unreleased,
-currently testing) and Debian <em>sid</em>, also as packages in the
-<em>non-free</em>.
-
-<item>Sun's OpenJDK 6 jdk, available since the Debian 5.0 <em>lenny</em>
+<item>Sun's OpenJDK 6, available since the Debian 5.0 <em>Lenny</em>
 release in the <em>main</em> section.
 
+<item>The combination GCJ, GIJ, and Classpath in the <em>main</em> section.
 </list>
 
-<p>Previous release of Debian included an installer package for IBM's Java
-Development Kit, but that is not longer available.
-
-<p>Since the Debian 3.1 'sarge' release, Debian provides the
-<package>free-java-sdk</package> package which makes up a free Java Software
-Development Kit (SDK). All software it depends on are DFSG compliant.
+<p>It is recommended to install one of the default-jdk or default-jre meta
+packages which either installs OpenJDK or GCJ depending on the architecture and
+Debian version.
 
 <sect id="free">What free platforms are there and how can I contribute?
 <p>
@@ -469,42 +503,25 @@ Please help one of the Free Java implementations if you want to use Java
 in Debian. There are a lot of projects that you can choose from:
 <list>
 
-<item>kaffe: <url id="http://www.kaffe.org">.
+<item>gcj and libgcj: <url id="http://gcc.gnu.org/java/">
 
-<item>gcj and libgcj: <url id="http://sourceware.cygnus.com/java/">
+<item>FastJar <url id="http://savannah.nongnu.org/projects/fastjar">, as a jar
+tool.
 
-<item>jikes: <url id="http://www.research.ibm.com/jikes/">. A fast
-compiler written in C++ (check also <url
-id="http://www10.software.ibm.com/developerworks/opensource/jikes/">).
-(The new license seems to be finally really free)
+<item>Classpath <url id="http://www.classpath.org">. Most of the
+Standard classes for Java 1.2 (except Swing and RMI) are implemented by
+the ClassPath project, it tries to build an alternative to jdk's 1.2
+core classes.
 
-<item>kopi: <url id="http://www.dms.at/kjc/">.Yet Another Free Java
-Compiler, this time written in Java, and GPL. Included in Kaffe since
-release 1.0.5.
-
-<item>FastJar <url id="http://fastjar.sourceforge.net/">, as a jar
-tool. (this link seems to be broken, anyone?)
-
-<item>Classpath <url id="http://www.gnu.org/software/classpath/"> or
-<url id="http://www.classpath.org">. Most of the Standard classes for
-Java 1.2 (except Swing and RMI) are implemented by the ClassPath
-project, it tries to build an alternative to jdk's 1.2 core classes.
-
-<item>Most of the RMI classes are implemented by NinjaRMI
-<url id="http://www.cs.berkeley.edu/~mdw/proj/ninja/ninjarmi.html">
-
-<item>Autoconf macros <url
-id="http://www.internatif.org/bortzmeyer/autoconf-Java/"> helps easy
-recompilation of Java programs.  <item>Mauve <url
-id="http://sourceware.cygnus.com/mauve/"> is a free suite to test if
+<item>Mauve <url
+id="http://sources.redhat.com/mauve/"> is a free suite to test if
 these tools are 'compliant'.
 
 </list>
 
 <p>Most free Java development is grouped under the <url
 id="http://www.gnu.org/software/java/" name="Free Java
-Project">. There is a list on free Java at <url
-id="http://www.lists.deus.net/mailman/listinfo/free-java">.
+Project">.
 
 <sect id="license-concerns">Questions on platforms and license concerns
 
@@ -513,17 +530,17 @@ id="http://www.lists.deus.net/mailman/listinfo/free-java">.
 <p>There are binary packages available for the Java 5 and Java 6 platforms
 since the Debian 5.0 ('lenny') release.
 These packages are available in the
-<em>non-free</em> section, so you have to configure your apt sources appropiately. If
+<em>non-free</em> section, so you have to configure your apt sources appropriately. If
 you have the following in your <file>/etc/apt/sources.list</file>:
 
 <example>
-deb http://ftp.debian.org/debian etch main
+deb http://ftp.debian.org/debian lenny main
 </example>
 
 you need to change it to:
 
 <example>
-deb http://ftp.debian.org/debian etch main contrib non-free
+deb http://ftp.debian.org/debian lenny main contrib non-free
 </example>
 
 Once this is done and you have updated your package database. You can either
@@ -539,20 +556,19 @@ or the Java runtime environment:
 apt-get install sun-java6-jre 
 </example>
 
-<p>If you are using the Debian 4.0 'etch' release you will find Java 5 instead.
-Similarly, you can install the Java development kit:
+<p>Similarly, you can install the Java 5 development kit:
 
 <example>
 apt-get install sun-java5-jdk
 </example>
 
-or the Java runtime environment:
+or the Java 5 runtime environment:
 
 <example>
 apt-get install sun-java5-jre
 </example>
 
-<p>Sun recommends you update the alternatives system to have Sun's tools as the
+<p>You might want to update the alternatives system to have Sun's tools as the
 default:
 
 <example>
@@ -567,7 +583,7 @@ update-java-alternatives -s java-1.5.0-sun
 
 <sect1 id="openjdk">Sun's OpenJDK
 
-<p>Sun adopted in november 2006 the GPL library for almost all of the virtual
+<p>Sun adopted in november 2006 the GPL license for almost all of the virtual
 machine and GPL v2 + the <em>Classpath exception</em><footnote>This is similar
 to GCC linking exception in that it allows non-GPL code to be linked with the
 GPL code. This exception was developed by the <url
@@ -592,207 +608,8 @@ apt-get install openjdk-6-jre
 
 <p>For more information see <url id="http://www.sun.com/software/opensource/java/faq.jsp" name="Free and Open Source Java">.
 
-<sect1>Java 2 SE (aka JDK1.2)
-<p>
-<sect2>Why is Sun's Java 2 SE (aka jdk 1.2) not available?
 
-<P>Due to license problems. Clause 2 of the <url
-id="http://www.sun.com/software/communitysource/java2/license.html"
-name="license"> (check also the <url
-id="http://www.sun.com/software/communitysource/faq.html" name="FAQ">)
-that comes with is says:
-
-<example>
-Software is confidential and copyrighted. Title to Software and all
-associated intellectual property rights is retained by Sun and/or its
-licensors.  Except as specifically authorized in any Supplemental License
-Terms, you may not make copies of Software, other than a single copy of
-Software for archival purposes.
-</example>
-
-<sect2 id="scsl">What are the problems with Suns' new license?
-<p>Sun has moved to a new license the <em>Sun
-Community License</em>, like the GPL it is a viral license, but making
-all it touches subject to Sun licensing fee. The SCSL even goes so far as to
-define any implementation of a Sun specification as a "Modified Work".
-Basically, this means that if you implement any part of the new 1.2 API
-or Jini API, even from scratch, Sun will "own" your implementation and you
-will have to pay them for the right to use it.
-<example>
-13.  "Modification(s)" means (i) any change to Covered Code;
-     (ii) any new file or other representation of computer
-     program statements that contains any portion of Covered
-     Code; and/or (iii) any new Source Code implementing any
-     portion of the Specifications.
-</example>
-<sect2> What is the SCSL?
-<P>
-  The SCSL is the "Sun Community Software License" that can be found
-  <url id="http://java.sun.com/communitysource/">. It is not
-  compatible with Free Software for several reasons, and agreeing to
-  this license (e.g. by downloading source covered by the SCSL) will
-  make it impossible for you to contribute to free software clean-room
-  implementations. According to Sun, this includes using documentation
-  and API specifications available only under SCSL.
-
-<P>To quote one open source developer, the SCSL is "about as
-  free as the former Soviet Union".
-
-<p>However, if you have never agreed to the SCSL, then it is still
-permissible, barring any patents that Sun has for the technology,
-for you to create your own clean room version of the 1.2 API.  It is
-important that you never agree to the license, even for the
-documentation.  For example, if you buy a printed book which
-describes the API, there is a long legal history (in the US at
-least), that prohibits attaching these kinds of contracts to books.
-
-<sect2>Can I use jdk1.2 while working with the free Java implementations?
-<p>
- Clause 1 of the Supplemental License Terms says:
-<example>
- [You] may not create, or authorize your licensees to create
- additional classes, interfaces, or subpackages that are contained in
- the "java" or "sun" packages or similar as specified by Sun in any
- class file naming convention;
-</example>
-<p>Which seems to prevent one from making his own implementation of the
-standard Java classes using the JDK. 
-<P>However, it is unclear whether or not the word `additional' includes
-reimplementations of existing classes, or whether it applies only
-to classes with new names.
-
-
-<sect2>Why is (some) free software not implementing Java2?
-<P>
-  Sun has made public statements in connection with their legal
-  strategy in the Sun-Microsoft lawsuit that indicate that the
-  company considers the published specifications of Java2 to be
-  intellectual property that can not legally be used by persons
-  involved in efforts to create Java2 clean-room implementations.
-  For this reason, some open source projects have decided to not
-  implement Java2 any time soon. One example is Kaffe. Some
-  projects (like the Classpath project) have decided to
-  challenge Sun's legal position and are going ahead with Java2.
-
-
-<sect1 id="ibm-jdk">IBM's Developer Kit for Linux
-<P>
-<sect2>Can Debian distribute IBM's jdk?
-
-<p>No, as its license does not allow redistribution. Actually, older releases
-(version 1.1) even restricted use of the jdk to specific distributions (and
-Debian was not included in the list).
-
-<p>You can still download it and use it in Debian yourself even Debian
-is not in the list of tested (or supported) platforms, see
-<url id="http://www.ibm.com/developerworks/java/jdk/linux/">.
-
-<sect2>Is it possible to obtain a licence for Debian?
-
-<p>It would still be non-free, because of item 8 in the <url
-id="http://www.debian.org/social_contract#guidelines" name="Debian Free Software
-Guidelines">: "License Must Not Be Specific to Debian".
-
-<sect1>JRE
-<p>
-<sect2>Can Debian distribute JRE?
-<p>
-(Quoted from Gene McCulley <url 
-id="http://lists.debian.org/debian-java/1999/debian-java-199908/msg00021.html">)
-I don't think we can or want to distribute the JRE with Debian.
-The supplemental license terms of the JRE has a few very nasty clauses:
-<example>
- 1. License to Distribute. You are granted a royalty-free right to
-  reproduce and distribute the Software provided that you: (i)distribute
-  the Software complete and unmodified, only as part of, and for the
-  sole purpose of running, your Java applet or application ("Program")
-  into which the Software is incorporated;
-</example>
-<p>We might get away with this one since we distribute it together with
-Java applications bundled with Debian. But we also do want to allow people
-to download only the jre package.
-<example>
-  (ii) do not distribute additional software intended to replace any
-  component(s) of the Software;
-</example>
-<p>But we cannot agree to this one. We want to distribute Kaffe, Japhar,
-Classpath, Gcj, Kopi, Fastjar, etc  which are intended to replace the JRE
-with a Free version. Even if we don't consider non-free part of Debian
-(the JRE would not go into main :) I think we should not encourage software
-that tries to prevent Free replacements.
-<example>
-  [...] (v) may not create, or authorize your licensees to create additional
-  classes, interfaces, or subpackages that are contained in the "java" or
-  "sun" packages or similar as specified by Sun in any class file naming
-  convention;
-</example>
-<p>My example why this is a bad clause was not so good since someone pointed
-out that you do not want to create something that is non standard. I do
-agree that we want a standard implementation of the core classes, but I
-also think that you should have the freedom to create non-standard classes.
-(Or fix bugs or stupid mistakes in the standard classes.)
-<example>
-  [...] and(vii) agree to indemnify, hold harmless, and defend Sun and its
-  licensors from and against any claims or lawsuits, including attorneys'
-  fees, that arise or result from the use or distribution of the Program.
-</example>
-<p>And I don't think that Debian (or SPI) can or wants to do that.
-
-<p>So I am afraid that we also cannot distribute the Sun or Blackdown JRE.
-This isn't that bad since it is non-free software, but it is annoying.
-As I said before please help one of the (many) Free Java projects out there
-if you want to see a Free JVM, Standard Classes, Compiler, etc. in Debian.
-They are far from complete but they do work for most purposes
-
-<sect1>GPL or LGPL?
-<p>
-  Java uses dynamic linking at runtime. Using the reflection
-  API and class loading, the linking can be completely data
-  driven, specifying classes and methods by name. This moves
-  the legal issues of using GPL'ed Java code into the user's
-  hands, as a violation of the GPL can not be proven from the
-  executable itself. Unlike plugins, Java classes do not even
-  have to have a specific structure to be used in such ways.
-  By using native methods and selecting DLL's at runtime,
-  this problem might also affect native code.
-</P>
-<P>
-  Example: a GPL'ed Java dependency checker using the
-  reflection API. Java's runtime linkage, in particular the
-  reflection API, blurrs the lines between code and data
-  even more than e.g. native plugins.
-</P>
-<P>
-  If you want to write Java code that can be used without
-  the user having to worry about licensing issues, consider
-  using the Lesser GPL (LPGL). If you want to avoid seeing
-  your classes and packages being used by non-free software,
-  consider using the GPL license.
-</p>
-
-<sect id="sect:dfsg-compliant-gui">How can I make a DFSG compliant Java GUI program?
-
-<p>Many Java programs use the Swing library for GUI development. For this there
-is the <package>libswing-java</package>. Most programs will compile against this library,
-but that does not garantee it to work. Not always are all classes implemented or 
-implemented well.
-  
-<p>An alternative to the Swing library is the Standard Widget Toolkit (SWT, 
-<package>libswt-java</package>) which is based on the GTK+ library.
-
-<p>A third alternative is the use the GUI functionality from either
-KDE or Gnome. For KDE, the kdebindings tar.gz does the job (is there a
-deb package too?).  For Gnome there is the
-<package>libgnome0-java</package>.
-
-<sect1>Do swing-based programs work in Debian?
-
-<p>Swing does work and can be installed, please note that 1.2 and 1.3
-jvms include swing, otherwise you need to download it for your
-particular jvm. See later on <ref id="swing-run"> how to make it work.
-
-<sect>Making Debian packages for Java progams.
-<p>
+<sect>Making Debian packages for Java programs.
 
 <sect1>Can the package go into main?
 
@@ -800,13 +617,6 @@ particular jvm. See later on <ref id="swing-run"> how to make it work.
 in main, and if it has a Debian compliant open source license. 
 If it needs programs from contrib or non-free, then is <em>must</em>
 go into contrib or non-free, depending on the license of the program itself.
-
-<p>More specifically, if the program can be build and run with 
-<package>free-java-sdk</package>, then it only depends on Debian packages
-from main. The <package>free-java-sdk</package> description states:
-"Just install this package, set JAVA_HOME to /usr/lib/fjsdk and try to rebuild 
-your Java packages. If it works - a package from contrib section can be moved 
-to main."
 
 <sect1>What virtual packages could I use?
 <p>
@@ -818,22 +628,6 @@ scripts (for instance to build a CLASSPATH from a list of jars
 (submissions welcome).
 <item><package>java-virtual-machine</package>
 <item><package>java-compiler</package>
-<item><package>java-compiler-dummy</package>.It is a small tool useful for the transition to the new Policy. Until all 
-compilers comply with the Policy, java-compiler-dummy provides the following 
-services:
-<list>
-<item>Provides: java-compiler so upper packages are happy,
-<item>set CLASSPATH before calling the real compiler.
-</list>
-<item><package>java-virtual-machine-dummy</package>.It is a small tool
-useful for the transition to the new Policy. Until all virtual machines
-comply with the Policy, java-virtual-machine-dummy provides the following
-services:
-<list>
-<item>Provides: java-virtual-machine so upper packages are happy,
-<item>set CLASSPATH before calling the real VM.
-</list>
-
 </list>
 
 <sect1>Is there a good example Debian package?
@@ -865,33 +659,14 @@ are tools in <package>cdbs</package> which can help build packages with
 <p>
 <list>
 
-<item><package>jikes</package>. Reported to work fine with all JDKs
-(1.1 to 1.3), it is suggested you use -E when compiling under
-<prgn>Emacs</prgn>.
+<item><package>openjdk-6-jdk</package></item>
+
+<item><package>sun-java6-jdk</package> (non-free)</item>
 
 <item><package>gcj</package>. Compiles Java source to native code,
 also source to bytecode, or bytecode to native code.
 
-<item><prgn>kjc</prgn> is included in <package>kaffe</package> 1.0.5 and above.
-There is no separate package.
-
-</list>
-
-<p>The following Java compilers where available in the past, but are no longer
-available:
-
-<list>
-
-<item><package>guavac</package>. The compiler of Effective Edge
-Technologies. This compiler is orphaned upstream; for real work use
-gcj or jikes.
-
-<item><package>tya</package>. A just-in-time compiler, used to compile
-Java to byte code.
-
-<item><package>bock</package>. Java to C compiler.
-
-<item><package>gck</package>. 
+<item>The deprecated <package>jikes</package> in <em>Lenny</em>.
 
 </list>
 
@@ -899,34 +674,27 @@ Java to byte code.
 <p>
 <sect>What jvms work in Debian?
 
-<p>Currently Blackdown's, Sun's and Ibm's jvms work in Debian.  (But,
-for simple programs such as the ones used for teaching, the free kaffe
-VM may be enough.  Another solution is to use gcj and to compile to
-native code, thus solving the VM problem.)  
-
-<P>All of them can be unpacked in /usr/local with links made in
-/usr/local/bin. This will work in any Debian setting and version, the
-only issue being is wether or not the version is glibc based or
-libc5-based regarding (older versions of Debian do not have glibc
-support since it was included in Debian 2.1 codename <em/slink/)
+<p>Currently Sun's jvm works in Debian. Another solution is to use
+gcj and to compile to native code, thus solving the VM problem.)  
 
 <sect>What free JVMs are available in Debian?
 
-<p>The following lists JVMs available in the latest Debian release (4.0,
-'etch'):
+<p>The following JVMs are currently available in Debian Squeeze:
+
+<list>
+<item><package>openjdk-6-jre</package></item>
+<item><package>sun-java6-jre</package> (non-free)</item>
+<item><package>gij-4.3</package></item>
+</list>
+
+</p>
+
+<p>The following lists JVMs available in Debian 5.0 release ('Lenny'):
 
 <list>
 <item><package>kaffe</package>
-<item><package>sablevm</package>.
-<item><package>gij-4.1</package>
+<item><package>gij-4.3</package>
 </list>
-
-<p>If you want to look for available JVMs in a different release, this list can
-be reproduced with the command:
-
-<example>
-grep-available -F Provides -sPackage java-virtual-machine
-</example>.
 
 
 <sect>What API do these JVMs provide?
@@ -937,20 +705,16 @@ SDK, each out of four confirmed bugs don't get fixed, so don't
 disregard free implementation on buggyness or limited implementation
 alone.
 
-<p>Several APIs are compared for GNU Classpath, GNU gcj, Kaffe and Wonka with 
-<url name="japitools" id="http://rainbow.netreach.net/~sballard/japi/">.
-
 <sect>Are there known problems?
 
 <p>Yes, there are. Some of these are reported as Debian bugs. You can
 look up the bugs for a specific Debian package at the <url
-id="http://www.debian.org/Bugs/" name="Debian Bug Track System">.  As
+id="http://www.debian.org/Bugs/" name="Debian Bug Tracking System">.  As
 a quick link, here are some packages:
 
 <list>
-<item><url id="http://bugs.debian.org/kaffe" name="kaffe">
+<item><url id="http://bugs.debian.org/java-common" name="java-common">
 <item><url id="http://bugs.debian.org/gcj" name="gcj">
-<item><url id="http://bugs.debian.org/sablevm" name="sablevm">
 </list>
 
 <p>As common within the Debian project, the developers would
@@ -967,214 +731,34 @@ the source code to native code is.
 
 <sect1>How do I compile to native code?
 
-<p>You might be able to use <prgn>gcj</prgn> or <prgn>jikes</prgn> (both free
-programs),  to compile the program.
+<p>You might be able to use <prgn>gcj</prgn> to compile the program.
 And use <prgn>gcj</prgn> to convert bytecode to native code. The entire
 software chain is free.
 
 
-<sect1>Are there any successes using this approach?
-<p>Most certainly, read in <url 
-id="http://lists.debian.org/debian-java/1999/debian-java-199911/msg00044.html">
-how this was done for the XML parser <prgn>xp</prgn>.
-<example>
-ezili:~/infosystems/XML/Java> gcj --main=UnTag UnTag.java UnTagHandler.java 
-/usr/share/java/repository/org/xml/sax/helpers/*.class 
-/usr/share/java/repository/org/xml/sax/*.class /usr/share/java/repository/com/j
-clark/xml/sax/*.class /usr/share/java/repository/com/jclark/xml/parse/*.class 
-/usr/share/java/repository/com/jclark/xml/tok/*.class 
-/usr/share/java/repository/com/jclark/util/*.class 
-/usr/share/java/repository/com/jclark/xml/parse/base/*.class
-</example>
-
-<sect1>Are there any problems with this approach?
-<p>
-Yes there are also some problems.
-<p><prgn>gcj</prgn> does not fully support JNI. Tom Tromey is
-responsible for the JNI implementation. As of april 2000
-it is missing one feature (you can't currently compile a   
-.class file that uses JNI functions to implement its native methods),
-but Tom is working on this and hope to have it completed "soon".
-
-<p>Lack of JNI affects use of Classpath (e.g. as an alternative to libgcj)
-as well as small, standalone apps that replace AWT with some really simple
-GUI (like using curses, e.g. for small installers). It also affects projects
-which have native code for performance reasons. At the moment, gcj basically
-forces a CNI port. The only alternative we are aware of is TowerJ, which is
-good for commercial projects, but does not offer anything to free software.
-
-<sect1>Does these work for architectures different than i386?
-<p>Possibly not, since libgcj does not build on sparc and no one has
-tried this for arm.
-
 <chapt id="browser-java">Java Plugins for Browsers
 
-<p>The following section describes how you can use Java in 
-web browsers in order to be able to run <tt>applets</tt> published
-in web servers.
-
-<sect>Can I use any JVM as a Java Plugin?
-
-<p>That is a tricky question. My answer would be: "No, but it doesn't
-hurt trying" (and don't forget to forward us your findings so we
-can update this document)
-
-<sect id="konqueror-java">Can I use Java in Konqueror?
-
-<p>Yes, in Konqueror 3.1.1, you Settings->Configure Konqueror. The opened 
-Control Module has a Java&amp;JavaScript section where you can enter the location of
-your JVM. The configuration should look like this:
-
+<p>
 <list>
-  <item>Selected "Enable Java globally"
-  <item>Selected "Show Java console"
-  <item>"Path to Java executable" has /usr/bin/java
+
+<item>You can install the package icedtea-gcjwebplugin or the non-free
+packages sun-java5-plugin or sun-java6-plugin in <em>Lenny</em>. 
+
+<item>You can install the package icedtea6-plugin or the non-free
+package sun-java6-plugin in <em>Squeeze</em>.
+
 </list>
 
-<p>As it says <file>/usr/bin/java</file> it relies on the <prgn>update-alternatives</prgn>
-mechanism to point to a JVM that can serve as a plugin.
-If you have Sun's J2RE installed, "Path to Java" might also say something like
-<file>/usr/local/lib/j2sdk1.4.2/jre/bin/java</file>
-
-<sect id="netscape-java">Can I use Java in Netscape 6.x/7.x?
-
-<p>Yes. Make a symbolic link in the <file>/path/to/netscape/plugins</file>
-directory to the Java Plugin as can be found in Sun's J2RE:
-<example>
-/usr/local/netscape/plugins $ ls -la
-total 960
-drwxr-sr-x    2 root     staff        4096 Apr 30 09:46 .
-drwxr-sr-x    9 root     staff        4096 Apr  8 20:26 ..
--rw-r--r--    1 root     staff        2363 Feb  8 07:47 ShockwaveFlash.class
--rw-r--r--    1 root     staff      946108 Feb  8 07:47 libflashplayer.so
-lrwxrwxrwx    1 root     staff          64 Apr 30 09:46 libjavaplugin_oji.so -> /usr/local/lib/j2sdk1.4.2/jre/plugin/i386/ns610-gcc32/libjavaplugin_oji.so
--rwxr-xr-x    1 root     staff       19396 Feb  8 07:47 libnullplugin.so
-</example>
-
-<p>If you have Blackdown's J2RE installed the link has to be made to
-<file>/usr/lib/j2se/1.4/jre/plugin/i386/mozilla/javaplugin_oji.so</file>. Other
-possible locations include <file>/usr/java/j2re1.4.2_04/plugin/i386/ns610-gcc32/libjavaplugin_oji.so</file>, you will need to locate this plugin depending on your
-installation.
-
-<sect>Can I use Java in Mozilla?
-
-<p>Yes, the mechanism is identical to that of Netscape. However, the plugin 
-directory in this case is <file>/usr/lib/mozilla/plugins</file>. There is 
-additional information on how to install Java in Mozilla at the
-<url id="http://plugindoc.mozdev.org/faqs/java.html" name="Java FAQ at Mozilla">
-
-<P>There might be some issues depending on your version. Mozilla 1.4
-and later (as well as Mozilla Firebox) is compiled with gcc 3.x and
-needs a compatible version of the plugin, as provided by JRE 1.4.2 or
-later.  If you find issues you will need to debug yourself.  A common
-problem is that the library might not be binary compatible if it was
-compiled with a different <prgn>gcc</prgn> version.  Some gory details
-on how to debug this are described below (contributed by Tim Freeman
-and included in the <url
-id="http://www.linuks.mine.nu/debian-faq-wiki/MiscellaneousPage"
-name="#debian faq wiki">)
-
-<p>The first problem is that in version 1.6-5 of the
-<package>mozilla-browser</package> package, at least,
-<file>/usr/bin/mozilla</file> is a shell script that redirects errors
-to <file>/dev/null</file>. This is described in <url
-id="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=178721" name="bug
-178271">
-
-<p>To deal with this, make a copy of <file>/usr/bin/mozilla</file> and
-edit out the redirects of file descriptor 2 to /dev/null and run the
-copy.  You may see something like this on Mozilla's standard error
-when it starts:
-
-<example>
-LoadPlugin: failed to initialize shared library /usr/lib/j2se/1.3/jre/plugin/i386/mozilla/javaplugin_oji.so [/usr/lib/j2se/1.3/jre/plugin/i386/mozilla/javaplugin_oji.so: undefined symbol: __vt_17nsGetServiceByCID]
-</example>
-
-<P>This symptom indicates that your Java was compiled with an old
-version of GCC, but your Mozilla was compiled with a newer version
-(post gcc 3.0.3), and the two are binary incompatible. This is the
-case for version 1.3.1.02b-2 of the <package>j2re1.3</package> package
-from <url id="ftp://ftp.tux.org">, at least.
-
-<P>If you're confronted with this symptom, the fix is to get a Java
-runtime that was compiled with a more recent gcc. There are several
-available; one is <url
-id="ftp://ftp.tux.org/pub/java/JDK-1.4.2/i386/01/j2re-1.4.2-01-linux-i586.bin">.
-Install that and change the libjavaplugin_oji.so link to point into
-the newly installed Java runtime.  <P>If you wish to confirm the
-diagnosis before attempting the above treatment, you can do it as
-follows. Confirm that your Java was compiled with the old gcc by
-giving the command:
-
-<example>
-      c++filt -s gnu __vt_17nsGetServiceByCID 
-</example>
-
-<P>and getting the result:
-<example>
-       nsGetServiceByCID virtual table 
-</example>
-
-<p>To confirm that your mozilla was compiled with the new gcc, you can
-find its version of the symbol by giving the command:
-
-<example>
-   objdump -R /usr/lib/libxpcom.so | grep nsGetServiceByCID
-</example>
-
-<p>and you'll see a line like:
-
-<example>
-     000ec114 R_386_GLOB_DAT _ZTV17nsGetServiceByCID 
-</example>
-
-<p>Then you demangle that with the command:
-
-<example>
-    c++filt -s gnu-v3 _ZTV17nsGetServiceByCID 
-</example>
-
-<P>and get this eminently reasonable output:
-<example>
-    vtable for nsGetServiceByCID 
-</example>
-
-<P>The important thing is that the two calls to c++filt both succeeded
-but they were told to use different demangling rules, "gnu" for the
-first and "gnu-v3" for the second. If this all checks out, then you
-should fetch a newer Java runtime as described above.
 
 <chapt>Java Servlets
 <p>
 <sect>How can I make Java servlets work?
 <p>You can use:
 <list>
-  <item><package>gnujsp</package>
-  <item>Apache <package>jserv</package>. <url id="http://java.apache.org/jserv/index.html">.
-  <item>Apache <package>tomcat</package> from <url id="http://jakarta.apache.org/tomcat/">.
+  <item>Apache <package>tomcat6</package> from <url id="http://tomcat.apache.org">.
+  <item>Eclipse <package>jetty</package> from <url id="http://www.eclipse.org/jetty/">.
 </list>
 
-<p>Also others not yet packaged for Debian but which migh be soon included are:
-
-<list>
-<item>jigsaw from <url id="http://www.w3.org/Jigsaw/">.
-<item>Jetty <url id="http://mortbay.com/software/Jetty.html"> (tested
-successfully on a potato machine)
-
-</list>
-
-
-<sect>Do servlets work with kaffe?
-
-<p>The <file>servlet.jar</file> in Kaffe will not work. It is only a
-shell.  There is another LGPL implementation that was written by Paul
-and Mark Wielaard. It is available at <url
-id="http://www.euronet.nl/~pauls/java/servlet"> these will have (have
-been?)  added Apache JServ package so the user doesn't have to
-download Sun's classes any longer.
-
-<sect>Do I need non-free Java in order to run servlets?
-<P>Not known. Possibly not, need to explain.
 
 <chapt>Java Policy
 <p>
@@ -1209,244 +793,6 @@ the Debian project might cause conflicts with your installation some times.
 Of course, Debian tries to integrate as many free software efforts as 
 possible, so some of the alternatives described below might (if license
 permits) be included in Debian in the near future.
-
-<sect id="blackdown-pack">How can I get Debian packages from Blackdown?
-
-<p>If the releases provided aren't recent enough
-for you, you can of course install the files from
-the Blackdown mirrors. You can either use the Debian packages
-provided by Blackdown or download their tar files.
-
-<p>(contributed by Federico Mennite) If you want to use their packages, add
-the following line 
-<footnote>
-Use only one of them, it could be <em>potato</em>, <em>woody</em>,
-<em>testing</em> (<em>sarge</em>) or (<em>unstable</em>) (<em>sid</em>) depending 
-on the Debian release you are running, or it could be 
-<em>testing</em> or <em>unstable</em> if you are running development
-releases.
-</footnote>
-to your <file>/etc/apt/sources.list</file>:
-
-<example>
-deb proto://url/debian potato main non-free
-deb proto://url/debian woody main non-free
-deb proto://url/debian testing main non-free
-deb proto://url/debian unstable main non-free
-</example>
-
-<p>Where <em>proto://url</em> is one of the mirrors from the list 
-available at 
-<url id="http://www.blackdown.org/java-linux/java-linux-d2.html">.
-<!-- Previously at:
-url id="http://www.blackdown.org/java-linux/mirrors.html" 
--->
-<footnote>
-You need the <em>main</em> archive too since now there is a 
-<package>j2se-common</package> package which resides there.
-If you had already installed j2sdk when the
-above dependency did not exist you would get warnings once
-you do an <prgn>apt-get update</prgn> or <prgn>apt-get upgrade</prgn>.
-</footnote>
-For example, in Debian 3.0 using the main site (in the US) you would use:
-<example>
-deb ftp://ftp.tux.org/pub/java/debian unstable non-free
-</example>
-
-<p>And then do:
-
-<example>
-$ apt-get update
-$ apt-get install j2sdk1.4
-</example>
-
-<P>The packages will download all the library files into 
-<file>/usr/lib/j2se/</file>, you just need to configure your 
-system to use that jvm. If you use these Debian packages you will
-not need, for example, to configure your web browser: the symbolic
-links described in <ref id="netscape-java"> for 
-<file>libjavaplugin_oji.so</file> will be created, as well as the
-alternative location of <file>/usr/bin/java</file> pointing to the
-j2se's Java.
-
-<P>Note that, at the moment of this writting, there are only Blackdown
-packages for <em>unstable</em> and <em>testing</em> of Java 1.4.
-
-<p>(contributed by Paul Reavis) If you download and install the 
-JDK tar.gz files, unpack them into <file>/usr/local/jdk1.1.x</file>, and 
-use symlinks to create a <file>/usr/local/jdk</file> and
-link in binaries to <file>/usr/local/bin</file> or whatever. It is not at all
-difficult to install these. However, you can get segfaults under some
-conditions depending on your libraries.
-
-<p>Here is a list of releases that are known to work under each Debian
-release, and what other software needed, if any, to make it happen.
-
-<list>
-<item>rex/bo: 1.1.5v7 (libc5).
-<item>hamm:1.1.5v7 (glibc), also needed latest glibc from <em/slink/.
-<item>slink: 1.1.6-test2 (glibc).
-</list>
-
-<sect1 id="swing-run">Making swing work in Debian
-
-
-<p>(from Paul Reavis) [A quickie on getting Swing working under Debian
-or any Linux really]
-
-<p>Yes, it does work with the linux JDK; Swing is 100% Pure Java
-(tm)(c)(SFD) and therefore should run under any compliant JVM. Paul
-Reavis reported converting a commercial app (350+ classes) over to a
-fully-Swing GUI; I've had no problems so far.
-
-<p>If you are using jdk 1.1.3 or below, all you need are the class
-files. So, the easiest thing to do is grab the solaris distribution,
-in tar.Z format, from javasoft. Depending on phase of moon, they
-either call it swing or JFC 1.1 (to distinguish from 1.2, which is
-part of Java 1.2). The current version is Swing 1.0.2 (not to be
-confused with Java 1.0.2!). If you are using jdk 1.2.2 do not download
-Swing (it is already integrated in the jdk).
-
-<p>I don't have the archive handy here, so we'll pretend it's named
-swing.tar.Z. It is recommended you install it in /usr/local. So
-
-<example>
-        skronk# cd /usr/local
-        skronk# tar xzf /tmp/swing.tar.Z
-</example>
-
-<p>Now you should have a /usr/local/swing directory. To test, make
-sure your JAVA_HOME variable is set, and CLASSPATH is unset, and run
-the "runnit" script in each example. To be painfully obvious, do this:
-
-<example>
-        skronk$ cd /usr/local/swing/examples/SwingSet
-        skronk$ echo $JAVA_HOME
-        /usr/local/jdk
-        skronk$ unset CLASSPATH
-        skronk$ echo $CLASSPATH
-
-        skronk$ ./runnit
-</example>
-
-<p>Of course, your directories, shell prompt, and mileage will vary.
-To use with your own applications, just add the jars you want to your
-classpath.
-
-<sect1>Making Java 2 work in Debian
-<p>
-If you wish to use Sun's or Blackdown's jdk 1.2 or later in Debian download the
-packages provided by Blackdown (they are available in aptable
-directories) from the different mirrors available  in
-<url id="http://www.blackdown.org/java-linux/mirrors.html"> (check the debian 
-subdir).  Currently there are i386 packages for the Java2 SDK and RE, JAI,
-Java3D and JMF. This is the recommended mechanism for more information
-read <ref id="blackdown-pack">.
-
-<P><em>Or</em> you can download the archives yourself (that is, the tar.gz,
-no the .deb package) and use the following mechanism:
-
-<list>
-<item>Make a directory under <file>/usr/local</file>
- (for example <file>/usr/local/sun</file>).
-<item> Download  the  archine into  this  directory,  then  unpack it.   A
-   directory jdk1.X
-   <footnote><em>X</em> will depend on the Java 2 version you are downloading,
-   it can bee 1.2.1, 1.2.2, 1.3 or even 1.4</footnote> 
-   will be created.
-<item> Adjust the alternatives to work correctly:
-<example>
-   update-alternatives --install /usr/bin/javac javac /usr/local/sun/jdk1.X/bin/javac 120
-   update-alternatives --install /usr/bin/java Java /usr/local/sun/jdk1.X/bin/java 120
-</example>
-<item> Check your alternatives with "type"
-<example>
-   type javac
-   type java
-</example>
-</list>
-
-<p>You should have now a fully working jdk 1.X environment, virtual machine 
-and compiler included.
-
-<p>You might need to change your <file>/etc/profile</file> adding the proper 
-definitions of some environment variables (<tt>CLASSPATH</tt>, 
-<tt>JAVA_COMPILER</tt> and <tt>JAVA_HOME</tt>) so that Java programs
-can find the kit you just have installed. The following example show
-which settings you could add if you had installed Sun's 1.2.2 jdk:
-
-<example>
-# JDK 1.2.2 (.tar)
-export CLASSPATH=.:/usr/local/sun/jdk1.2.2/lib:/usr/local/sun/jdk1.2.2/jre/lib
-export JAVA_COMPILER=javacomp
-export JAVA_HOME=/usr/local/sun/jdk1.2.2
-export PATH=$PATH:/usr/local/sun/jdk1.2.2/bin
-</example>
-
-<p>Note: As Juergen Kreileder correctly pointed me out
- The preferred name for versions >= 1.2 is Java 2 SE (Standard Edition).
- The jdk1.3 now is called "Java2 SDK v1.3" or "J2SDK 1.3".  The jre1.3 
- now is called "Java2 RE v1.3" or "J2RE 1.3".
-
-<sect>How can I integrate Sun's J2SE SDK with Debian 3.1?
-
-<p>Warren Dodge explains how this can be done for Debian testing:
-the first step is to download the J2SE SDK components
-from <url id="http://java.sun.com/j2se/downloads.html"> into,
-e.g. <file>/var/install/java/1.4.2</file>. Make sure that you have write permission to
-the directory, and make the installer executable. Running the installer 
-<prgn>./j2sdk-1_4_2_02-linux-i586.bin</prgn> will create a directory 
-<file>j2sdk1_4_2_02</file> which can be moved to <file>/usr/local/lib</file>.
-Next, create a link
-<tt>ln -s /usr/local/lib/j2sdk1_4_2_02 /usr/local/lib/jdk</tt> which allows you
-to use the latter location to refer to the Java environment and makes upgrading
-a lot easier in the future.
-
-<p>Because Debian does not have an installer packages for Sun's J2SE, a dummy package 
-needs to be made to let Debian know that a J2SE is installed. This is done as follows.
-Use the 'dummy' package control files provided by <package>java-common</package> to
-satisfy dependencies:
-<example>
-mkdir -p /var/install/java/pkg
-cd /var/install/java/pkg
-cp /usr/share/doc/java-common/dummy-packages/*.control .
-equivs-build java-compiler-dummy.control
-equivs-build java-virtual-machine-dummy.control
-equivs-build java1-runtime-dummy.control
-equivs-build java2-compiler-dummy.control
-equivs-build java2-runtime-dummy.control
-</example>
-<p>You should now have five packages in /var/install/java/pkg which should be installed.
-
-<p>The command <prgn>update-alternatives</prgn> is used in Debian to choose which of
-several pacakges to use when several can do the same thing. ("Java" can also be provided
-by kaffe, Blackdown (see above), etc). See "man update-alternatives" for more details.
-Use this command to install the programs you need with commands like:
-<example>
-update-alternatives --verbose --install /usr/bin/java java /usr/local/lib/jdk/bin/java 500 \
-  --slave /usr/share/man/man1/java.1 java.1 /usr/local/lib/jdk/man/man1/java.1
-</example>
-
-<p>Run java once as root to allow system preference directories to be created and to check
-if Sun's <prgn>java</prgn> is working properly:
-<example>
-  java -version
-</example>
-
-<sect>How can I integrate Sun's J2SE SDK with Debian 3.0?
-
-<p> The procedure is similar to the one described for Debian 3.1 .  However,
-the java-common in stable does not have the *.control files. 
-  Therefore, you need to install the
-  java-common package from testing or unstable. Versions 0.19 and 0.20 can be safely
-  be installed and require the installation of the equivs package, but the one
-  from stable is just fine.
-
-<p>Notice, however, that newer J2SE versions (notably 1.4.2_04 instead of
-1.4.1_02) might depend on newer libc6 or libgcc1 libraries. If you cannot
-backport (recompile) this package to your libraries you will need are limited
-to using jdk 1.3.1-11 (which requires libstdc++2.9-glibc2.1 from the
-<em>oldlibs</em> section).
 
 <sect>Java programs not yet available on Debian
 <p>
