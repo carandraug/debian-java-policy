@@ -25,7 +25,7 @@ provides	= java java2 java5
 dversion	= 1.5-$(jrel)
 jvmdir		= java-gcj
 
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel powerpc s390 sparc))
+ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel powerpc s390 sparc sh4))
   p_jre		= openjdk-6-jre
   p_jhl		= openjdk-6-jre-headless
   p_jdk		= openjdk-6-jdk
@@ -67,8 +67,6 @@ install-stamp: build-stamp
 
 	dh_installdocs -i
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/java-common
-
-	dpsch-backupclean
 
 	touch install-stamp
 
@@ -125,7 +123,6 @@ binary-indep: build-indep install-indep
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jre-headless/api
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jdk-doc/api
 	dh_installexamples -i
-	dpsch-cvsclean
 	dh_installmenu -i
 	dh_installman -i
 	dh_installchangelogs -i

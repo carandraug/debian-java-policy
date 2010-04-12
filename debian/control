@@ -5,7 +5,7 @@ Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, dpsyco-devel, lynx
+Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, lynx
 Standards-Version: 3.8.4
 DM-Upload-Allowed: yes
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common

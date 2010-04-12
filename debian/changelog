@@ -8,6 +8,10 @@ java-common (0.36) UNRELEASED; urgency=low
   * Applied patch from Thierry Basque that fixes the --list
     argument for update-java-alternatives. (Closes: #563070)
   * Updated the off-line copy of the Debian Java FAQ.
+  * Added sh4 to the list of architectures that support openjdk-6.
+    (Closes: #577482)
+  * Removed useless commands from debian/rules and removed B-D on
+    dpsyco-devel.
 
  -- Niels Thykier <niels@thykier.net>  Tue, 06 Apr 2010 21:45:15 +0200
 
