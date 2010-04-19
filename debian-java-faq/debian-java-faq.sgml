@@ -16,7 +16,7 @@
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7277 $, $Date: 2010-04-11 12:51:59 +0200 (Sun, 11 Apr 2010) $
+<version>$Revision: 7297 $, $Date: 2010-04-15 23:31:12 +0200 (Thu, 15 Apr 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -97,6 +97,21 @@ id="http://www.debian.org/doc/manuals/debian-java-faq/index.html"> before
 filing a bug report. Translations, if available, and the offline version in
 the java-common package might be out of date.
 
+<sect>What is Java?
+<p>
+Java is a programming language originally developed by James Gosling at
+Sun Microsystems (which is now a subsidiary of Oracle Corporation) and
+released in 1995 as a core component of Sun Microsystems' Java platform.
+More information can be found at <url
+id="http://en.wikipedia.org/wiki/Java_%28programming_language%29"
+name="Wikipedia">.
+
+<sect>Where can I ask questions about Java on Debian?
+
+<p>The appropriate place to ask such questions is <email>debian-java
+at lists.debian.org</email>. You can subscribe at the <url
+id="http://lists.debian.org/debian-java/" name="Debian Mailing Lists"> page.
+
 <sect id="moreinfo">Complementary information 
 
 <p>Users might want to access some online sources to complement the
@@ -127,275 +142,6 @@ application servers (such as WebSphere) in Debian.
 
 </list>
 
-<chapt>Introduction to Java
-
-<sect>What is Java?
-<p>
-Java is a strongly-typed platform-independent object-oriented programming
-language often associated with the World Wide Web. Java was developed by 
-<url id="http://www.sun.com" name="Sun
-Microsystems"> (now Oracle) for embedded applications, but has since grown to become a
-general-purpose programming language. Java source code can either be
-compiled to a machine-independent byte-code that can be run by Java virtual
-machines, or it can be compiled directly to executable code for any number
-of platforms, including Linux, Win32, and others.
- 
-<p>A common API, shipped with all Java development environments,
-provides socket support, a graphical user interface widget set, graphical
-drawing tools, standard IO, events, math, database interfaces, and
-multithreading, to name a few.
- 
-<p>The multithreading support can happen either in kernel threads or userland
-threads, depending on the implementation of the Java virtual machine used. 
-
-<p>Of course, Java is also the name of a popular island of Indonesia:
-check out the facts at <url id="http://en.wikipedia.org/wiki/Java" name="Wikipedia">.
-
-<sect>Why would I be interested in Java?
-<p>
-Java is widely used in large and small scale distributed, server, and client 
-applications. It's fun to use. The javadoc tool creates documentation from 
-comments in the code, so if you comment your code you get the docs for free.
-
-<sect>What is a JIT?  
-<p>
-JIT is an acronym for Just In Time. It refers to a  VM plugin to speed up VM 
-execution by compiling bytecode to native machine code.
-
-<sect>Where can I read more about Java?
-<p>
-Of course, <url id="http://java.sun.com"> would be the first place to
-read information on Java, right from the company who started
-it (i.e. Sun). However good places for Java and Linux could be:
-
-
-<list>
-<item>Sun's <url id="http://java.sun.com/developer/technicalArticles/Programming/linux/" name="Java Technology
-on the Linux Platform"> pages.
-
-<item>GNU's <url id="http://www.gnu.org/software/java/" name="Java software">
-
-
-<item>Enterprise in a Nutshell by  Gary Meyer, at <url id="
-http://en.tldp.org/HOWTO/Enterprise-Java-for-Linux-HOWTO.html">.
-Explains how to set up an environment including JDK, web server, Java servlets,
-JDBC access to a database and EJBs. If you are interested read also
-Java Enterprise in a Nutshell at <url
-id="http://www.oreilly.com/catalog/jentnut/">.
-
-
-<item>The <url id="http://www.linuxjournal.com/" name="Linux Journal Magazine">,
-the following articles might be worth reading:
-<list>
-<item>Issue 105 <url id="http://www.linuxjournal.com/article.php?sid=4860"
-name="Compiling Java with CGJ">
-<item><url id="http://www.linuxjournal.com/article.php?sid=6290"
-name="Getting Started with Java on Linux">
-<item>Issue 94 <url id="http://www.linuxjournal.com/article.php?sid=5612"
-name="Embedded Linux and Java--Wave of the Future?">
-<item><url id="http://www.linuxjournal.com/article.php?sid=4819"
-name="Using and Writing Java Servlets">
-<item>Issue 66 <url
-id="http://www.linuxjournal.com/lj-issues/issue66/3119.html"
-name="Java servlets"> and <url
-id="http://www.linuxjournal.com/lj-issues/issue66/3224.html"
-name="Java 2 SDK">.
-
-</list>
-
-<item>The <url id="http://linuxgazette.net" name="Linux Gazette
-Magazine">, the following articles might be useful:
-<list>
-<item>Issue 87 <url id="http://linuxgazette.net/issue87/jenkins.html"
-name="A Keep-Alive Program You Can Run Anywhere">
-<item>Issue 69 <url id="http://linuxgazette.net/issue69/peda.html"
-name="Installing Tomcat on Linux">
-<item>Issue 48 <url id="http://linuxgazette.net/issue48/lane.html"
-name="Linux, Java and XML">
-<item>Issue 45 <url
-id="http://tldp.org/LDP/LG/issue45/gibbs/Linux_java.html"
-name="Setting Up A Java Development Enviroment For Linux">
-<item>Issue 33 <url id="http://tldp.org/LDP/LG/issue33/burtch.html">
-<item>Issue 32 <url id="http://tldp.org/LDP/LG/issue32/rojansky.html" name="Java and Linux">
-<item>Issue 25 <url id="http://tldp.org/LDP/LG/issue29/hamilton.html">
-</list>
-
-
-<item><url id="http://www.linuxfocus.org/" name="LinuxFocus">, a free
-multilingual journal:
-<list>
-
-<item>March 2003: <url
-id="http://www.linuxfocus.org/English/March2003/article285.shtml"
-name="Accessing PostgreSQL through JDBC via a Java SSL tunnel">
-
-<item>January 1999: <url
-id="http://www.linuxfocus.org/English/January1999/article78.html"
-name="Programming with Java, part II">
-
-<item>July 1998: <url
-id="http://www.linuxfocus.org/English/July1998/article57.html"
-name="Programming with Java, part I">
-
-</list>
-
-
-<item>The Java-CGI HOWTO from David H. Silber at <url
-id="http://en.tldp.org/HOWTO/Java-CGI-HOWTO.html">
-explains how to set up your server to run Java CGIs. 
-Maybe it is worth looking at servlets.
-
-<item>Java Programming on Linux, by Nathan Meyers, website at
-<url id="http://www.javalinux.net/">, which is a book devoted to the
-topic of using Java on Linux (there's no online version of it, though)
-
-</list>
-
-Other sites regarding Java would be:
-<list>
-<item>The Java Lobby <url id="http://www.javalobby.org">.
-
-
-<item>Brewing Java: a tutorial at <url
-id="http://metalab.unc.edu/javafaq/javatutorial.html">.
-
-</list>
-
-If you are browsing the web for free Java information you can of
-course use Google. If you are looking for applets with source code look at <url
-id="http://javaboutique.internet.com/javasource.html">. Check also
-<ref id="free"> for pointers to the free Java platforms available, which
-might or might not be listed in GNU's webpages devoted to Java.
-
-<sect>Where can I ask questions about Java on Debian?
-
-<p>The appropriate place to ask such questions is <email>debian-java
-at lists.debian.org</email>. You can subscribe at the <url
-id="http://lists.debian.org/debian-java/" name="Debian Mailing Lists"> page.
-
-
-<chapt id="debian-java-etch">Status of Java in Debian's older releases (before Lenny)
-
-<sect>Is the information in this chapter still up to date?
-<p>
-Probably not but it takes some time to re-check every entry. That is why we keep
-the information for a while.
-
-<sect>Where is Debian Java going?
-
-<p>The first thing you should understand about the design strategy of Debian is
-that our goal is to produce a 100% Free Software platform. In that sense, some
-of the Java tools available are not available in the standard Debian
-distribution for licensing reasons, not for any technical motivation (see <ref
-id="license-concerns">). 
-
-<p>That said, basically all of the technologies you might ask about can
-be or are available for Debian immediately. In order to usefully
-answer your questions, however, here you have a status from an Open
-Source availability perspective.
-
-<p>If you are <em>really</em> interested, read the following: <url
-id="http://lists.debian.org/debian-java/1999/debian-java-199912/msg00015.html">
-and <url
-id="http://lists.debian.org/debian-java/1999/debian-java-199910/msg00017.html">.
-This section is a summary of the information therein.
-(<em>Note</em>: this information might not be fully updated at this point in 
-time, it was written around 1999)
-
-<sect>Is there a Java1 compiler (.java to .class)?
-<p>Gcj can also compile .java to .class.  CVS version currently
-does  handle inner classes, as well as any other jdk 1.1 constructs,
-but might not be able to compile a complicated program like the
-XSL processor xt.  It is written in C, so is reasonably fast. 
-It generates reasonably good bytecode.  And
-of course being able to use the same compiler for .java to .class and
-.java to native has its advantages.
-
-
-<sect>Is there a Java1 JVM or JIT?  
-
-<p>libgcj (the run-time library for gcj) now includes an interpreter
-and ClassLoader.
-
-<sect>Is there a Java1 native compiler?
-<p>GCC, the Gnu Compiler Collection comes with GCJ, the Gnu Compiler for Java
-
-<sect>Is there a Java Debugger (jdb equivalent)?
-<p>Gdb can debug native code produced by Gcj. Stuart Grossman (Cygnus) also
-wrote support for Gdb to debug other VMs using JVMDI.  This has not
-been released, because the Gdb internals were changed at the same
-time, and no-one has had time to re-integrate the changes.  We can
-probably get Cygnus to release the old code, if someone wants to look
-into getting this stuff working with the current Gdb internals.  (A
-non-trivial job.)  <p>See <url
-id="http://gcc.gnu.org/java/gdb.html"> on how to debug
-gcj-compiled Java programs.
-
-<sect1>What free edit-interactive/graphical debugging tools are available on
-Debian?
-<p>jde, ddd, eclipse, more?
-
-<P>One of the some nice features of jde are autoindention and syntax
-highlighting, but it also supports debugging and compilation.
-
-<sect>Is there a Jar tool?
-<p><package>FastJar</package> which is indeed very fast. 
- 
-
-<sect>Is there a Javadoc tool?
-<p><package>doc++</package> can work with C++ and Java. Additionally, there
-are the <package>gjdoc</package> and <package>gjdoc-native</package> packages.
-
-<sect>Does Debian do Enterprise Java Beans (EJB)?
-<p>There is activity in this area, the most noteworthy being the Open
-  Source EJB implementation from Bull in France called Jonas. I have
-  done some work with this system and it provides a good start towards
-  a full EJB feature set. In particular, it provides a transaction
-  monitor and a container based persistance implementation. I have
-  used this system on Linux with free databases such as Postgresql. I
-  have not been able to get the system fully operational on Kaffe.
-  Additionally, the system depends on many Sun APIs which have not
-  been cloned (JTA, JNDI, and EJB itself).
-
-<sect>What is JAIN?
-<P>
-  It seems to be  a system for
-  controlling large scale, integrated communications infrastructures
-  and modeling events with such networks via the JavaBeans API. The
-  scale of this effort seems very large and encompasses the work of
-  many organizations. The work is very new and seems to tie into Sun's
-  SCSL strategy, which leads us me to believe that there is not
-  much in the way of Open Source options in this area. However, some
-  protocols such as H.323 are genuinely open and are even cloned so it
-  is possible that chunks of the JAIN system may exist in a scattered
-  manner. We have no knowledge of a serious Free Software 
-  implementation of RTP or the H.323 infrastructures in Java.
-
-<sect>What is Jini?
-<p> Jini presents an especially pronounced Free Software problem. Jini is
-  only available as source from Sun and that source is only available
-  under the SCSL. The SCSL is not compatible in any sense with either
-  the legal mechanics or the political spirit of Free Software. The
-  SCSL also makes cloning the API of an SCSL implementation illegal
-  which precludes even a clean room replication of Jini. If you are
-  interested in tuple space type implementations there are Open
-  Source options. 
-
-  
-<sect>Are there many changes in Sarge?
-<p>
-At this moment, there only seems to be dh_javadoc, which is a tool
-in the <package>gjdoc</package> package. However, people spoke about
-other tools on the debian-java mailing list in 2003.  
-
-<p>The <em>Etch</em> release was the first one to provide Sun's JDK
-environment without the need to download it from third-party repositories
-(see <ref id="java56">).
-
-<sect>What can I expect in future releases?
-
-<p>Debian has a roadmap at the <url
-id="http://wiki.debian.org/Java/RoadMap" name="Debian Java Wiki">.
 
 <chapt id="debian-java-lenny">Status of Java in Debian GNU/Linux 5.0 (Lenny)
 
@@ -466,6 +212,7 @@ recommend java-virtual-machine. Please check the policy for more details.
 <item><package>jmp</package> (Replaced by <package>tijmp</package>)</item>
 <item><package>pja</package></item>
 <item><package>slide-webdavclient</package></item>
+<item><package>java-package</package></item>
 </list>
 </p>
 
