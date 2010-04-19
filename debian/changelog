@@ -1,4 +1,4 @@
-java-common (0.36) UNRELEASED; urgency=low
+java-common (0.36) unstable; urgency=low
 
   * Correct a ${jdk} that should have been a ${jre} in the decription
     of default-jre. Thanks to Yoshino Yoshihito for spotting it.
@@ -12,7 +12,6 @@ java-common (0.36) UNRELEASED; urgency=low
     (Closes: #577482)
   * Removed useless commands from debian/rules and removed B-D on
     dpsyco-devel.
-
   * Policy Changes:
     - Removed section "Java Compilers".
     - Retired the virtual packages java-virtual-machine, java-compiler
@@ -22,7 +21,7 @@ java-common (0.36) UNRELEASED; urgency=low
     - Removed mention of binfmt_misc in favor of jarwrapper.
       (Closes: #227594)
 
- -- Niels Thykier <niels@thykier.net>  Tue, 06 Apr 2010 21:45:15 +0200
+ -- Niels Thykier <niels@thykier.net>  Mon, 19 Apr 2010 09:05:16 +0200
 
 java-common (0.35) unstable; urgency=low
 
