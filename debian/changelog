@@ -1,3 +1,9 @@
+java-common (0.37) UNRELEASED; urgency=low
+
+  * Renamed default-jdk-builddep to gcj-native-helper.
+
+ -- Niels Thykier <niels@thykier.net>  Thu, 06 May 2010 17:59:01 +0200
+
 java-common (0.36) unstable; urgency=low
 
   * Correct a ${jdk} that should have been a ${jre} in the decription
