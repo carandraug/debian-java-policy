@@ -1,1 +1,1 @@
-debian/lintian/gcj-native-helper /usr/share/lintian/overrides
+debian/lintian/default-jdk-builddep /usr/share/lintian/overrides

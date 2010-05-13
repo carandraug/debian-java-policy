@@ -70,10 +70,9 @@ Description: Standard Java or Java compatible Development Kit (documentation)
  or Java compatible development kit recommended for Debian, which is
  ${doc}.
 
-Package: gcj-native-helper
+Package: default-jdk-builddep
 Architecture: any
 Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}, ${misc:Depends}
-Provides: default-jdk-builddep
 Description: Standard Java or Java compatible build dependencies
  This package points to the build dependencies used to build
  packages requiring a Java or Java compatible Development Kit.
