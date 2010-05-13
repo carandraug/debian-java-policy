@@ -16,7 +16,7 @@
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7297 $, $Date: 2010-04-15 23:31:12 +0200 (Thu, 15 Apr 2010) $
+<version>$Revision: 7333 $, $Date: 2010-05-13 15:22:31 +0200 (Thu, 13 May 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -213,6 +213,7 @@ recommend java-virtual-machine. Please check the policy for more details.
 <item><package>pja</package></item>
 <item><package>slide-webdavclient</package></item>
 <item><package>java-package</package></item>
+<item><package>java-gcj-compat</package></item>
 </list>
 </p>
 
@@ -419,19 +420,14 @@ also source to bytecode, or bytecode to native code.
 
 <chapt>Java Virtual Machines (JVM)
 <p>
-<sect>What jvms work in Debian?
-
-<p>Currently Sun's jvm works in Debian. Another solution is to use
-gcj and to compile to native code, thus solving the VM problem.)  
-
-<sect>What free JVMs are available in Debian?
+<sect>What JVMs are available in Debian?
 
 <p>The following JVMs are currently available in Debian Squeeze:
 
 <list>
 <item><package>openjdk-6-jre</package></item>
 <item><package>sun-java6-jre</package> (non-free)</item>
-<item><package>gij-4.3</package></item>
+<item><package>gcj-4.4-jre</package></item>
 </list>
 
 </p>
@@ -439,8 +435,9 @@ gcj and to compile to native code, thus solving the VM problem.)
 <p>The following lists JVMs available in Debian 5.0 release ('Lenny'):
 
 <list>
-<item><package>kaffe</package>
-<item><package>gij-4.3</package>
+<item><package>openjdk-6-jre</package></item>
+<item><package>kaffe</package></item>
+<item><package>gij-4.3</package></item>
 </list>
 
 
@@ -460,8 +457,9 @@ id="http://www.debian.org/Bugs/" name="Debian Bug Tracking System">.  As
 a quick link, here are some packages:
 
 <list>
-<item><url id="http://bugs.debian.org/java-common" name="java-common">
-<item><url id="http://bugs.debian.org/gcj" name="gcj">
+<item><url id="http://bugs.debian.org/java-common" name="java-common"></item>
+<item><url id="http://bugs.debian.org/src:openjdk-6" name="openjdk-6"></item>
+<item><url id="http://bugs.debian.org/src:gcj-4.4" name="gcj-4.4"></item>
 </list>
 
 <p>As common within the Debian project, the developers would
@@ -489,10 +487,10 @@ software chain is free.
 <list>
 
 <item>You can install the package icedtea-gcjwebplugin or the non-free
-packages sun-java5-plugin or sun-java6-plugin in <em>Lenny</em>. 
+packages sun-java5-plugin or sun-java6-plugin in <em>Lenny</em>.</item>
 
 <item>You can install the package icedtea6-plugin or the non-free
-package sun-java6-plugin in <em>Squeeze</em>.
+package sun-java6-plugin in <em>Squeeze</em>.</item>
 
 </list>
 
