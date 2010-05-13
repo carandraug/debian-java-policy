@@ -16,7 +16,7 @@
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7333 $, $Date: 2010-05-13 15:22:31 +0200 (Thu, 13 May 2010) $
+<version>$Revision: 7336 $, $Date: 2010-05-13 16:55:09 +0200 (Thu, 13 May 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -366,18 +366,6 @@ in main, and if it has a Debian compliant open source license.
 If it needs programs from contrib or non-free, then is <em>must</em>
 go into contrib or non-free, depending on the license of the program itself.
 
-<sect1>What virtual packages could I use?
-<p>
-<list>
-<item><package>java-common</package>. It is the Mother Of All Java
-Packages, in the proposed policy. It contains the text of the Policy
-(Docbook), as well as utilities
-scripts (for instance to build a CLASSPATH from a list of jars
-(submissions welcome).
-<item><package>java-virtual-machine</package>
-<item><package>java-compiler</package>
-</list>
-
 <sect1>Is there a good example Debian package?
 
 <p>There are many Debian packages of both Java applications and libraries.
@@ -396,10 +384,36 @@ But, some tips for good practice are given on the pkg-java page:
 
 <sect1>What tools are available to make maintaining a Java packages easier?
 
-<p>At this moment, there is dh_javadoc, which is a tool
-in the <package>gjdoc</package> package in Debian unstable. And, there
-are tools in <package>cdbs</package> which can help build packages with
-<package>ant</package>.
+<p>Both cdbs and debhelper (dh7) have support for ant scripts. There
+are also a number of specialized tools or build helpers. Have a look
+at <package>javahelper</package>
+or <package>maven-debian-helper</package>. <package>gcj-jdk</package>
+also has a dh_javadoc tool.</p>
+
+<sect1>Linking package Javadoc to system javadoc.
+
+<p>The java-policy mandates that documentation must be linked with
+with the javadoc installed on the system. This can be done by passing
+javadoc the "-link" argument or by using the &lt;link&gt; tag in ant.
+An example:
+
+<example>
+# command line example of linking against system doc.
+javadoc -link /usr/share/doc/default-jdk-doc/api [other arguments]
+
+&lt;!-- Ant example of linking against system doc --&gt;
+&lt;javadoc [attributes]&gt;
+    &lt;link href="/usr/share/doc/default-jdk-doc/api/" /&gt;
+    [other tags]
+&lt;/javadoc&gt;
+</example>
+</p>
+
+<p>The documentation must be installed at the time the linking is
+done; so in the example cases above the package would need a
+Build-Depends or a Build-Depends-Indep on
+<package>default-jdk-doc</package>.
+</p>
 
 <chapt>Java Compilers
 <p>
