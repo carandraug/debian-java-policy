@@ -11,6 +11,7 @@
 <!ENTITY d-jdk "<emphasis>default-jdk</emphasis>">
 <!ENTITY d-jbdep "<emphasis>default-jdk-builddep</emphasis>">
 <!ENTITY d-jdoc "<emphasis>default-jdk-doc</emphasis>">
+<!ENTITY g-n-h "<emphasis>gcj-native-helper</emphasis>">
 <!ENTITY JVM "<acronym>JVM</acronym>">
 <!ENTITY JIT "<acronym>JIT</acronym>">
 <!ENTITY debpol "http://www.debian.org/doc/debian-policy">
@@ -336,9 +337,9 @@
       </para>
 
       <para>
- 	Source packages compiling gcj-packages &must; Build-Depend on
-	&d-jbdep;. The gcj-code &should; only be shipped for a selected
- 	set of architectures.
+	Source packages compiling gcj-packages &must; Build-Depend on
+	&g-n-h; (formerly known as &d-jbdep;). The gcj-code &should;
+	only be shipped for a selected set of architectures.
       </para>
 
       <para>
