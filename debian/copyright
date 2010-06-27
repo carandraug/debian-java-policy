@@ -1,15 +1,18 @@
 It is a Debian original work.
 
 Current maintainers:
-	Stefan Gybas <sgybas@debian.org>
-	Arnaud Vandyck <avdyk@debian.org>
 	Michael Koch <konqueror@gmx.de>
+	Matthias Klose <doko@debian.org>
+	Torsten Werner <twerner@debian.org>
+	Niels Thykier <niels@thykier.net>
 
 Previous maintainers:
 	Ola Lundqvist <opal@debian.org>
 	Stephane Bortzmeyer <bortzmeyer@debian.org>
+	Stefan Gybas <sgybas@debian.org>
+	Arnaud Vandyck <avdyk@debian.org>
 
-Copyright (C) 1999-2006 by current and previous maintainers for Debian
+Copyright (C) 1999-2010 by current and previous maintainers for Debian
 
 License:
 
