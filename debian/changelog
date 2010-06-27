@@ -4,7 +4,8 @@ java-common (0.37) unstable; urgency=low
     - contains a example of how to link with system javadocs.
     (Closes: #577164)
   * Renamed default-jdk-builddep to gcj-native-helper.
-  * Removed useless install files.
+  * Removed useless install files and moved the override files
+    to a location where dh_lintian finds them.
 
  -- Niels Thykier <niels@thykier.net>  Mon, 28 Jun 2010 00:07:15 +0200
 
