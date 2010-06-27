@@ -16,7 +16,7 @@
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7336 $, $Date: 2010-05-13 16:55:09 +0200 (Thu, 13 May 2010) $
+<version>$Revision: 7431 $, $Date: 2010-06-27 23:59:00 +0200 (Sun, 27 Jun 2010) $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -196,8 +196,17 @@ repository of POM files.
 
 <p>
 The -gcj packages are now deprecated but we keep them if the are good reason.
-The virtual package java-virtual-machine is gone and package must not depend or
+The virtual package java-virtual-machine is gone and packages must not depend or
 recommend java-virtual-machine. Please check the policy for more details.
+
+<p>
+Javadoc packages are now expected to link their javadoc against system
+installed javadocs. This means that javadocs will now provide local
+links instead of remote links. Javadoc packages will recommend on
+other javadoc packages; this will install the dependency docs by
+default, but allow users to avoid installing a lot of large javadoc
+packages (e.g. by asking APT to not include recommends).
+</p>
 
 <sect>What have been removed in Squeeze?
 
@@ -214,6 +223,7 @@ recommend java-virtual-machine. Please check the policy for more details.
 <item><package>slide-webdavclient</package></item>
 <item><package>java-package</package></item>
 <item><package>java-gcj-compat</package></item>
+<item><package>classpath</package></item>
 </list>
 </p>
 
@@ -251,19 +261,21 @@ Please help one of the Free Java implementations if you want to use Java
 in Debian. There are a lot of projects that you can choose from:
 <list>
 
-<item>gcj and libgcj: <url id="http://gcc.gnu.org/java/">
+<item>openjdk: <url id="http://openjdk.java.net/"></item>
+
+<item>gcj and libgcj: <url id="http://gcc.gnu.org/java/"></item>
 
 <item>FastJar <url id="http://savannah.nongnu.org/projects/fastjar">, as a jar
-tool.
+tool.</item>
 
 <item>Classpath <url id="http://www.classpath.org">. Most of the
 Standard classes for Java 1.2 (except Swing and RMI) are implemented by
 the ClassPath project, it tries to build an alternative to jdk's 1.2
-core classes.
+core classes. (NB: This was removed from Squeeze)</item>
 
 <item>Mauve <url
 id="http://sources.redhat.com/mauve/"> is a free suite to test if
-these tools are 'compliant'.
+these tools are 'compliant'.</item>
 
 </list>
 
@@ -413,6 +425,16 @@ javadoc -link /usr/share/doc/default-jdk-doc/api [other arguments]
 done; so in the example cases above the package would need a
 Build-Depends or a Build-Depends-Indep on
 <package>default-jdk-doc</package>.
+</p>
+
+<p>
+Here is a short list of packages that can be used for reference:
+<list>
+  <item><package>commons-jci</package></item>
+  <item><package>ow-util-ant-tasks</package></item>
+  <item><package>libhamcrest-java</package></item>
+  <item><package>libfreemarker-java</package></item>
+</list>
 </p>
 
 <chapt>Java Compilers
