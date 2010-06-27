@@ -85,7 +85,7 @@ ifneq (,$(p_jre))
 	dh_installchangelogs -pdefault-jre-headless
 	dh_link -pdefault-jre-headless \
 		usr/lib/jvm/$(jvmdir) usr/lib/jvm/default-java
-	for p in default-jre-headless default-jre default-jdk default-jdk-builddep; do \
+	for p in default-jre-headless default-jre default-jdk gcj-native-helper; do \
 	  [ -z "$$t" ] && t=$$p && continue; \
 	  mkdir -p debian/$$p/usr/share/doc; \
 	  ln -sf $$t debian/$$p/usr/share/doc/$$p; \
@@ -117,8 +117,6 @@ binary-indep: build-indep install-indep
 	dh_testdir -i
 	dh_testroot -i
 	dh_install -i
-#	dh_installdebconf -i
-###	dh_installdocs -i
 	mkdir -p debian/default-jdk-doc/usr/share/doc/default-jre-headless
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jre-headless/api
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jdk-doc/api

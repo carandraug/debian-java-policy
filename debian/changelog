@@ -3,7 +3,7 @@ java-common (0.37) UNRELEASED; urgency=low
   * Updated and synced the Java FAQ.
     - contains a example of how to link with system javadocs.
     (Closes: #577164)
-  * Removed unused lintian overrides.
+  * Renamed default-jdk-builddep to gcj-native-helper.
 
  -- Niels Thykier <niels@thykier.net>  Thu, 13 May 2010 15:46:11 +0200
 
