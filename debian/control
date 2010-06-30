@@ -6,7 +6,7 @@ Uploaders: Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>, To
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, lynx
-Standards-Version: 3.8.4
+Standards-Version: 3.9.0
 DM-Upload-Allowed: yes
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/java-common/
@@ -74,9 +74,17 @@ Package: gcj-native-helper
 Architecture: any
 Depends: default-jdk (= ${binary:Version}), ${jdk:builddep}, ${misc:Depends}
 Provides: default-jdk-builddep
+Conflicts: default-jdk-builddep
+Replaces: default-jdk-builddep
 Description: Standard helper tools for creating gcj native packages
  This package points to the build dependencies used to build
  gcj native packages.
  .
- During the transition from default-jdk-builddep to gcj-native-helper,
- this package will also depend on default-jdk to avoid breakage.
+ Unlike default-jdk-builddep, this package only provides the
+ helpers to compile jar/class files into native code and not
+ a Java Development Kit (JDK). You do not need this package
+ unless you are compiling jar/class files to native code.
+ .
+ Note: During the transition from default-jdk-builddep to
+ gcj-native-helper, this package will also depend on
+ default-jdk to avoid breakage.

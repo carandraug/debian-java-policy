@@ -1,9 +1,24 @@
+java-common (0.38) UNRELEASED; urgency=low
+
+  * Updated the description of gcj-native-helper and also the
+    previous changelog entry to clarify that gcj-native-helper
+    is only a partial replacement for default-jdk-builddep.
+    
+    Please see README.gcj-native-transition in the java-common
+    package for more information on the transition.
+  * Added missing Replaces/Conflicts for gcj-native-helper.
+  * Bumped Standards-Versions to 3.9.0 - no changes required.
+
+ -- Niels Thykier <niels@thykier.net>  Wed, 30 Jun 2010 22:05:13 +0200
+
 java-common (0.37) unstable; urgency=low
 
   * Updated and synced the Java FAQ.
     - contains a example of how to link with system javadocs.
     (Closes: #577164)
   * Renamed default-jdk-builddep to gcj-native-helper.
+    - Note gcj-native-helper is only a partial replacement for
+      default-jdk-builddep
   * Removed useless install files and moved the override files
     to a location where dh_lintian finds them.
   * Removed some unused overrides.
