@@ -1,4 +1,4 @@
-java-common (0.38) UNRELEASED; urgency=low
+java-common (0.38) unstable; urgency=low
 
   * Updated the description of gcj-native-helper and also the
     previous changelog entry to clarify that gcj-native-helper
@@ -9,7 +9,7 @@ java-common (0.38) UNRELEASED; urgency=low
   * Added missing Replaces/Conflicts for gcj-native-helper.
   * Bumped Standards-Versions to 3.9.0 - no changes required.
 
- -- Niels Thykier <niels@thykier.net>  Wed, 30 Jun 2010 22:05:13 +0200
+ -- Niels Thykier <niels@thykier.net>  Thu, 01 Jul 2010 00:11:38 +0200
 
 java-common (0.37) unstable; urgency=low
 
