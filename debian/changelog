@@ -1,3 +1,10 @@
+java-common (0.39) unstable; urgency=low
+
+  * Change default-jdk/jre(-headless) back to gcj on the mips architecture
+    because openjdk FTBFS there.
+
+ -- Torsten Werner <twerner@debian.org>  Mon, 09 Aug 2010 21:43:52 +0200
+
 java-common (0.38) unstable; urgency=low
 
   * Updated the description of gcj-native-helper and also the
