@@ -1,3 +1,10 @@
+java-common (0.40) UNRELEASED; urgency=low
+
+  * Make openjdk-6 default on powerpcspe (Closes: #593627).
+    - Thanks to Sebastian Andrzej Siewior.
+
+ -- Niels Thykier <niels@thykier.net>  Sun, 22 Aug 2010 16:50:31 +0200
+
 java-common (0.39) unstable; urgency=low
 
   * Change default-jdk/jre(-headless) back to gcj on the mips architecture
