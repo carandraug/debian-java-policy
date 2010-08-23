@@ -1,9 +1,16 @@
-java-common (0.40) UNRELEASED; urgency=low
+java-common (0.40) unstable; urgency=medium
 
+  [ Niels Thykier ]
   * Make openjdk-6 default on powerpcspe (Closes: #593627).
     - Thanks to Sebastian Andrzej Siewior.
 
- -- Niels Thykier <niels@thykier.net>  Sun, 22 Aug 2010 16:50:31 +0200
+  [ Torsten Werner ]
+  * Add an epoch to the arch any packages because we downgrade them from 1.6-*
+    to 1.5-* on mips.
+    - This fixes the last upload on this architecture.
+    - Set urgency to medium.
+
+ -- Torsten Werner <twerner@debian.org>  Mon, 23 Aug 2010 22:01:54 +0200
 
 java-common (0.39) unstable; urgency=low
 

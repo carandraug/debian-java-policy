@@ -22,7 +22,7 @@ jdk_build_dep	=
 v_jre		=
 v_jdk		= $(v_jre)
 provides	= java java2 java5
-dversion	= 1.5-$(jrel)
+dversion	= 1:1.5-$(jrel)
 jvmdir		= java-gcj
 
 ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mipsel powerpc powerpcspe s390 sparc sh4))
@@ -33,7 +33,7 @@ ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mipsel power
   v_jre		= $(S)(>= 6b14)
   v_jdk		= $(v_jre)
   provides	= java java2 java5 java6
-  dversion	= 1.6-$(jrel)
+  dversion	= 1:1.6-$(jrel)
   jvmdir	= java-6-openjdk
 endif
 
