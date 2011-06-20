@@ -3,6 +3,9 @@ java-common (0.41) UNRELEASED; urgency=low
   * Bumped Standards-Versions to 3.9.1 - no changes required.
   * Removed DMUA  - no longer required.
 
+  [ Sylvestre Ledru ]
+  * Under mips, openjdk should be proposed instead of gcj (Closes: #631140)
+
  -- Niels Thykier <niels@thykier.net>  Tue, 09 Nov 2010 08:32:02 +0100
 
 java-common (0.40) unstable; urgency=medium

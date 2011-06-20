@@ -25,7 +25,7 @@ provides	= java java2 java5
 dversion	= 1:1.5-$(jrel)
 jvmdir		= java-gcj
 
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mipsel powerpc powerpcspe s390 sparc sh4))
+ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel powerpc powerpcspe s390 sparc sh4))
   p_jre		= openjdk-6-jre
   p_jhl		= openjdk-6-jre-headless
   p_jdk		= openjdk-6-jdk
