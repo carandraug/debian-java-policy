@@ -5,6 +5,7 @@ java-common (0.41) UNRELEASED; urgency=low
 
   [ Sylvestre Ledru ]
   * Under mips, openjdk should be proposed instead of gcj (Closes: #631140)
+    Revert of the change introduced in version 0.39
 
  -- Niels Thykier <niels@thykier.net>  Tue, 09 Nov 2010 08:32:02 +0100
 
