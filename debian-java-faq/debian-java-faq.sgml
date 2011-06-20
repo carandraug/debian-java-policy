@@ -171,9 +171,6 @@ available in the contrib component.
 
 <sect>What is new in Squeeze?
 
-<p>The information in this chapter is probably out of date as Squeeze is not
-yet released and changes rapidly.
-
 <p>Squeeze ships with OpenJDK 6 and its IcedTea patches 1.8. The default ant
 version is 1.8 but there is a compatibility package with version 1.7.
 Java-common has switched to OpenJDK as the default-jdk on most architectures.
