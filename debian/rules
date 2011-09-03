@@ -14,6 +14,7 @@ jrel = $(shell dpkg-parsechangelog | grep -E ^Version: | sed "s/Version: 0.//")
 
 DPKG_VARS := $(shell dpkg-architecture)
 DEB_HOST_ARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_ARCH)
+DEB_HOST_MULTIARCH ?= $(call vafilt,$(DPKG_VARS),DEB_HOST_MULTIARCH)
 
 p_jre		= gcj-jre
 p_jhl		= gcj-jre-headless
@@ -25,16 +26,16 @@ provides	= java java2 java5
 dversion	= 1:1.5-$(jrel)
 jvmdir		= java-gcj
 
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel i386 ia64 lpia mips mipsel powerpc powerpcspe s390 sparc sh4))
+ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel armhf i386 ia64 lpia mips mipsel powerpc powerpcspe ppc64 s390 s390x sparc sh4))
   p_jre		= openjdk-6-jre
   p_jhl		= openjdk-6-jre-headless
   p_jdk		= openjdk-6-jdk
   jdk_build_dep	= gcj-jdk
-  v_jre		= $(S)(>= 6b14)
+  v_jre		= $(S)(>= 6b23~pre8-2~)
   v_jdk		= $(v_jre)
   provides	= java java2 java5 java6
   dversion	= 1:1.6-$(jrel)
-  jvmdir	= java-6-openjdk
+  jvmdir	= java-1.6.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
 endif
 
 p_doc		= openjdk-6-doc

@@ -79,6 +79,11 @@ fi
 top=/usr/lib/jvm
 
 if [ -n "$jname" ]; then
+    arch=$(dpkg --print-architecture)
+    if [ ! -x $top/$jname/bin/java ] && [ -x $top/$jname-$arch/bin/java ]; then
+	echo >&2 "$prog: obsolete <jname>, please use $jname-$arch instead"
+	jname=$jname-$arch
+    fi
     case "$jname" in
 	/*) jdir=$jname; jname=$(basename $jdir);;
 	*)  jdir=$top/$jname

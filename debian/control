@@ -41,6 +41,7 @@ Architecture: any
 Depends: ${jhl}${jre:version}, java-common, ${misc:Depends}
 Suggests: default-jre
 Provides: ${jhl:provides}
+Replaces: openjdk-6-jre-headless (<< 6b23~pre8-2~)
 Description: Standard Java or Java compatible Runtime (headless)
  This package points to the Java runtime, or Java compatible
  runtime recommended for this architecture, which is

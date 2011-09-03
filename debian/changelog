@@ -1,4 +1,18 @@
-java-common (0.41) UNRELEASED; urgency=low
+java-common (0.43) unstable; urgency=low
+
+  * Depend on the multiarch aware openjdk-6-jre-headless.
+  * Default to openjdk-6 on ppc64.
+  * update-java-alternatives: Substitute <jname> with <jname>-<arch>.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 28 Aug 2011 18:08:08 +0200
+
+java-common (0.42) unstable; urgency=low
+
+  * Set jvmdir to java-1.6.0-openjdk for the openjdk-6 default.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 27 Aug 2011 14:21:43 +0200
+
+java-common (0.41) unstable; urgency=low
 
   * Bumped Standards-Versions to 3.9.1 - no changes required.
   * Removed DMUA  - no longer required.
@@ -8,7 +22,17 @@ java-common (0.41) UNRELEASED; urgency=low
     Revert of the change introduced in version 0.39
   * Remove outdated information about java in Squeeze (Closes: #617803)
 
- -- Niels Thykier <niels@thykier.net>  Tue, 09 Nov 2010 08:32:02 +0100
+  [ Matthias Klose ]
+  * Default to openjdk-6 on s390x. Closes: #638361.
+  * Default to openjdk-6 on armhf.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 27 Aug 2011 13:30:55 +0200
+
+java-common (0.40ubuntu1) natty; urgency=low
+
+  * Default to OpenJDK on ppc64.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 20 Nov 2010 16:24:51 +0100
 
 java-common (0.40) unstable; urgency=medium
 
