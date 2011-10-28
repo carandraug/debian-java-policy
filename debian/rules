@@ -44,7 +44,9 @@ jre_provides	= $(call mk_cslist,$(provides),runtime)
 jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)
 jdk_provides	= $(call mk_cslist,$(provides),sdk)
 
+build: build-indep build-arch
 build-indep: build-stamp
+build-arch: build-stamp
 build-stamp:
 	dh_testdir
 
