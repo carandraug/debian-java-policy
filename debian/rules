@@ -45,8 +45,9 @@ jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)
 jdk_provides	= $(call mk_cslist,$(provides),sdk)
 
 build: build-indep build-arch
+build-arch:
+	# Do nothing :)
 build-indep: build-stamp
-build-arch: build-stamp
 build-stamp:
 	dh_testdir
 
@@ -62,7 +63,7 @@ clean:
 	dh_clean
 
 install-indep: install-stamp
-install-stamp: build-stamp
+install-stamp: build-indep
 	dh_testdir
 	dh_testroot
 	dh_prep -i
@@ -73,7 +74,7 @@ install-stamp: build-stamp
 
 	touch install-stamp
 
-install-arch:
+install-arch: build-arch
 	dh_testdir
 	dh_testroot
 	dh_prep -a
@@ -139,4 +140,4 @@ binary-indep: build-indep install-indep
 	dh_builddeb -i
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+.PHONY: build build-arch build-indep clean binary-indep binary-arch binary install configure
