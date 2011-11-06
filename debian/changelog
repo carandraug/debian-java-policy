@@ -1,9 +1,9 @@
-java-common (0.44) UNRELEASED; urgency=low
+java-common (0.44) unstable; urgency=low
 
   * Added build-arch target to d/rules.
   * Bumped Standards-Versions to 3.9.2 - no changes required.
 
- -- Niels Thykier <niels@thykier.net>  Fri, 28 Oct 2011 23:24:12 +0200
+ -- Niels Thykier <niels@thykier.net>  Sun, 06 Nov 2011 14:37:45 +0100
 
 java-common (0.43) unstable; urgency=low
 
