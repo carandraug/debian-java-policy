@@ -1,3 +1,9 @@
+java-common (0.46) unstable; urgency=low
+
+  * java-common: Mark it as Multi-Arch: foreign.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 17 Dec 2011 10:57:55 +0100
+
 java-common (0.45) unstable; urgency=low
 
   * Fixed FTBFS due to build depending on build-indep.

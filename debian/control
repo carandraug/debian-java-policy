@@ -12,6 +12,7 @@ Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/java-common/
 
 Package: java-common
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}
 Suggests: default-jre, equivs
 Description: Base of all Java packages
