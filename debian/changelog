@@ -1,3 +1,11 @@
+java-common (0.47) unstable; urgency=low
+
+  * Add creation and removal of /etc/.java (common to different OpenJDK
+    versions) in java-common maintainer scripts. Closes: #660604.
+  * Remove Michael from the uploaders list. Closes: #654029.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 26 Feb 2012 15:19:30 +0100
+
 java-common (0.46) unstable; urgency=low
 
   * java-common: Mark it as Multi-Arch: foreign.

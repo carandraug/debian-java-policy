@@ -2,11 +2,11 @@ Source: java-common
 Section: java
 Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
-Uploaders: Michael Koch <konqueror@gmx.de>, Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
+Uploaders: Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, lynx
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-java/trunk/java-common/
 
