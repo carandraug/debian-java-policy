@@ -1,4 +1,4 @@
-java-common (0.47) experimental; urgency=low
+java-common (0.48) experimental; urgency=low
 
   * Upload to experimental.
   * Replace java6 with java7 on architectures supporting
