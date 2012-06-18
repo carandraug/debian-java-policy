@@ -27,18 +27,18 @@ dversion	= 1:1.5-$(jrel)
 jvmdir		= java-gcj
 
 ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel armhf i386 ia64 lpia mips mipsel powerpc powerpcspe ppc64 s390 s390x sparc sh4))
-  p_jre		= openjdk-6-jre
-  p_jhl		= openjdk-6-jre-headless
-  p_jdk		= openjdk-6-jdk
+  p_jre		= openjdk-7-jre
+  p_jhl		= openjdk-7-jre-headless
+  p_jdk		= openjdk-7-jdk
   jdk_build_dep	= gcj-jdk
-  v_jre		= $(S)(>= 6b23~pre8-2~)
+  v_jre		= $(S)(>= 7~u3-2.1.1)
   v_jdk		= $(v_jre)
-  provides	= java java2 java5 java6
-  dversion	= 1:1.6-$(jrel)
-  jvmdir	= java-1.6.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
+  provides	= java java2 java5 java6 java7
+  dversion	= 1:1.7-$(jrel)
+  jvmdir	= java-1.7.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
 endif
 
-p_doc		= openjdk-6-doc
+p_doc		= openjdk-7-doc
 
 jre_provides	= $(call mk_cslist,$(provides),runtime)
 jhl_provides	= $(call mk_cslist,$(provides),runtime-headless)

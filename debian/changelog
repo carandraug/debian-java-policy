@@ -1,3 +1,11 @@
+java-common (0.47) experimental; urgency=low
+
+  * Upload to experimental.
+  * Replace java6 with java7 on architectures supporting
+    openjdk-7.
+
+ -- Niels Thykier <niels@thykier.net>  Mon, 18 Jun 2012 14:29:24 +0200
+
 java-common (0.47) unstable; urgency=low
 
   * Add creation and removal of /etc/.java (common to different OpenJDK
