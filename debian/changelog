@@ -1,3 +1,13 @@
+java-common (0.49) unstable; urgency=low
+
+  * Team upload.
+  * Upload to unstable to make openjdk-7 the default on architectures
+    where it is supported.
+  * Bump Standards-Version to 3.9.4.
+  * Update Vcs-Svn URL.
+
+ -- tony mancill <tmancill@debian.org>  Tue, 21 May 2013 21:29:24 -0700
+
 java-common (0.48) experimental; urgency=low
 
   * Upload to experimental.

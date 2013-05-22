@@ -6,8 +6,8 @@ Uploaders: Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>
  Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, lynx
-Standards-Version: 3.9.3
-Vcs-Svn: svn://svn.debian.org/pkg-java/trunk/java-common
+Standards-Version: 3.9.4
+Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/java-common
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-java/trunk/java-common/
 
 Package: java-common
