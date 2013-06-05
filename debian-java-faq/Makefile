@@ -10,7 +10,7 @@
 MANUAL :=	debian-java-faq
 # Where are we publishing to?
 #  (this can be overriden by a higher level makefile)
-PUBLISHDIR := /org/www.debian.org/www/doc/manuals
+PUBLISHDIR := .
 
 # What do we want by default?
 all:		publish

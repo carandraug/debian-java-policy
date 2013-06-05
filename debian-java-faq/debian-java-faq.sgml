@@ -16,7 +16,11 @@
 <name>Javier Fernández-Sanguino Peña</name>
 <email>jfs@debian.org</email>
 </author>
-<version>$Revision: 7431 $, $Date: 2010-06-27 23:59:00 +0200 (Sun, 27 Jun 2010) $
+<author>
+<name>Sylvestre Ledru</name>
+<email>sylvestre@debian.org</email>
+</author>
+<version>$Revision: 7831 $, $Date: 2013-06-05 21:17:15 +0100 $
 
 <abstract>
 Answers to Frequently Asked Questions on Debian and Java
@@ -48,7 +52,7 @@ from the original are clearly marked as such.
 <sect>Introduction to this FAQ
 
 <P>This FAQ was started by Javier Fernández-Sanguino who on
-February 1st, 2000 was (bold?) enough to send a message to the debian-java
+February 1st, 2000 was enough to send a message to the debian-java
 mailing list with the subject "How about a Debian-Java-FAQ?". Of
 course, since "every idea is a responsibility" he had to do this himself
 looking through the three month-long archive of the newborn mailing list.
@@ -102,6 +106,8 @@ the java-common package might be out of date.
 Java is a programming language originally developed by James Gosling at
 Sun Microsystems (which is now a subsidiary of Oracle Corporation) and
 released in 1995 as a core component of Sun Microsystems' Java platform.
+Since May 2007, Sun/Oracle with some partners like Red Hat provide a free
+implementation released under the GNU GPL called OpenJDK.
 More information can be found at <url
 id="http://en.wikipedia.org/wiki/Java_%28programming_language%29"
 name="Wikipedia">.
@@ -131,9 +137,6 @@ them to the documentation maintainer:
 
 <list>
 
-<item>Information on how to use <prgn>update-alternatives</prgn> to handle
-Java and how to work with <file>/etc/java</file>.
-
 <item>Information on how to setup a fully working Servlet engine (Application
 Server) using Apache and Tomcat or information on how to setup non-free
 application servers (such as WebSphere) in Debian.
@@ -143,86 +146,6 @@ application servers (such as WebSphere) in Debian.
 </list>
 
 
-<chapt id="debian-java-lenny">Status of Java in Debian GNU/Linux 5.0 (Lenny)
-
-<sect>What is new in Lenny?
-
-<p>The <em>Lenny</em> release was the first one to provide Sun's OpenJDK
-environment (see <ref id="openjdk">). Lenny ships OpenJDK 6 with the IcedTea
-patches in version 1.1. Lenny updated GCJ to the new major version 4.3 and Ant
-to version 1.7. It provides Maven 2.0 but Maven cannot yet be used to build
-official Debian packages because it downloads random binaries from its central
-repository during build time. The java-common package provides new meta
-packages default-jdk and default-jre which declare dependencies to the
-appropriate gcj and gij packages. The new source package javatools contains
-useful helper tools for packaging Java software for Debian.
-
-<p>Thanks to the development that happened in gcj and classpath and thanks to
-the availability of openjdk many Java packages could be moved from contrib to
-main.
-
-<p>There are two new source packages glassfish and jbossas4 but they build only
-some core libraries and do not work as full JEE application servers yet. The
-main reason is that many free Java libraries are not yet packaged for Debian
-but are needed as (build) dependencies. But at least there is Hibernate 3
-available in the contrib component.
-
-<chapt id="debian-java-squeeze">Status of Java in Debian Squeeze
-
-<sect>What is new in Squeeze?
-
-<p>Squeeze ships with OpenJDK 6 and its IcedTea patches 1.8. The default ant
-version is 1.8 but there is a compatibility package with version 1.7.
-Java-common has switched to OpenJDK as the default-jdk on most architectures.
-Squeeze has updated GCJ to version 4.4. The new Debian Orbital Alignment Team
-has updated Eclipse to version 3.5.2.
-
-<p>Squeeze ships a fully working Tomcat 6 and Jetty 6 but both Glassfish and
-JBossAS 4 are still incomplete. Thanks to OpenJDK and the switch to OpenJDK as
-the default JDK even more Java packages in the contrib component (e.g.
-Hibernate 3) could be moved to main.
-
-
-<p>Maven has been updated to version 2.2 and it is accompanied by new helper
-packages: maven-repo-helper, maven-debian-helper, and several Maven plugins. It
-is now possible to build Debian packages with Maven because Debian has its own
-repository of POM files.
-
-
-<sect>What are the most important changes in the Java policy?
-
-<p>
-The -gcj packages are now deprecated but we keep them if the are good reason.
-The virtual package java-virtual-machine is gone and packages must not depend or
-recommend java-virtual-machine. Please check the policy for more details.
-
-<p>
-Javadoc packages are now expected to link their javadoc against system
-installed javadocs. This means that javadocs will now provide local
-links instead of remote links. Javadoc packages will recommend on
-other javadoc packages; this will install the dependency docs by
-default, but allow users to avoid installing a lot of large javadoc
-packages (e.g. by asking APT to not include recommends).
-</p>
-
-<sect>What have been removed in Squeeze?
-
-<p>This is an incomplete list of packages removed from Squeeze:
-
-<list>
-<item><package>kaffe</package></item>
-<item><package>cacao</package></item>
-<item><package>jamvm</package></item>
-<item><package>liblogkit-java</package> (Replaced by <package>libexcalibur-logkit-java</package>)</item>
-<item><package>liblucene-java</package> (Replaced by <package>liblucene2-java</package>)</item>
-<item><package>jmp</package> (Replaced by <package>tijmp</package>)</item>
-<item><package>pja</package></item>
-<item><package>slide-webdavclient</package></item>
-<item><package>java-package</package></item>
-<item><package>java-gcj-compat</package></item>
-<item><package>classpath</package></item>
-</list>
-</p>
 
 <chapt>Java Development
 <p>
@@ -401,10 +324,10 @@ also has a dh_javadoc tool.</p>
 
 <sect1>Linking package Javadoc to system javadoc.
 
-<p>The java-policy mandates that documentation must be linked with
-with the javadoc installed on the system. This can be done by passing
-javadoc the "-link" argument or by using the &lt;link&gt; tag in ant.
-An example:
+<p>The java-policy mandates that documentation must be linked with the
+javadoc installed on the system. This can be done by passing javadoc
+the "-link" argument or by using the &lt;link&gt; tag in ant.  An
+example:
 
 <example>
 # command line example of linking against system doc.
@@ -434,28 +357,56 @@ Here is a short list of packages that can be used for reference:
 </list>
 </p>
 
-<chapt>Java Compilers
+<chapt>Managing Java (for users and administrators)
 <p>
-<sect>What Java compilers are available in Debian?
+By default Java programs shipped with Debian will use the java
+in PATH. Some of them may respect the JAVA_HOME variable
+(usually only if upstream supports this) or have command line
+arguments to select a different java implementation.
+</p>
+
 <p>
-<list>
+Unfortunately not all java implementations work as well as others.
+So some times it may be necessary to change the current java and
+Debian provides an easy way to change the default java in PATH by
+using update-java-alternatives (from the <package>java-common
+</package>). Some examples of how to do this are:
+</p>
 
-<item><package>openjdk-6-jdk</package></item>
+<p>
+<example>
+# List available java implementations
+$ update-java-alternatives --list
+# Use openjdk-6 
+$ update-java-alternatives --set java-6-openjdk
+# Use the non-free sun java.
+$ update-java-alternatives --set java-6-sun
+# Use the non-free sun java only for the web plugin
+$ update-java-alternatives  --plugin --set java-6-sun
+</example>
+</p>
 
-<item><package>sun-java6-jdk</package> (non-free)</item>
-
-<item><package>gcj</package>. Compiles Java source to native code,
-also source to bytecode, or bytecode to native code.
-
-<item>The deprecated <package>jikes</package> in <em>Lenny</em>.
-
-</list>
+<p>
+For more information, please read the manpage (or the --help
+output) of update-java-alternatives. Also please note that
+update-java-alternatives is a frontend for update-alternatives.
+</p>
 
 <chapt>Java Virtual Machines (JVM)
 <p>
 <sect>What JVMs are available in Debian?
 
-<p>The following JVMs are currently available in Debian Squeeze:
+<p>The following JVMs are currently available in Debian Wheezy:
+
+<list>
+<item><package>openjdk-6-jre</package></item>
+<item><package>openjdk-7-jre</package></item>
+<item><package>gcj-4.7-jre</package></item>
+</list>
+
+</p>
+
+<p>The following lists JVMs available in Debian 6.0 release ('Squeeze'):
 
 <list>
 <item><package>openjdk-6-jre</package></item>
@@ -463,24 +414,27 @@ also source to bytecode, or bytecode to native code.
 <item><package>gcj-4.4-jre</package></item>
 </list>
 
-</p>
-
-<p>The following lists JVMs available in Debian 5.0 release ('Lenny'):
-
+<p>
+<sect>What Java Compilers are available in Debian?
+<p>
 <list>
-<item><package>openjdk-6-jre</package></item>
-<item><package>kaffe</package></item>
-<item><package>gij-4.3</package></item>
+
+<item><package>openjdk-6-jdk</package></item>
+
+<item><package>openjdk-7-jdk</package></item>
+
+<item><package>gcj</package>. Compiles Java source to native code,
+also source to bytecode, or bytecode to native code. Please note that the
+support of the Java language is not completed.</item>
+
 </list>
 
+</p>
 
 <sect>What API do these JVMs provide?
 
 <p>Note that providing an API does not mean that everything is
-implemented, and certainly not implemented correctly. But even Sun's
-SDK, each out of four confirmed bugs don't get fixed, so don't
-disregard free implementation on buggyness or limited implementation
-alone.
+implemented, and certainly not implemented correctly. 
 
 <sect>Are there known problems?
 
@@ -492,7 +446,8 @@ a quick link, here are some packages:
 <list>
 <item><url id="http://bugs.debian.org/java-common" name="java-common"></item>
 <item><url id="http://bugs.debian.org/src:openjdk-6" name="openjdk-6"></item>
-<item><url id="http://bugs.debian.org/src:gcj-4.4" name="gcj-4.4"></item>
+<item><url id="http://bugs.debian.org/src:openjdk-7" name="openjdk-7"></item>
+<item><url id="http://bugs.debian.org/src:gcj-4.7" name="gcj-4.7"></item>
 </list>
 
 <p>As common within the Debian project, the developers would
@@ -502,10 +457,19 @@ errors given when running the command, and any other information that
 might be relevant. A good tool to report bugs is
 <package>reportbug</package>.
 
+<sect>How can I use the proprietary version of the JDK/JRE from Oracle as a Debian package?
+<p>
+The package <url id="http://packages.debian.org/wheezy/java-package/" name="java-package"> provides an easy way to convert an upstream installer into a Debian package. It should be as easy as:
+<example>make-jpkg ~/Downloads/jdk-6u31-linux-x64.bin
+</example>
+<p>For more information, see this <url id="http://sylvestre.ledru.info/blog/2012/02/29/java_package_replacement_of_sun_java6" name="Blog article">
+
+TODO rajouter une partie sur java-package
+
 <sect>Do I need a JVM to run a Java program in Debian?
 <p>
-No, you can try to run the applications without a jvm by compiling 
-the source code to native code is.
+No, you can try to run the applications without a jvm by compiling
+the source code to native code is. However, the usage of the OpenJDK is recommended. For example, gcj does not provide any support of Swing (the Java GUI API).
 
 <sect1>How do I compile to native code?
 
@@ -519,11 +483,7 @@ software chain is free.
 <p>
 <list>
 
-<item>You can install the package icedtea-gcjwebplugin or the non-free
-packages sun-java5-plugin or sun-java6-plugin in <em>Lenny</em>.</item>
-
-<item>You can install the package icedtea6-plugin or the non-free
-package sun-java6-plugin in <em>Squeeze</em>.</item>
+<item>You can install the package icedtea-6-plugin or icedtea-7-plugin in <em>wheezy</em></item>
 
 </list>
 
@@ -546,9 +506,7 @@ It is still in the works. The current policy addresses <em>some</em>
 of the problems. It has not been officially released. You can find
 it at <url id="http://www.debian.org/doc/packaging-manuals/java-policy/">.
 The Java Policy can also be found in the <package>java-common</package>
-package. You might want to also take a look at the 
-<url id="http://wiki.debian.org/DebianJavaPackaging"
-name="Common Java Packaging"> entry in the Debian wiki.
+package.
 
 <sect>Are there holes in the Java Policy?
 <p>Yes, some until under discussion. Please check out the 
@@ -576,30 +534,9 @@ permits) be included in Debian in the near future.
 <p>
 The following are programs that have not yet been packaged for Debian
 nor is there an installer. There are quite a lot Java programs out
-there and this list is not an exhaustive list, it only includes
-programs that <em>might</em> be packaged for Debian or those that
-someone is working on an installer for:
-<list>
-<item>BlueJ. A development environment for Java with editor, compiler,
-virtual machine and debugger. See <url
-id="http://bluej.monash.edu.au/">
-<item>Jacob (Java Commando Base): project maintainer and visualiser
-for Java in Emacs. See <url
-id="http://home.pages.de/~kclee/clemens/jacob">.
+there.
 
-<item>Emacs in Java. See <url id="http://jemacs.sourceforge.net/">.
-
-<item>Netbeans developer, now called <em>Forte</em>. Based on the
-Javabeans architecture. See <url id="http://www.netbeans.com">.Sun
-recently announced they would open-source it.  See <url
-id="http://www.sun.com/forte/tools4dotcom/opensource.html">.
-
-<item>AnyJ. Graphic environment to develop applications, applets and
-servlets. More info in <url id="http://www.netcomputing.de">.
-
-<item>Free Builder. A Java IDE written in Java and distributed under
-the GPL <url id="http://www.freebuilder.org">.
-
-</list>
+<p>A list of missing packages is maintained on the 
+<url id="http://wiki.debian.org/Java/RequestedPackages" name="Debian Wiki - Java Packaging Wishlist">.
 
 </book>

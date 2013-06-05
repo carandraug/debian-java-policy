@@ -1,12 +1,17 @@
 java-common (0.49) UNRELEASED; urgency=low
 
+  [ tony mancill ]
   * Team upload.
   * Upload to unstable to make openjdk-7 the default on architectures
     where it is supported.
   * Bump Standards-Version to 3.9.4.
   * Update Vcs-Svn URL.
 
- -- tony mancill <tmancill@debian.org>  Tue, 21 May 2013 21:29:24 -0700
+  [ Sylvestre Ledru ]
+  * Remove local variables in the changelog
+  * Update of the Debian Java FAQ (was starting to become obsolete)
+
+ -- Sylvestre Ledru <sylvestre@debian.org>  Wed, 05 Jun 2013 14:11:41 +0200
 
 java-common (0.48) experimental; urgency=low
 
@@ -542,6 +547,4 @@ java-common (0.0-1) unstable; urgency=low
 
  -- Stephane Bortzmeyer <bortzmeyer@debian.org>  Wed, 23 Jun 1999 15:03:43 +0200
 
-Local variables:
-mode: debian-changelog
-End:
+
