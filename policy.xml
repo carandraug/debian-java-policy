@@ -382,20 +382,7 @@
 	    is free, it &must; go to contrib.
 	  </para>
 	</listitem>
-	
-	<listitem>
-	  <para>
-	    If your binary package can run only with non-free
-	    virtual machines
-	    (<ulink
-	    url="http://www.gnu.org/software/classpath">GNU-Classpath</ulink> has
-	    a list of free versions), it cannot go to main. If
-	    your package itself is free, it &must; go to contrib.
-	    Since java libraries do not have a runtime dependency,
-	    this rule does not apply to them.
-	  </para>
-	</listitem>
-      
+
       </itemizedlist>
     </sect1>
   </chapter>
