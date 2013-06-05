@@ -236,12 +236,17 @@
     
     <sect1 id="policy-libraries">
       <title>Java libraries</title>
-      
+
       <para>
 	Libraries are not separated between developers (-dev) and users
 	versions, since this is meaningless in Java.
       </para>
-      
+
+      <para>
+        Libraries &must; depend on the needed runtime environment (&d-jre; and/or &d-jre-h; if need a GUI or not).
+      </para>
+
+
       <para>
 	Java libraries packages &must; be named libXXX[version]-java
 	(without the brackets), where the version part is optional and &should;
