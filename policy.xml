@@ -134,7 +134,7 @@
     </para>
 
     <para>
-      Programs and libraries &should; enable JUnit tests, if these are present.
+      Programs and libraries &should; enable JUnit/TestNG tests, if these are present.
       The build &may; ignore test failures.
     </para>
     
