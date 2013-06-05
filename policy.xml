@@ -79,6 +79,9 @@
 	The policy covers java virtual machines, java compilers, java
 	programs and java libraries.
       </para>
+      <para>
+        This policy is published under the GNU GPL v2 or later license.
+      </para>
     </abstract>
   </bookinfo>
   

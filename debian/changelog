@@ -10,6 +10,7 @@ java-common (0.49) UNRELEASED; urgency=low
   [ Sylvestre Ledru ]
   * Remove local variables in the changelog
   * Update of the Debian Java FAQ (was starting to become obsolete)
+  * State the license of the policy (Closes: #687841)
 
  -- Sylvestre Ledru <sylvestre@debian.org>  Wed, 05 Jun 2013 14:11:41 +0200
 
