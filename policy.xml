@@ -160,7 +160,7 @@
       <para>
 	They &should; use <filename>/etc/alternatives</filename>
 	for the name 'java' if they are command-line compatible with the
-	Sun's java program.
+	Oracle's java program.
       </para>
       <para>
 	They &should; have a CLASSPATH predefined which include the needed
@@ -422,18 +422,10 @@
 	</para>
       </listitem>
 
-      
+
       <listitem>
 	<para>Core classes (<filename>java.*</filename>). More study
 	  needed.</para>
-      </listitem>
-      
-      <listitem>
-	<para>
-	  Sun's Community Source Licence. Can we use it? How?
-	  The 2.3 version of the text can be found 
-	  <ulink url="http://wwws.sun.com/software/java2/license.html">here</ulink>.
-	</para>
       </listitem>
 
       <listitem>
@@ -448,7 +440,7 @@
 	  links needed by servlets under tomcat?
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  Should there be a default CLASSPATH, similar to a
