@@ -146,7 +146,7 @@
     </para>
 
     <para>
-      Programs and libraries &should; enable JUnit/TestNG tests, if these are present.
+      Programs and libraries &should; enable unit tests, if these are present.
       The build &may; ignore test failures.
     </para>
     
@@ -429,7 +429,7 @@
 
       <listitem>
 	<para>
-	  Minimal version of the class version files (50 for Java 1.6, 51 for Java 1.7, etc)
+	  Minimal version of the class version files (50 for Java 6, 51 for Java 7, etc)
 	</para>
       </listitem>
 
