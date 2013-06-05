@@ -38,6 +38,16 @@
 	</authorblurb>
       </author>
       <author>
+	<surname>Ledru</surname>
+	<firstname>Sylvestre</firstname>
+	<authorblurb>
+	  <para>
+	    <email>sylvestre@debian.org</email>
+	  </para>
+	</authorblurb>
+
+      </author>
+      <author>
 	<surname>Lundqvist</surname>
 	<firstname>Ola</firstname>
 	<authorblurb>
