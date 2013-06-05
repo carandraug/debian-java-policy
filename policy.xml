@@ -198,7 +198,7 @@
       <para>
         The <ulink url="http://packages.debian.org/sid/javahelper">javahelper package</ulink> provides helper to build either with CDBS or dh. They are strongly recommended for Java packaging.
       </para>
-      <para>For Maven based packages, the usage of <ulink url="http://packages.debian.org/sid/maven-debian-helper">maven-debian-helper</ulink> recommended.
+      <para>For Maven based packages, the usage of <ulink url="http://packages.debian.org/sid/maven-debian-helper">maven-debian-helper</ulink> is recommended.
       </para>
     </sect1>
 
