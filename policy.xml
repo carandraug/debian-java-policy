@@ -9,6 +9,8 @@
 <!ENTITY j1r "<emphasis>java1-runtime</emphasis>">
 <!ENTITY j2r "<emphasis>java2-runtime</emphasis>">
 <!ENTITY d-jdk "<emphasis>default-jdk</emphasis>">
+<!ENTITY d-jre "<emphasis>default-jre</emphasis>">
+<!ENTITY d-jre-h "<emphasis>default-jre-headless</emphasis>">
 <!ENTITY d-jbdep "<emphasis>default-jdk-builddep</emphasis>">
 <!ENTITY d-jdoc "<emphasis>default-jdk-doc</emphasis>">
 <!ENTITY g-n-h "<emphasis>gcj-native-helper</emphasis>">
@@ -149,15 +151,6 @@
       </para>
 
       <para>
-        Packages that contain a runtime conforming to the Java 1.1
-	specification &should; provide &j1r;. Packages that contain a runtime
-	conforming to the Java 2 specification &should; provide &j2r;.
-	If a package conforms to both, then it &should; provide both; however,
-	packages that do not implement the methods from Java 1.1 that have been
-	deprecated in Java 2 &mustnot; provide &j1r;.
-      </para>
-	
-      <para>
 	They &should; use <filename>/etc/alternatives</filename>
 	for the name 'java' if they are command-line compatible with the
 	Oracle's java program.
@@ -166,12 +159,12 @@
 	They &should; have a CLASSPATH predefined which include the needed
 	runtime environment.
       </para>
-      
+
       <para>
 	If a given source (like the JDK does) brings both a compiler and a
 	virtual machine, you &may; name the compiler package xxxx-dev.
       </para>
-      
+
       <para>
 	Some Java classes implement their routines using a "native"
 	language (such as C).  This native code is compiled and stored
@@ -181,7 +174,24 @@
 	search path for these dynamic libraries.
       </para>
     </sect1>
-    
+
+    <sect1 id="build-pkg">
+      <title>Building Java packages</title>
+      <para>
+        Since it is common for Java source tarball to ship jar files of thirdparty libraries, creating a repack script to remove them from the upstream tarball is mandatory.
+      </para>
+
+      <para>
+        Packages must be built with &d-jdk;. This package provides a dependency on the recommended Java Development Kit. If needed, the right <emphasis role="italic">JAVA_HOME</emphasis> is <emphasis role="italic">/usr/lib/jvm/default-java/</emphasis>
+      </para>
+
+      <para>
+        The <ulink url="http://packages.debian.org/sid/javahelper">javahelper package</ulink> provides helper to build either with CDBS or dh. They are strongly recommended for Java packaging.
+      </para>
+      <para>For Maven based packages, the usage of <ulink url="http://packages.debian.org/sid/maven-debian-helper">maven-debian-helper</ulink> recommended.
+      </para>
+    </sect1>
+
     <sect1 id="policy-programs">
       <title>Java programs</title>
       
@@ -215,8 +225,8 @@
 	/usr/share/&lt;package&gt;.
       </para>
       <para>
-        Programs &must; depend on the needed runtime environment (&j1r; and/or
-	&j2r;).
+        Programs &must; depend on the needed runtime environment (&d-jre; and/or
+	&d-jre-h; if need a GUI or not).
       </para>
       <para>
         There is no naming rules for programs, they are ordinary programs,
@@ -404,6 +414,12 @@
 
       <listitem>
 	<para>
+	  Minimal version of the class version files (50 for Java 1.6, 51 for Java 1.7, etc)
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>
 	  The symbolic links in <filename>/usr/share/java</filename> be
 	  made by a script instead, similar to the c-libraries.
 	</para>
@@ -473,7 +489,7 @@
       
       <listitem>
 	<para>
-	  You can suppress many calls in <filename>debian/rules</filename>
+	  Many calls in <filename>debian/rules</filename> can be removed
 	  which are meaningless for Java, like dh_strip and dh_shlibdeps.
 	</para>
       </listitem>
@@ -492,11 +508,6 @@
 	  Java properties files are probably better under
 	  <filename>/etc</filename> and flagged as configuration files (this
 	  will be integrated in the policy, one day).
-	</para>
-      </listitem>
-      <listitem>
-	<para>
-	  Java packages &should; be built with &d-jdk; if possible.
 	</para>
       </listitem>
     </itemizedlist>
