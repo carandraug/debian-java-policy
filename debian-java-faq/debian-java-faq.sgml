@@ -157,15 +157,11 @@ that would depend on the Debian GNU/Linux version you are using,
 generally speaking they would be:
 
 <list>
-<item>The deprecated Kaffe in Debian 5.0 Lenny.
-
-<item>The deprecated Sun Java 5 jdk, available in the Debian 5.0 <em>Lenny</em>
-release in the <em>non-free</em> component.
-
-<item>Sun's Java 6 jdk, available in Debian <em>Lenny</em> and Debian
-<em>Squeeze</em>, also as packages in the <em>non-free</em> component.
 
 <item>Sun's OpenJDK 6, available since the Debian 5.0 <em>Lenny</em>
+release in the <em>main</em> section.
+
+<item>Oracle's OpenJDK 7, available since the Debian 7.0 <em>Lenny</em>
 release in the <em>main</em> section.
 
 <item>The combination GCJ, GIJ, and Classpath in the <em>main</em> section.
@@ -185,9 +181,6 @@ in Debian. There are a lot of projects that you can choose from:
 
 <item>gcj and libgcj: <url id="http://gcc.gnu.org/java/"></item>
 
-<item>FastJar <url id="http://savannah.nongnu.org/projects/fastjar">, as a jar
-tool.</item>
-
 <item>Classpath <url id="http://www.classpath.org">. Most of the
 Standard classes for Java 1.2 (except Swing and RMI) are implemented by
 the ClassPath project, it tries to build an alternative to jdk's 1.2
@@ -205,76 +198,13 @@ Project">.
 
 <sect id="license-concerns">Questions on platforms and license concerns
 
-<sect1 id="java56">Java 5 and 6
+<sect1 id="java6">Java 6 and 7
 
-<p>There are binary packages available for the Java 5 and Java 6 platforms
-since the Debian 5.0 ('lenny') release.
-These packages are available in the
-<em>non-free</em> section, so you have to configure your apt sources appropriately. If
-you have the following in your <file>/etc/apt/sources.list</file>:
-
-<example>
-deb http://ftp.debian.org/debian lenny main
-</example>
-
-you need to change it to:
-
-<example>
-deb http://ftp.debian.org/debian lenny main contrib non-free
-</example>
+<p>There are binary packages available for the Java 6 and Java 7 platforms
+since the Debian 7.0 ('wheezy') release.
 
 Once this is done and you have updated your package database. You can either
 install the Java development kit:
-
-<example>
-apt-get install sun-java6-jdk
-</example>
-
-or the Java runtime environment:
-
-<example>
-apt-get install sun-java6-jre 
-</example>
-
-<p>Similarly, you can install the Java 5 development kit:
-
-<example>
-apt-get install sun-java5-jdk
-</example>
-
-or the Java 5 runtime environment:
-
-<example>
-apt-get install sun-java5-jre
-</example>
-
-<p>You might want to update the alternatives system to have Sun's tools as the
-default:
-
-<example>
-update-java-alternatives -s java-6-sun
-</example>
-
-Or for java 5:
-
-<example>
-update-java-alternatives -s java-1.5.0-sun 
-</example>
-
-<sect1 id="openjdk">Sun's OpenJDK
-
-<p>Sun adopted in november 2006 the GPL license for almost all of the virtual
-machine and GPL v2 + the <em>Classpath exception</em><footnote>This is similar
-to GCC linking exception in that it allows non-GPL code to be linked with the
-GPL code. This exception was developed by the <url
-id="http://www.gnu.org/software/classpath/license.html" name="Classpath
-project"></footnote>for the class libraries and those parts of the virtual
-machine that expose public APIs.
-
-<p>As a consequence, the free OpenJDK code is available in Debian since the
-5.0 (lenny) release.</p>
-
-<p>You can install the Java development kit:
 
 <example>
 apt-get install openjdk-6-jdk
@@ -286,7 +216,39 @@ or the Java runtime environment:
 apt-get install openjdk-6-jre
 </example>
 
-<p>For more information see <url id="http://www.sun.com/software/opensource/java/faq.jsp" name="Free and Open Source Java">.
+<p>Similarly, you can install the Java 7 development kit:
+
+<example>
+apt-get install openjdk-7-jdk
+</example>
+
+or the Java 7 runtime environment:
+
+<example>
+apt-get install openjdk-7-jre
+</example>
+
+<p>You might want to update the alternatives system to have Sun's tools as the
+default:
+
+<example>
+update-java-alternatives -s java-1.6.0-openjdk-amd64
+</example>
+
+Or for java 7:
+
+<example>
+update-java-alternatives -s java-1.7.0-openjdk-amd64
+</example>
+
+<sect1 id="openjdk">Oracle proprietary JVM
+
+<p>Since the version 7 of the OpenJDK, the proprietary JVM developments are done on the OpenJDK. That means that the OpenJDK is strongly tested and high quality.
+<p>However, some users might want to use the Oracle JVM for the proprietary extensions (for example: the browser plugin). For such need, Debian provides a tool called <url id="http://packages.debian.org/sid/java-package" name="java-package">. The program make-jpkg will take an upstream archive and convert it to a Debian package. For example:
+<example>
+    make-jpkg jdk-6u31-linux-x64.bin
+</example>
+<p>For more information see <url id="http://www.oracle.com/technetwork/java/index.html" name="Oracle Technology Network Java">.
 
 
 <sect>Making Debian packages for Java programs.
@@ -294,7 +256,7 @@ apt-get install openjdk-6-jre
 <sect1>Can the package go into main?
 
 <p>Yes, <em>but only if</em> it can be build and run with Java programs/tools
-in main, and if it has a Debian compliant open source license. 
+in main, and if it has a Debian compliant open source license.
 If it needs programs from contrib or non-free, then is <em>must</em>
 go into contrib or non-free, depending on the license of the program itself.
 
@@ -463,8 +425,6 @@ The package <url id="http://packages.debian.org/wheezy/java-package/" name="java
 <example>make-jpkg ~/Downloads/jdk-6u31-linux-x64.bin
 </example>
 <p>For more information, see this <url id="http://sylvestre.ledru.info/blog/2012/02/29/java_package_replacement_of_sun_java6" name="Blog article">
-
-TODO rajouter une partie sur java-package
 
 <sect>Do I need a JVM to run a Java program in Debian?
 <p>
