@@ -28,7 +28,9 @@ jvmdir		= java-gcj
 
 p_doc		= openjdk-7-doc
 
-ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel armhf i386 ia64 lpia powerpc ppc64 s390x sparc sh4))
+include debian/java_defaults.mk
+
+ifneq (,$(filter $(DEB_HOST_ARCH),$(java7_architectures)))
   p_jre		= openjdk-7-jre
   p_jhl		= openjdk-7-jre-headless
   p_jdk		= openjdk-7-jdk
@@ -38,7 +40,7 @@ ifneq (,$(filter $(DEB_HOST_ARCH), alpha amd64 armel armhf i386 ia64 lpia powerp
   provides	= java java2 java5 java6 java7
   dversion	= 1:1.7-$(jrel)
   jvmdir	= java-1.7.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
-else ifneq (,$(filter $(DEB_HOST_ARCH), mips mipsel powerpcspe s390))
+else ifneq (,$(filter $(DEB_HOST_ARCH),$(java6_architectures)))
   p_jre		= openjdk-6-jre
   p_jhl		= openjdk-6-jre-headless
   p_jdk		= openjdk-6-jdk
@@ -133,6 +135,8 @@ binary-indep: build-indep install-indep
 	dh_testdir -i
 	dh_testroot -i
 	dh_install -i
+	mkdir -p debian/java-common/usr/share/java
+	cp debian/java_defaults.mk debian/java-common/usr/share/java/.
 	mkdir -p debian/default-jdk-doc/usr/share/doc/default-jre-headless
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jre-headless/api
 	ln -sf ../$(p_doc)/api debian/default-jdk-doc/usr/share/doc/default-jdk-doc/api
