@@ -235,10 +235,6 @@
 	/usr/share/&lt;package&gt;.
       </para>
       <para>
-        Programs &must; depend on the needed runtime environment (&d-jre; and/or
-	&d-jre-h; if need a GUI or not).
-      </para>
-      <para>
         There is no naming rules for programs, they are ordinary programs,
 	from the user point of view.
       </para>
