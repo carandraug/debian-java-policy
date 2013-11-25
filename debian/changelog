@@ -1,3 +1,9 @@
+java-common (0.51) UNRELEASED; urgency=low
+
+  * Fix some wrong version declarations
+
+ -- Sylvestre Ledru <sylvestre@debian.org>  Mon, 25 Nov 2013 15:46:09 +0100
+
 java-common (0.50) unstable; urgency=low
 
   * Remove the 'Libraries must depend on the needed runtime environment'

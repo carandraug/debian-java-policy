@@ -161,7 +161,7 @@ generally speaking they would be:
 <item>Sun's OpenJDK 6, available since the Debian 5.0 <em>Lenny</em>
 release in the <em>main</em> section.
 
-<item>Oracle's OpenJDK 7, available since the Debian 7.0 <em>Lenny</em>
+<item>Oracle's OpenJDK 7, available since the Debian 7.0 <em>Wheezy</em>
 release in the <em>main</em> section.
 
 <item>The combination GCJ, GIJ, and Classpath in the <em>main</em> section.
