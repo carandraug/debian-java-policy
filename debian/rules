@@ -23,7 +23,7 @@ jdk_build_dep	=
 v_jre		=
 v_jdk		= $(v_jre)
 provides	= java java2 java5
-dversion	= 1:1.5-$(jrel)
+dversion	= 2:1.5-$(jrel)
 jvmdir		= java-gcj
 
 p_doc		= openjdk-7-doc
@@ -38,7 +38,7 @@ ifneq (,$(filter $(DEB_HOST_ARCH),$(java7_architectures)))
   v_jre		= $(S)(>= 7~u3-2.1.1)
   v_jdk		= $(v_jre)
   provides	= java java2 java5 java6 java7
-  dversion	= 1:1.7-$(jrel)
+  dversion	= 2:1.7-$(jrel)
   jvmdir	= java-1.7.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
 else ifneq (,$(filter $(DEB_HOST_ARCH),$(java6_architectures)))
   p_jre		= openjdk-6-jre
@@ -48,7 +48,7 @@ else ifneq (,$(filter $(DEB_HOST_ARCH),$(java6_architectures)))
   v_jre		= $(S)(>= 6b23~pre8-2~)
   v_jdk		= $(v_jre)
   provides	= java java2 java5 java6
-  dversion	= 1:1.6-$(jrel)
+  dversion	= 2:1.6-$(jrel)
   jvmdir	= java-1.6.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
   p_doc		= openjdk-6-doc
 endif
