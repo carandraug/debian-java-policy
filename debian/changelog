@@ -1,4 +1,4 @@
-java-common (0.51) UNRELEASED; urgency=low
+java-common (0.51) unstable; urgency=low
 
   [ Sylvestre Ledru ]
   * Fix some wrong version declarations
@@ -16,7 +16,7 @@ java-common (0.51) UNRELEASED; urgency=low
     updates for new upstream versions.
   * Bump the epoch on the default-{jre-headless,jre,jdk} packages.
 
- -- Matthias Klose <doko@debian.org>  Sat, 11 Jan 2014 13:52:50 +0100
+ -- Niels Thykier <niels@thykier.net>  Sat, 01 Feb 2014 13:03:13 +0100
 
 java-common (0.50) unstable; urgency=low
 
