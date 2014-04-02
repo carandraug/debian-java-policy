@@ -3,7 +3,9 @@ java-common (0.52) UNRELEASED; urgency=medium
   * Team upload.
   * Prepared the default values for Java 8
   * Switch to debhelper level 9
-  * Standards-Version updated to 3.9.5 (no changes)
+  * debian/control:
+    - Standards-Version updated to 3.9.5 (no changes)
+    - Use a canonical URL for the Vcs-Svn field
 
  -- Emmanuel Bourg <ebourg@apache.org>  Wed, 02 Apr 2014 22:57:37 +0200
 
