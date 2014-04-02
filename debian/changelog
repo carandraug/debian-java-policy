@@ -7,6 +7,7 @@ java-common (0.52) UNRELEASED; urgency=medium
   * debian/control:
     - Standards-Version updated to 3.9.5 (no changes)
     - Use a canonical URL for the Vcs-Svn field
+    - Added the Homepage field
 
  -- Emmanuel Bourg <ebourg@apache.org>  Wed, 02 Apr 2014 22:57:37 +0200
 
