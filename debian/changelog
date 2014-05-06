@@ -1,6 +1,7 @@
 java-common (0.52) UNRELEASED; urgency=medium
 
   * Team upload.
+  * Use OpenJDK 7 on mips64el (Closes: #747179)
   * Prepared the default values for Java 8
   * Use 'set -e' instead of '#!/bin/sh -e' in debian/java-common.postrm
   * Switch to debhelper level 9
