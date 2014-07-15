@@ -33,7 +33,7 @@
 	    <email>niels@thykier.net</email>
 	  </para>
 	  <para>
-	    The current author of the java policy.
+	    The current author of the Java policy.
 	  </para>
 	</authorblurb>
       </author>
@@ -55,7 +55,7 @@
 	    <email>opal@debian.org</email>
 	  </para>
 	  <para>
-	    A previous author of the java policy.
+	    A previous author of the Java policy.
 	  </para>
 	</authorblurb>
       </author>
@@ -67,14 +67,14 @@
 	    <email>bortzmeyer@debian.org</email>
 	  </para>
 	  <para>
-	    The original author of the java policy.
+	    The original author of the Java policy.
 	  </para>
 	</authorblurb>
       </author>
       <author>
 	<authorblurb>
 	  <para>
-	    Most issues of the java policy have been discussed on the
+	    Most issues of the Java policy have been discussed on the
 	    &djmail; mailinglist.
 	  </para>
 	</authorblurb>
@@ -83,13 +83,13 @@
     <abstract>
       <title>Abstract</title>
       <para>
-	This is the java policy for Debian. It begins with a
+	This is the Java policy for Debian. It begins with a
 	background description, continues with the real policy, some
-	issues to discuss and ends with some advices to java packagers.
+	issues to discuss and ends with some advices to Java packagers.
       </para>
       <para>
-	The policy covers java virtual machines, java compilers, java
-	programs and java libraries.
+	The policy covers Java virtual machines, Java compilers, Java
+	programs and Java libraries.
       </para>
       <para>
         This policy is published under the GNU GPL v2 or later license.
@@ -295,7 +295,7 @@
       </para>
 
       <para>
-	Class files in a java library &must; be built with debug symbols.
+	Class files in a Java library &must; be built with debug symbols.
       </para>
 
       <para>
@@ -336,7 +336,7 @@
       <para>
 	Java library packages &should; compile the javadoc API of the
  	library. The API &must; link against the javadoc API of the
-	libraries it depends on. This includes the core java classes,
+	libraries it depends on. This includes the core Java classes,
 	which are provided by &d-jdoc;. The API &must; be registered with
 	doc-base and &must; be installed in
 	<filename>/usr/share/doc/&lt;package&gt;/api/</filename> or
