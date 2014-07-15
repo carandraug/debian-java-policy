@@ -189,7 +189,7 @@
       <title>Building Java packages</title>
 
       <para>
-        Since it is common for Java source tarball to ship jar files of thirdparty
+        Since it is common for Java source tarball to ship jar files of third party
         libraries, creating a repack script to remove them from the upstream tarball
         is mandatory.
       </para>
@@ -247,6 +247,11 @@
       </para>
 
       <para>
+	Programs &must; depend on the needed runtime environment (&d-jre; and/or
+	&d-jre-h; if need a GUI or not).
+      </para>
+
+      <para>
         There is no naming rules for programs, they are ordinary programs,
 	from the user point of view.
       </para>
@@ -261,7 +266,7 @@
       </para>
 
       <para>
-        Libraries &must; depend on the needed runtime environment (&d-jre; and/or &d-jre-h; if need a GUI or not).
+        Libraries &must; not depend on a Java runtime.
       </para>
 
       <para>
