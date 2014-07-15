@@ -187,18 +187,29 @@
 
     <sect1 id="build-pkg">
       <title>Building Java packages</title>
+
       <para>
-        Since it is common for Java source tarball to ship jar files of thirdparty libraries, creating a repack script to remove them from the upstream tarball is mandatory.
+        Since it is common for Java source tarball to ship jar files of thirdparty
+        libraries, creating a repack script to remove them from the upstream tarball
+        is mandatory.
       </para>
 
       <para>
-        Packages must be built with &d-jdk;. This package provides a dependency on the recommended Java Development Kit. If needed, the right <emphasis role="italic">JAVA_HOME</emphasis> is <emphasis role="italic">/usr/lib/jvm/default-java/</emphasis>
+        Packages must be built with &d-jdk;. This package provides a dependency
+        on the recommended Java Development Kit. If needed, the right
+        <emphasis role="italic">JAVA_HOME</emphasis> is
+        <emphasis role="italic">/usr/lib/jvm/default-java/</emphasis>
       </para>
 
       <para>
-        The <ulink url="http://packages.debian.org/sid/javahelper">javahelper package</ulink> provides helper to build either with CDBS or dh. They are strongly recommended for Java packaging.
+        The <ulink url="http://packages.debian.org/sid/javahelper">javahelper package</ulink>
+        provides helper to build either with CDBS or dh. They are strongly
+        recommended for Java packaging.
       </para>
-      <para>For Maven based packages, the usage of <ulink url="http://packages.debian.org/sid/maven-debian-helper">maven-debian-helper</ulink> is recommended.
+
+      <para>
+        For Maven based packages, the usage of <ulink url="http://packages.debian.org/sid/maven-debian-helper">maven-debian-helper</ulink>
+        is recommended.
       </para>
     </sect1>
 
@@ -234,6 +245,7 @@
 	by other programs) or into a private directory in
 	/usr/share/&lt;package&gt;.
       </para>
+
       <para>
         There is no naming rules for programs, they are ordinary programs,
 	from the user point of view.
@@ -252,7 +264,6 @@
         Libraries &must; depend on the needed runtime environment (&d-jre; and/or &d-jre-h; if need a GUI or not).
       </para>
 
-
       <para>
 	Java libraries packages &must; be named libXXX[version]-java
 	(without the brackets), where the version part is optional and &should;
@@ -270,6 +281,7 @@
 	is the version of that jar file. In some cases that is not the same as
 	the package version.
       </para>
+
       <para>
 	Some package &must; also provide a symbolic link from
 	<filename>packagename-extraname.jar</filename> to the most compatible
@@ -307,6 +319,7 @@
 	bytecode (generally libXXX[version]-java) &should; depend on
 	this package.
       </para>
+
       <para>
 	There may be situations, such as with very small packages,
 	where it is better to bundle the Java code and the native code
@@ -324,6 +337,7 @@
 	<filename>/usr/share/doc/&lt;package&gt;/api/</filename> or
 	<filename>/usr/share/doc/&lt;package&gt;/api-&lt;component&gt;/</filename>.
       </para>
+
       <para>
 	The API &must; be placed in a separate doc package. This package
 	&must; recommend the doc packages it was linked against.
@@ -389,6 +403,7 @@
 
     <sect1 id="policy-politics">
       <title>Main, contrib or non-free</title>
+
       <para>
 	About politics: packaging Java stuff changes nothing to the
 	rules Debian uses to find if a program is free or not. Since there are
@@ -447,8 +462,7 @@
 	  how should it be documented. The best solution is probably in some
 	  computer parsable format to make it even easier for the developer.
 	</para>
-	<para>It should exist some tool to parse this. How should it
-	  work?
+	<para>It should exist some tool to parse this. How should it work?
 	</para>
 	<para>Should the tool also be used to create the necessary symbolic
 	  links needed by servlets under tomcat?
