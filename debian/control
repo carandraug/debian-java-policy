@@ -3,7 +3,6 @@ Section: java
 Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Matthias Klose <doko@debian.org>, Torsten Werner <twerner@debian.org>,
- Niels Thykier <niels@thykier.net>
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: debiandoc-sgml, docbook-utils, docbook-xml, lynx
 Standards-Version: 3.9.5
