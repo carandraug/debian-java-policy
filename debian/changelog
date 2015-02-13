@@ -6,6 +6,8 @@ java-common (0.53) UNRELEASED; urgency=medium
       the libraries (Closes: #730133)
     - Replaced 'java' with 'Java' when referring to the language
   * Removed Niels Thykier from the uploaders (Closes: #770579)
+  * Changed the maintainer from 'Debian Java Mailing List'
+    to 'Debian Java Maintainers'
 
  -- Emmanuel Bourg <ebourg@apache.org>  Tue, 15 Jul 2014 15:15:36 +0200
 
