@@ -8,6 +8,7 @@ java-common (0.53) UNRELEASED; urgency=medium
   * Removed Niels Thykier from the uploaders (Closes: #770579)
   * Changed the maintainer from 'Debian Java Mailing List'
     to 'Debian Java Maintainers'
+  * Standards-Version updated to 3.9.6 (no changes)
   * Moved the package to Git
 
  -- Emmanuel Bourg <ebourg@apache.org>  Tue, 15 Jul 2014 15:15:36 +0200
