@@ -8,6 +8,7 @@ java-common (0.53) UNRELEASED; urgency=medium
     - Programs must depend on the needed runtime environment, but not
       the libraries (Closes: #730133)
     - Replaced 'java' with 'Java' when referring to the language
+    - Mentioned the virtual packages java{5,6,7,8}-runtime(-headless)?
   * Removed Niels Thykier from the uploaders (Closes: #770579)
   * Changed the maintainer from 'Debian Java Mailing List'
     to 'Debian Java Maintainers'

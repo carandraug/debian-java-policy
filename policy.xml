@@ -8,6 +8,14 @@
 <!ENTITY should "<emphasis>should</emphasis>">
 <!ENTITY j1r "<emphasis>java1-runtime</emphasis>">
 <!ENTITY j2r "<emphasis>java2-runtime</emphasis>">
+<!ENTITY j5r "<emphasis>java5-runtime</emphasis>">
+<!ENTITY j5rh "<emphasis>java5-runtime-headless</emphasis>">
+<!ENTITY j6r "<emphasis>java6-runtime</emphasis>">
+<!ENTITY j6rh "<emphasis>java6-runtime-headless</emphasis>">
+<!ENTITY j7r "<emphasis>java7-runtime</emphasis>">
+<!ENTITY j7rh "<emphasis>java7-runtime-headless</emphasis>">
+<!ENTITY j8r "<emphasis>java8-runtime</emphasis>">
+<!ENTITY j8rh "<emphasis>java8-runtime-headless</emphasis>">
 <!ENTITY d-jdk "<emphasis>default-jdk</emphasis>">
 <!ENTITY d-jre "<emphasis>default-jre</emphasis>">
 <!ENTITY d-jre-h "<emphasis>default-jre-headless</emphasis>">
@@ -123,7 +131,8 @@
     <title>Policy</title>
     
     <para>
-      Virtual packages are created: &j1r; and &j2r;.
+      Virtual packages are created: &j1r;, &j2r;, &j5r;, &j5rh;, &j6r;, &j6rh;,
+      &j7r;, &j7rh;, &j8r; and &j8rh;.
     </para>
 
     <para>
@@ -155,9 +164,9 @@
       
       <para>
 	Java virtual machines &must; depend on java-common. They can also
-	provide the runtime environment	that the package contains (&j1r;
-	and/or &j2r;). If it does not provide the files itself it &must;
-	depend on the needed runtime environment.
+	provide the runtime environment	that the package supports (&j1r;,
+	&j2r;, &j8r;, &j8rh;, etc). If it does not provide the files itself
+	it &must; depend on the needed runtime environment.
       </para>
 
       <para>
@@ -165,6 +174,7 @@
 	for the name 'java' if they are command-line compatible with the
 	Oracle's java program.
       </para>
+
       <para>
 	They &should; have a CLASSPATH predefined which include the needed
 	runtime environment.
@@ -247,8 +257,10 @@
       </para>
 
       <para>
-	Programs &must; depend on the needed runtime environment (&d-jre; and/or
-	&d-jre-h; if need a GUI or not).
+	Programs &must; depend on the needed runtime environment (&d-jre; or
+	&d-jre-h; if need a GUI or not, and <emphasis>java&lt;N&gt;-runtime</emphasis>
+	or <emphasis>java&lt;N&gt;-runtime-headless</emphasis> as provided
+	by alternative Java environments).
       </para>
 
       <para>
