@@ -1,4 +1,4 @@
-java-common (0.53) UNRELEASED; urgency=medium
+java-common (0.53) experimental; urgency=medium
 
   * Team upload.
   * Use OpenJDK 8 on amd64, arm64, armel, armhf, i386, powerpc, powerpcspe,
@@ -15,7 +15,7 @@ java-common (0.53) UNRELEASED; urgency=medium
   * Standards-Version updated to 3.9.6 (no changes)
   * Moved the package to Git
 
- -- Emmanuel Bourg <ebourg@apache.org>  Tue, 15 Jul 2014 15:15:36 +0200
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 01 Sep 2015 23:11:54 +0200
 
 java-common (0.52) unstable; urgency=medium
 
