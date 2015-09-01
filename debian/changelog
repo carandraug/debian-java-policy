@@ -1,6 +1,8 @@
 java-common (0.53) UNRELEASED; urgency=medium
 
   * Team upload.
+  * Use OpenJDK 8 on amd64, arm64, armel, armhf, i386, powerpc, powerpcspe,
+    ppc64, ppc64el, s390x and x32.
   * Prepared the default values for Java 9
   * Policy changes:
     - Programs must depend on the needed runtime environment, but not
