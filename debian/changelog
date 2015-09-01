@@ -1,6 +1,7 @@
 java-common (0.53) UNRELEASED; urgency=medium
 
   * Team upload.
+  * Prepared the default values for Java 9
   * Policy changes:
     - Programs must depend on the needed runtime environment, but not
       the libraries (Closes: #730133)

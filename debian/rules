@@ -30,7 +30,18 @@ p_doc		= openjdk-7-doc
 
 include debian/java_defaults.mk
 
-ifneq (,$(filter $(DEB_HOST_ARCH),$(java8_architectures)))
+ifneq (,$(filter $(DEB_HOST_ARCH),$(java9_architectures)))
+  p_jre         = openjdk-9-jre
+  p_jhl         = openjdk-9-jre-headless
+  p_jdk         = openjdk-9-jdk
+  jdk_build_dep = openjdk-8-jdk
+  v_jre         = $(S)(>= 9~b74-1)
+  v_jdk         = $(v_jre)
+  provides      = java java2 java5 java6 java7 java8 java9
+  dversion      = 2:1.9-$(jrel)
+  jvmdir        = java-1.9.0-openjdk$(if $(DEB_HOST_MULTIARCH),-$(DEB_HOST_ARCH))
+  p_doc         = openjdk-9-doc
+else ifneq (,$(filter $(DEB_HOST_ARCH),$(java8_architectures)))
   p_jre         = openjdk-8-jre
   p_jhl         = openjdk-8-jre-headless
   p_jdk         = openjdk-8-jdk
