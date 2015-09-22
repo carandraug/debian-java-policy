@@ -6,8 +6,8 @@ Abstract: The Debian Java Policy (currently a proposal)
 Section: Debian
 
 Format: text
-Files: /usr/share/doc/java-common/policy.txt.gz
+Files: /usr/share/doc/java-policy/policy.txt.gz
 
 Format: HTML
-Index: /usr/share/doc/java-common/debian-java-policy/index.html
-Files: /usr/share/doc/java-common/debian-java-policy/*.html
+Index: /usr/share/doc/java-policy/debian-java-policy/index.html
+Files: /usr/share/doc/java-policy/debian-java-policy/*.html

@@ -8,7 +8,7 @@
 # Some default variables
 DOC = usr/share/doc
 DVIPS=dvips
-PUBLISHDIR=$(DESTDIR)/$(DOC)/java-common
+PUBLISHDIR=$(DESTDIR)/$(DOC)/java-policy
 #DSLF=work.dsl
 #DSL=-d $(DSLF)
 # Default language to use
@@ -53,23 +53,12 @@ policy.txt: policy.xml
 	#-rm -f dump.html
 	jw -b txt $(DSL) $<
 
-install: debian-java-policy-install debian-java-faq-install dummy-install script-install
-
-dummy-install:
-	mkdir -p $(PUBLISHDIR)/dummy-packages
-	cp dummy/README $(PUBLISHDIR)/dummy-packages
-	cp dummy/*.control $(PUBLISHDIR)/dummy-packages
-
-script-install:
-	mkdir -p $(DESTDIR)/usr/sbin
-	install -m 755 scripts/update-java-alternatives $(DESTDIR)/usr/sbin/
-	mkdir -p $(DESTDIR)/usr/share/man/man8
-	install -m 755 scripts/update-java-alternatives.8 $(DESTDIR)/usr/share/man/man8/
+install: debian-java-policy-install debian-java-faq-install
 
 debian-java-policy-install:
+	mkdir -p $(PUBLISHDIR)
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
 	cp -a debian-java-policy $(PUBLISHDIR)
-	ln -s debian-java-policy $(PUBLISHDIR)/html
 
 clean: debian-java-faq
 	-rm -Rf debian-java-policy
