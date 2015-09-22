@@ -1,3 +1,10 @@
+java-common (0.54) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * Use OpenJDK 8 on mips, mipsel and mips64el.
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 22 Sep 2015 09:23:34 +0200
+
 java-common (0.53) experimental; urgency=medium
 
   * Team upload.
