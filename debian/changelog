@@ -4,6 +4,8 @@ java-policy (0.54) UNRELEASED; urgency=medium
   * Moved the Java policy to a separate package.
   * Removed the ./patches directory (all applied a long time ago)
   * Removed the outdated italian translation of the FAQ
+  * Renamed the FAQ directory
+  * Removed the unused build dependency on lynx
   * Converted debian/copyright to the Copyright Format 1.0
 
  -- Emmanuel Bourg <ebourg@apache.org>  Tue, 22 Sep 2015 09:23:34 +0200
