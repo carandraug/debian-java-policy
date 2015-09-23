@@ -60,21 +60,21 @@ debian-java-policy-install:
 	install -m 0444 $(OUTPUTS) $(PUBLISHDIR)
 	cp -a debian-java-policy $(PUBLISHDIR)
 
-clean: debian-java-faq
+clean: faq
 	-rm -Rf debian-java-policy
 	-rm -Rf policy.html
 	-rm -f $(MAKEOUT)
 	-rm -f policy.dvi
 	(cd $<; make clean)
 
-debian-java-faq-gen: debian-java-faq
+debian-java-faq-gen: faq
 	(cd $<; make debian-java-faq.html/index.html)
 
 # Change the publish dir if you want to send it to a new package.
-debian-java-faq-install: debian-java-faq debian-java-faq-gen
+debian-java-faq-install: faq debian-java-faq-gen
 	(cd $<; make publish PUBLISHDIR=$(PUBLISHDIR))
 
-debian-java-faq-update: debian-java-faq
+debian-java-faq-update: faq
 	svn export svn://svn.debian.org/svn/ddp/manuals/trunk/java-faq/ faq-update/
 	cp faq-update/* $</
 	rm -fr faq-update/
