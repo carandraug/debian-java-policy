@@ -1,4 +1,4 @@
-java-policy (0.54) UNRELEASED; urgency=medium
+java-policy (0.54) unstable; urgency=medium
 
   * Team upload.
   * Moved the Java policy to a separate package.
@@ -8,7 +8,7 @@ java-policy (0.54) UNRELEASED; urgency=medium
   * Removed the unused build dependency on lynx
   * Converted debian/copyright to the Copyright Format 1.0
 
- -- Emmanuel Bourg <ebourg@apache.org>  Tue, 22 Sep 2015 09:23:34 +0200
+ -- Emmanuel Bourg <ebourg@apache.org>  Fri, 25 Sep 2015 09:40:47 +0200
 
 java-common (0.53) experimental; urgency=medium
 
