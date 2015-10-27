@@ -1,3 +1,11 @@
+java-policy (0.55) unstable; urgency=medium
+
+  * Team upload.
+  * Declare that java-policy breaks/replaces java-common (<< 0.54~)
+    (Closes: #801410)
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Tue, 27 Oct 2015 16:02:18 +0100
+
 java-policy (0.54) unstable; urgency=medium
 
   * Team upload.

@@ -12,6 +12,8 @@ Homepage: https://wiki.debian.org/Java/
 Package: java-policy
 Architecture: all
 Depends: ${misc:Depends}
+Breaks: java-common (<< 0.54~)
+Replaces: java-common (<< 0.54~)
 Description: Debian Java Policy
  This package contains:
   * The Java policy document which describes the layout of Java support in
