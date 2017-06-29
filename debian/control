@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Emmanuel Bourg <ebourg@apache.org>
 Build-Depends: debhelper (>= 9), debiandoc-sgml, docbook-utils, docbook-xml
-Standards-Version: 3.9.6
+Standards-Version: 4.0.0
 Vcs-Git: git://anonscm.debian.org/pkg-java/java-common.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-java/java-common.git
 Homepage: https://wiki.debian.org/Java/
