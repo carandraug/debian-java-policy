@@ -5,6 +5,7 @@ java-policy (0.56) UNRELEASED; urgency=medium
     to 'Debian Java Mailing List'
   * Standards-Version updated to 4.0.0
   * Switch to debhelper level 10
+  * Use a secure Vcs-Git URL
 
  -- Emmanuel Bourg <ebourg@apache.org>  Thu, 29 Jun 2017 17:30:28 +0200
 
