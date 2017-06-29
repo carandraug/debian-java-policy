@@ -4,6 +4,7 @@ java-policy (0.56) UNRELEASED; urgency=medium
   * Changed the maintainer back from 'Debian Java Maintainers'
     to 'Debian Java Mailing List'
   * Standards-Version updated to 4.0.0
+  * Switch to debhelper level 10
 
  -- Emmanuel Bourg <ebourg@apache.org>  Thu, 29 Jun 2017 17:30:28 +0200
 
