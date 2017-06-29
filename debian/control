@@ -1,7 +1,7 @@
 Source: java-policy
 Section: java
 Priority: optional
-Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Maintainer: Debian Java Mailing List <debian-java@lists.debian.org>
 Uploaders: Emmanuel Bourg <ebourg@apache.org>
 Build-Depends: debhelper (>= 9), debiandoc-sgml, docbook-utils, docbook-xml
 Standards-Version: 3.9.6
