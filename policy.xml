@@ -6,6 +6,8 @@
 <!ENTITY mustnot "<emphasis>must not</emphasis>">
 <!ENTITY may "<emphasis>may</emphasis>">
 <!ENTITY should "<emphasis>should</emphasis>">
+<!ENTITY jNr "<emphasis>java&lt;N&gt;-runtime</emphasis>">
+<!ENTITY jNrh "<emphasis>java&lt;N&gt;-runtime-headless</emphasis>">
 <!ENTITY j1r "<emphasis>java1-runtime</emphasis>">
 <!ENTITY j2r "<emphasis>java2-runtime</emphasis>">
 <!ENTITY j5r "<emphasis>java5-runtime</emphasis>">
@@ -257,12 +259,19 @@
       </para>
 
       <para>
-	Programs &must; depend on the needed runtime environment (&d-jre; or
-	&d-jre-h; if need a GUI or not, and <emphasis>java&lt;N&gt;-runtime</emphasis>
-	or <emphasis>java&lt;N&gt;-runtime-headless</emphasis> as provided
-	by alternative Java environments).
+        Programs &must; depend on the needed runtime environment.
+        This should be one of the virtual &jNr; packages in order to
+        support alternative Java environments.  In addition, it &must;
+        also have an alternative dependency on &d-jre; because the
+        build daemons require non-virtual packages for dependencies.
+        Like so:
       </para>
-
+      <screen>
+Depends: default-jre | java6-runtime</screen>
+      <para>
+        If the program does not need a GUI, then the dependencies
+        &must; be on &jNrh; and &d-jre-h;.
+      </para>
       <para>
         There is no naming rules for programs, they are ordinary programs,
 	from the user point of view.
