@@ -261,16 +261,18 @@
       <para>
         Programs &must; depend on the needed runtime environment.
         This should be one of the virtual &jNr; packages in order to
-        support alternative Java environments.  In addition, it &must;
-        also have an alternative dependency on &d-jre; because the
-        build daemons require non-virtual packages for dependencies.
-        Like so:
+        support alternative Java environments.  The real package
+        &d-jre; &must; also be listed first as an alternative
+        dependency.  This satisfies the debian policy that a default
+        real package is listed before a virtual package, and also a
+        requirement by buildd, the tool that builds the Debian binary
+        packages.  Like so:
       </para>
       <screen>
 Depends: default-jre | java6-runtime</screen>
       <para>
         If the program does not need a GUI, then the dependencies
-        &must; be on &jNrh; and &d-jre-h;.
+        &must; be on &d-jre-h; and &jNrh;.
       </para>
       <para>
         There is no naming rules for programs, they are ordinary programs,
